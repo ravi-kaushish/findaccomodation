@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+p {
+  color: #f3f2f2;
+}
+
+
+
+
+/* input[type="text"] {
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0%;
+  border-bottom: 1px solid ;
+  outline: gray;
+
+  -webkit-box-shadow: none;
+  box-shadow: none;
+} */
+.code-msg {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #8a8a8a;
+}
+h4 {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+
+.find-accomo{
+  font-family: 'Lato';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 28.8px;
+position: relative;
+    top: 2%;
+}
+
+.main-heading{
+  font-family: 'Lato';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 28.8px;
+}
+.description{
+  font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 139.02%;
+position: relative;
+    top: 4%;
+}
+.enter-code{
+  font-family: 'Lato';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 32px;
+}
+.mail{
+  font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 20px;
+}
