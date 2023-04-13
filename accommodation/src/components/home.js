@@ -1,9 +1,10 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from './accountAuth/login';
+import Otp from './accountAuth/otp';
 import EmployeeSignUp from './accountAuth/employeeSignUp';
 import InternSignUp from './accountAuth/internSignUp';
-import Otp from './accountAuth/otp';
+
 import InternVerified from './accountAuth/internVerified';
 
 

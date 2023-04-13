@@ -20,6 +20,11 @@ export const RightContainer = styled.div.attrs({ className: "right-container" })
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  @media (min-width:0px) and (max-width:575px) {
+    height:max-content;
+    padding-bottom: 2%;
+    
+  }
 `;
 export const BuildingImage = styled.img.attrs({ className: "img-fluid" })`
   position: relative;
