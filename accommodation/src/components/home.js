@@ -6,6 +6,7 @@ import EmployeeSignUp from './accountAuth/employeeSignUp';
 import InternSignUp from './accountAuth/internSignUp';
 
 import InternVerified from './accountAuth/internVerified';
+import LandingPage from './landingPage/landingPage';
 
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
             <Route path="/internsignup" element={<InternSignUp />} />
             <Route path="/employeesignup" element={<EmployeeSignUp />} />
             <Route path="/internverified" element={<InternVerified />} />
+            <Route path="/landingpage" element={<LandingPage />} />
         </Routes>
     </Router>
   )
