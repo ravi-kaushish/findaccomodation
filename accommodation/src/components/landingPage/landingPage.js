@@ -17,9 +17,11 @@ import Mail from "../../images/mail.svg";
 
 const LandingPage = () => {
   return (
+    <>
+    <Navbar />
     <Wrapper >
     <Container>
-      <Navbar />
+      
       <MainContainer className="shadow-sm">
         <TopContainer className="top-container">
           <p style={{ color: "black", display: "block", marginTop: "4%" }}>
@@ -132,7 +134,8 @@ const LandingPage = () => {
         </DynamicContainer>
       </MainContainer>
     </Container>
-    </ Wrapper >
+    </Wrapper >
+    </>
   );
 };
 

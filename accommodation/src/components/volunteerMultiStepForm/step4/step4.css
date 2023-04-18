@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+.Step4__form-heading {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+}
+.Step4__label-text {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+}
