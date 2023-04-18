@@ -60,3 +60,12 @@
   font-size: 12px;
   line-height: 16px;
 }
+
+input.form-control:focus {
+  
+  outline: none !important ;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow:none;
+  -webkit-box-shadow: none;
+}

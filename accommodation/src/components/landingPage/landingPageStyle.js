@@ -5,16 +5,13 @@ import Ellipse2 from "../../images/Ellipse2.svg";
 import Volbuilding from "../../images/vol-building2.svg";
 import ReqBuilding from "../../images/req-building.svg";
 
-
-
-
 export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5%;
   padding: 1.25rem 2.75rem;
-  @media (max-width:1240px){
-    margin:0;
+  @media (max-width: 1240px) {
+    margin: 0;
   }
 `;
 
@@ -28,38 +25,36 @@ export const TopContainer = styled.div`
   background-position: right bottom, top left, top left;
 `;
 
-export const MainHeading = styled.h2`
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 48px;
-  line-height: 58px;
-`;
+export const MainHeading = styled.p``;
 export const MidContainer = styled.div`
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 2%;
+  margin-bottom: 2%; */
 `;
 
 export const VolunteerContainer = styled.div`
-  width: 45%;
+  
   box-shadow: 0px 4px 10px rgba(46, 72, 87, 0.18);
   border-radius: 8px;
   background-image: url(${Ellipse1}), url(${Ellipse2}), url(${Volbuilding});
   background-repeat: no-repeat, no-repeat, no-repeat;
   background-position: top left, top left, right bottom;
-  padding-left: 4%;
+  padding-left: 3.15rem;
+  padding-right: 2.12rem;
+  
 `;
 
 export const RequirementContainer = styled.div`
-  width: 45%;
+  
   box-shadow: 0px 4px 10px rgba(46, 72, 87, 0.18);
   border-radius: 8px;
   background-image: url(${Ellipse1}), url(${Ellipse2}), url(${ReqBuilding});
   background-repeat: no-repeat, no-repeat, no-repeat;
   background-position: top left, top left, right bottom;
-  padding-left: 4%;
+  padding-left: 3.15rem;
+  padding-right: 2.12rem;
+  
 `;
 
 export const DynamicContainer = styled.div`

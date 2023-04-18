@@ -161,28 +161,28 @@ const Step5 = () => {
           </p>
           <hr style={{ margin: "0" }} />
         </div>
-        <div style={{ marginTop: "1.25rem" , padding:"0 1.125rem"}}>
+        <div style={{ marginTop: "1.25rem",marginLeft:"1rem" , padding:"0"}}>
           <form>
             <div className="row ">
               <div className="col ">
-                <p className="Step5__form-heading">
+                <p className="Step5__form-heading" style={{marginBottom:"0"}}>
                   Preferred days and time to contact you
                 </p>
               </div>
               <div className="" style={{marginTop:"1rem"}}>
-                <div className="d-flex justify-content-evenly">
+                <div className="d-flex justify-content-between">
                   <button className= {activeBtn ? "Step5__btn-style": "Step5__btn-active"} onClick={btnHandler}>
-                    <p className={activeBtn ? "Step5__btn-p" : "Step5__btn-p-active" }  style={{margin:"0.75rem 1.9rem"}}>Mon-Fri</p>
+                    <p className={activeBtn ? "Step5__btn-p" : "Step5__btn-p-active" }  style={{margin:"0.75rem 2.2rem"}}>Mon-Fri</p>
+                  </button>
+                  <button className="Step5__btn-style " >
+                    <p className="Step5__btn-p" style={{margin:"0.75rem 2.2rem"}}>Weekends</p>
                   </button>
                   <button className="Step5__btn-style">
-                    <p className="Step5__btn-p" style={{margin:"0.75rem 1.9rem"}}>Weekends</p>
-                  </button>
-                  <button className="Step5__btn-style">
-                    <p className="Step5__btn-p" style={{margin:"0.75rem 1.9rem"}}>All Days</p>
+                    <p className="Step5__btn-p" style={{margin:"0.75rem 2.2rem"}}>All Days</p>
                   </button>
                 </div>
 
-                <div className="d-flex " style={{marginTop:"1rem"}}>
+                <div className="d-flex gap-4" style={{marginTop:"1rem"}}>
                   <input
                     type="time"
                     name=""
@@ -211,9 +211,9 @@ const Step5 = () => {
                 </div>
               </div>
 
-              <div className="row " style={{marginTop:"1rem"}}>
+              <div className="row " style={{marginTop:"1rem",marginLeft:"0.8rem",marginRight:"2rem"}}>
                 <div
-                  className="col-12 d-flex justify-content-center align-items-baseline"
+                  className="col d-flex "
                   style={{ backgroundColor: "#E3F3FC", borderRadius: "4px" ,padding:"0.5rem 0.75rem"}}
                 >
                   <img src={alert} alt="" className="" />
@@ -227,7 +227,7 @@ const Step5 = () => {
 
             <div className="row" style={{marginTop:"1.5rem"}}>
               <div className="col">
-                <p className="p_input">Name of your Landlord/House owner</p>
+                <p className="Step5__form-heading">Name of your Landlord/House owner</p>
                 <input
                   type="text"
                   placeholder="John Doe"

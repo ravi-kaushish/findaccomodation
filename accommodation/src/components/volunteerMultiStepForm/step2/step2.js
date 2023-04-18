@@ -234,9 +234,9 @@ const Step2 = () => {
                   </p>
                 </div>
               </div>
-              <div className="row" style={{ marginTop: "2rem" }}>
-                <div className="col d-flex border" style={{ padding: "0" }}>
-                  <img className="icon" src={detectLocation}></img>
+              <div className="row" style={{ marginTop: "2rem",marginLeft:"0.08rem",marginRight:"0.08rem" }}>
+                <div className="col d-flex border " style={{ padding: "0" }}>
+                  <img className="icon" style={{margin:" 0 1rem"}} src={detectLocation}></img>
                   <input
                     type="text"
                     placeholder="Detect my current location"
@@ -245,6 +245,7 @@ const Step2 = () => {
                       border: "none",
                       paddingRight: "0",
                       paddingLeft: "0",
+                      
                     }}
                   />
                 </div>

@@ -241,12 +241,12 @@ const Step1 = () => {
         <div style={{ marginTop: "1.5rem" , padding:"0 1.125rem" }}>
           <form >
             <div className="row ">
-              <div className="col-3" style={{ paddingLeft: "1.5rem" }}>
+              <div className="col-3" style={{ paddingLeft: "1.5rem" ,paddingRight:"0"}}>
                 <img src={dummyProfile} />
               </div>
 
-              <div className="col-6" style={{ paddingLeft: "1.25rem" }}>
-                <p className="p_color mb-1">John Doe</p>
+              <div className="col-6" style={{ }}>
+                <p className="p_color" style={{marginBottom:"0"}}><strong>John Doe</strong> </p>
                 <p className="p_color">johndoe@example.com</p>
                 {/* <input type="file" /> */}
                 <button className="d-flex imgButn">
