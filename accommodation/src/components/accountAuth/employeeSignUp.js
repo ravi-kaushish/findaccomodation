@@ -13,6 +13,14 @@ import {
 } from "../utilityStyles/utilityStyles";
 
 const EmployeeSignUp = () => {
+
+
+  const handleSubmit = (event) =>{
+    event.preventDefault();
+    window.location.href=`/otp`;
+  }
+
+
   return (
     <Wrapper>
       <Container>
@@ -20,7 +28,7 @@ const EmployeeSignUp = () => {
           <div className="row main-row " style={{ height: "35.75rem" }}>
             <LeftContainer className="col-6 d-sm-flex d-none ">
               <div className="row">
-                <div className="col-12 text-center">
+                <div className="col-12 text-center" style={{color:'#ffffff'}}>
                   <BuildingImage
                     className="img-fluid"
                     src={building}
@@ -53,7 +61,7 @@ const EmployeeSignUp = () => {
               >
                 <div className="col-12">
                   <div className="container w-100 g-2">
-                    <form>
+                    <form onSubmit={handleSubmit}>
                       <label for="email" className="form-label">
                         Email
                       </label>
@@ -66,10 +74,11 @@ const EmployeeSignUp = () => {
                         Password
                       </label>
                       <input type="password" className="form-control" />
-                    </form>
+                   
                     <button className="btn btn-warning w-100 " style={{marginTop:"2.25rem"}}>
                       Sign Up
                     </button>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -77,7 +86,7 @@ const EmployeeSignUp = () => {
                 className="container text-center"
                 style={{ marginTop: "5%" ,marginBottom:"6rem"}}
               >
-                <a href="#" className="link-primary">
+                <a href="/" className="link-primary">
                   Already Have an Account
                 </a>
               </div>

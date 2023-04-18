@@ -16,6 +16,15 @@ import Cupboard from "../../images/cupboard.svg";
 import Mail from "../../images/mail.svg";
 
 const LandingPage = () => {
+
+
+
+  const handleAvailableAccommodation = (event) => {
+    event.preventDefault();
+    window.location.href=`/availableaccommodation`;
+  }
+
+
   return (
     <>
     <Navbar />
@@ -41,7 +50,7 @@ const LandingPage = () => {
             >
               Let's find your <b>Accommodation</b>
             </MainHeading>
-            <Button className="btn" style={{ height: "fit-content" }}>
+            <Button className="btn" onClick={handleAvailableAccommodation} style={{ height: "fit-content" }}>
               See Available Accomodation
             </Button>
           </div>
