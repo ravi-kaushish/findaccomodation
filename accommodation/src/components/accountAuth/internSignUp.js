@@ -1,5 +1,5 @@
 import React from "react";
-import "./internSignUp.css"
+import "./internSignUp.css";
 import logo from "../../images/cgLogo.png";
 import vector from "../../images/alert.svg";
 
@@ -23,7 +23,11 @@ const InternSignUp = () => {
         <div className="row mb-4">
           <div className="col-6">
             <p className="space">First Name</p>
-            <input type="text" className="form-control" placeholder="First" />
+            <input
+              type="text"
+              className="form-control internSignup-form"
+              placeholder="First"
+            />
           </div>
           <div className="col-6">
             <p className="space">Last Name</p>
@@ -53,9 +57,9 @@ const InternSignUp = () => {
           </div>
         </div>
 
-        <div className="row mb-4  mt-1 hello">
+        <div className="row mb-4  mt-1 w-100 " style={{marginLeft:"0.30%"}}>
           <div
-            className="col-12 d-flex"
+            className="col-12 d-flex "
             style={{ backgroundColor: "#E3F3FC", borderRadius: "4px" }}
           >
             <img src={vector} alt="" className="img2" />
@@ -88,13 +92,13 @@ const InternSignUp = () => {
         </div>
 
         <div className="row nspace mb-4">
-          <div className="col-12 butn">
-            <button className=" py-1 px-3">Sign Up</button>
+          <div className="col-12 ">
+            <button className="btn btn-warning w-100 mt-3">Sign Up</button>
           </div>
         </div>
 
         <div className="row mb-4">
-          <a className="alink" href="/Login">
+          <a className="alink" href="/">
             Already have an account Login
           </a>
         </div>

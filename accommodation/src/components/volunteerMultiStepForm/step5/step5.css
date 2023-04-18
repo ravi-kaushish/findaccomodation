@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+.subheado {
+  font-family: "Lato";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #343435;
+}
+
+.flatbtn p {
+  color: #343435;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  margin: 12px 12px;
+}
+
+.p_input {
+  margin-bottom: 6px;
+}
+
+.Step5__form-heading {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.Step5__btn-p {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+}
+.Step5__btn-style {
+  background: #ffffff;
+  border: 1px solid #cacaca;
+  border-radius: 4px;
+}
+
+.Step5__btn-active {
+  background: #28519e;
+  border-radius: 4px;
+}
+
+.Step5__btn-p-active {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: white;
+}
+
+.Step5__form-italic {
+  font-family: "Lato";
+  font-style: italic;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+}
