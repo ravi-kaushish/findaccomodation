@@ -33,7 +33,7 @@ const LandingPage = () => {
       <Navbar />
       <Wrapper>
         <Container>
-          <MainContainer>
+          <MainContainer >
             <TopContainer className="top-container">
               <p
                 className="landingPage__head-para"
@@ -63,7 +63,7 @@ const LandingPage = () => {
                 </p>
                 <Button
                   className="btn"
-                  style={{ height: "fit-content", marginLeft: "3.3rem" }}
+                  style={{ height: "fit-content", marginLeft: "3.3rem",marginRight:"2.3rem",padding:"0" }}
                 >
                   <p
                     className="landingPage__btn-p"
@@ -166,13 +166,15 @@ const LandingPage = () => {
                     gap: "8px",
                     boxShadow: "0px 4px 10px rgba(66, 76, 97, 0.15)",
                     borderRadius: "8px",
+                    
+                    
                   }}
                 >
-                  <img src={Cupboard}></img>
-                  <p className="landingPage__dyn-p" style={{ color: "black" }}>
+                  <img src={Cupboard} style={{margin:"3rem 17.5rem 0 "}}></img>
+                  <p className="landingPage__dyn-p" style={{ color: "black",margin:"1rem 0" ,textAlign:"center"}}>
                     You don't have any shortlisting yet!
                   </p>
-                  <p className="landingPage__p" style={{ color: "black" }}>
+                  <p className="landingPage__p " style={{ color: "black",width:"60%",textAlign:"center",marginBottom:"3.3rem" }}>
                     Take your time to find the perfect accommodation your ideal
                     space is just a few clicks away.
                   </p>
@@ -191,13 +193,14 @@ const LandingPage = () => {
                     gap: "8px",
                     boxShadow: "0px 4px 10px rgba(66, 76, 97, 0.15)",
                     borderRadius: "8px",
+                    
                   }}
                 >
-                  <img src={Mail} />
-                  <p className="landingPage__dyn-p" style={{ color: "black" }}>
+                  <img src={Mail} style={{margin:"3.5rem 9.6rem 0"}} />
+                  <p className="landingPage__dyn-p" style={{ color: "black" ,textAlign:"center" ,margin:" 1rem 0", }}>
                     No Notifications Right Now!
                   </p>
-                  <p className="landingPage__p" style={{ color: "black" }}>
+                  <p className="landingPage__p" style={{ color: "black" ,textAlign:"center",marginBottom:"4.06rem"}}>
                     We'll notify you when something arrives.
                   </p>
                 </div>

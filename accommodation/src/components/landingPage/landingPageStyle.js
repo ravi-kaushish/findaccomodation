@@ -6,7 +6,7 @@ import Volbuilding from "../../images/vol-building2.svg";
 import ReqBuilding from "../../images/req-building.svg";
 
 export const MainContainer = styled.div`
-  display: flex;
+  display:flex;
   flex-direction: column;
   gap: 5%;
   padding: 1.25rem 2.75rem;
@@ -16,6 +16,7 @@ export const MainContainer = styled.div`
 `;
 
 export const TopContainer = styled.div`
+
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(46, 72, 87, 0.18);
