@@ -18,8 +18,18 @@ import Mail from "../../images/mail.svg";
 import "./landingPage.css";
 
 const LandingPage = () => {
+
+
+
+  const handleAvailableAccommodation = (event) => {
+    event.preventDefault();
+    window.location.href=`/availableaccommodation`;
+  }
+
+
   return (
     <>
+
       <Navbar />
       <Wrapper>
         <Container>
@@ -34,6 +44,7 @@ const LandingPage = () => {
                 }}
               >
                 Welcome, John Doe
+
               </p>
 
               <div

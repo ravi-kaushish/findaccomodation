@@ -12,14 +12,27 @@ import {
 } from "../utilityStyles/utilityStyles";
 
 const ForgotPassword = () => {
+
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    window.location.href=`/otp`;
+  }
+
+
+
   return (
     <Wrapper>
       <Container>
-        <MainContainer className="container " style={{padding:"0 6.7%"}}>
+        <MainContainer className="container " style={{ padding: "0 6.7%" }}>
           <div className="row main-row " style={{ height: "35.75rem" }}>
             <LeftContainer className="col-6 d-sm-flex d-none ">
               <div className="row">
-                <div className="col-12 text-center">
+                <div
+                  className="col-12 text-center"
+                  style={{ color: "#ffffff" }}
+                >
                   <BuildingImage
                     className="img-fluid"
                     src={building}
@@ -54,11 +67,15 @@ const ForgotPassword = () => {
                       className="col-12 d-flex"
                       style={{
                         backgroundColor: "#E3F3FC",
-                        margin:"1.5rem 0 2.5rem"
-                        
+                        margin: "1.5rem 0 2.5rem",
                       }}
                     >
-                      <img src={vector} alt="" className="img2" style={{margin:"0 0.5rem 0.7rem"}} />
+                      <img
+                        src={vector}
+                        alt=""
+                        className="img2"
+                        style={{ margin: "0 0.5rem 0.7rem" }}
+                      />
                       <p
                         className="mb-2 mt-2 alerttext"
                         style={{ color: "black" }}
@@ -67,23 +84,24 @@ const ForgotPassword = () => {
                         a OTP to reset your password.
                       </p>
                     </div>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                       <label for="email" className="form-label">
                         Email ID
                       </label>
                       <input type="email" className="form-control" />
+
+                      <button className="btn btn-warning w-100 mt-3">
+                        Submit
+                      </button>
                     </form>
-                    <button className="btn btn-warning w-100 mt-3">
-                      Submit
-                    </button>
                   </div>
                 </div>
               </div>
               <div
                 className="container text-center"
-                style={{ marginTop: "5%" ,marginBottom:"5.87rem"}}
+                style={{ marginTop: "5%", marginBottom: "5.87rem" }}
               >
-                <a href="#" className="link-primary">
+                <a href="/" className="link-primary">
                   Back to login
                 </a>
               </div>

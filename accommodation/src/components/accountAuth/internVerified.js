@@ -2,8 +2,14 @@ import React from "react";
 import logo from "../../images/cgLogo.png";
 import vector from "../../images/alert.svg";
 import Tick from "../../images/circle.svg";
-import "./internSignUp.css"
+import "./internSignUp.css";
 const InternVerified = () => {
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    window.location.href = `/`;
+  };
+
   return (
     <div
       style={{
@@ -56,7 +62,9 @@ const InternVerified = () => {
 
           <div className="row nspace pb-4">
             <div className="col-12 butn">
-              <button className=" py-1 px-3">Continue</button>
+              <form onSubmit={handleSubmit}>
+                <button className=" py-1 px-3">Continue</button>
+              </form>
             </div>
           </div>
         </div>

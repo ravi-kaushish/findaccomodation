@@ -13,15 +13,27 @@ import {
 } from "../utilityStyles/utilityStyles";
 
 const Otp = () => {
+
+
+  const handleSubmit = (event) =>{
+    event.preventDefault();
+    window.location.href=`/landingpage`;
+  }
+
+
+
   return (
     <>
       <Wrapper>
         <Container>
-          <MainContainer className="container" style={{padding:"0 4.7%"}}>
+          <MainContainer className="container" style={{ padding: "0 4.7%" }}>
             <div className="row main-row " style={{ height: "35.75rem" }}>
               <LeftContainer className="col-6 d-sm-flex d-none ">
                 <div className="row">
-                  <div className="col-12 text-center">
+                  <div
+                    className="col-12 text-center"
+                    style={{ color: "#ffffff" }}
+                  >
                     <BuildingImage
                       className="img-fluid"
                       src={building}
@@ -52,20 +64,18 @@ const Otp = () => {
                   className="row"
                   style={{ width: "100%", padding: "0 1.21rem" }}
                 >
-                  <div
-                    className="col-12  "
-                    style={{ marginTop:"2.5rem"}}
-                  >
-                    <a>
+                  <div className="col-12  " style={{ marginTop: "2.5rem" }}>
+                    <a href="/" style={{textDecoration:'none'}}>
                       <img src={arrow} />{" "}
-                      <span className="mail">email@email.com</span>
                     </a>
+                      <span className="mail">email@email.com</span>
+                    
                     <h4 className="mt-4 enter-code">Enter Code</h4>
                     <p className="code-msg">
                       Please type the Six digit code we have sent on your
                       Microsoft account.
                     </p>
-                    <form style={{ marginBottom: "4%" }}>
+                    <form style={{ marginBottom: "4%" }} onSubmit={handleSubmit}>
                       <input
                         type="text"
                         id="otp"
@@ -73,24 +83,24 @@ const Otp = () => {
                         placeholder="Code"
                         style={{ width: "100%" }}
                       />
+
+                      <button className="btn btn-warning w-100 mt-3">
+                        Verify
+                      </button>
                     </form>
-                    <button className="btn btn-warning w-100 mt-3">
-                      Verify
-                    </button>
                   </div>
                 </div>
                 <div
-                className="container text-center"
-                style={{ marginTop: "5%",marginBottom:"3rem" }}
-              >
-                <a className="link-primary">Use Another Account</a>
-              </div>
+                  className="container text-center"
+                  style={{ marginTop: "5%", marginBottom: "3rem" }}
+                >
+                  <a className="link-primary" href="/">Use Another Account</a>
+                </div>
               </RightContainer>
             </div>
           </MainContainer>
         </Container>
       </Wrapper>
-     
     </>
   );
 };
