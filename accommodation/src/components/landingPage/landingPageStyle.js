@@ -16,7 +16,8 @@ export const MainContainer = styled.div`
 `;
 
 export const TopContainer = styled.div`
-
+  display:flex;
+  flex-direction:column;
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(46, 72, 87, 0.18);

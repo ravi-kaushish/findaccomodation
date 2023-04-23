@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Wrapper, Container } from "../utilityStyles/utilityStyles";
+import { Wrapper, Container ,PageContainer} from "../utilityStyles/utilityStyles";
 import VerticalStepper from "../verticalStepper/verticalStepper";
 import Step1 from "./step1/step1";
 import Step2 from "./step2/step2";
@@ -28,24 +28,52 @@ const VolunteerMultiForm = () => {
   }
 
   return (
+    // <>
+    //   <Navbar />
+
+    //   <Wrapper>
+    //     <Container>
+    //       <div className="container-fluid" style={{height:"100vh"}}>
+    //         <div className="row" style={{height:"100vh"}}>
+    //           <div className="col-5" >
+    //             <VerticalStepper call="isVolunteer"/>
+    //           </div>
+    //           <div
+    //             className="col-7"
+    //             style={{ paddingLeft: "3.5rem", paddingTop: "2rem",paddingRight:"10rem",paddingBottom:"6rem" }}
+    //           >
+    //             {currentStep(currentIndex)}{" "}
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </Container>
+    //   </Wrapper>
+    // </>
     <>
       <Navbar />
-
       <Wrapper>
         <Container>
-          <div className="container-fluid" style={{height:"100vh"}}>
-            <div className="row" style={{height:"100vh"}}>
-              <div className="col-5" >
+          <PageContainer
+            className="container-fluid"
+            style={{ padding: "0", height: "100vh" }}
+          >
+            <div className="row" style={{ width: "100%", height: "100vh" }}>
+              <div className="col-5">
                 <VerticalStepper />
               </div>
               <div
                 className="col-7"
-                style={{ paddingLeft: "3.5rem", paddingTop: "2rem",paddingRight:"10rem",paddingBottom:"6rem" }}
+                style={{
+                  paddingTop: "2rem",
+                  paddingLeft: "2.75rem",
+                  paddingRight: "12rem",
+                  paddingBottom: "6rem",
+                }}
               >
-                {currentStep(currentIndex)}{" "}
+                {currentStep(currentIndex)}
               </div>
             </div>
-          </div>
+          </PageContainer>
         </Container>
       </Wrapper>
     </>

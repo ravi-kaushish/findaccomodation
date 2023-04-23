@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FormContainer, Header, Body } from "../../utilityStyles/utilityStyles";
 import "./reqStep2.css"
-
+import { MultiStepContext } from "../../stepContext/stepContext";
 const ReqStep2 = () => {
+  const {reqNext,reqPrevious} = useContext(MultiStepContext)
   return (
     <>
       <FormContainer>
@@ -111,11 +112,11 @@ const ReqStep2 = () => {
             </label>
           </div>
           <div className="container-fluid d-flex flex-row justify-content-between">
-            <button className="reqStep2__btn-pre" type="button">
+            <button className="reqStep2__btn-pre" type="button" onClick={reqPrevious}>
               <p className="reqStep2__btn-p " style={{margin:"0.50rem 3.46rem"}}>Previous</p>
             </button>
 
-            <button type="button" className="reqStep2__btn-next">
+            <button type="button" className="reqStep2__btn-next" onClick={reqNext}>
               <p className="reqStep2__btn-p " style={{margin:"0.25rem 3.46rem"}}>Save & Next</p>
             </button>
           </div>

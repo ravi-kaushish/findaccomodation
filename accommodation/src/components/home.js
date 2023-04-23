@@ -12,6 +12,7 @@ import VolunteerMultiForm from './volunteerMultiStepForm/volunteerMultiForm';
 import ForgotPassword from './accountAuth/forgotPassword';
 import CreateNewPassword from './accountAuth/createNewPassword';
 import AvailableAccommodations from './availableAccommodations/availableAccommodations';
+import RequirementMultiStepForm from './requirementMultiStepForm/requirementMultiStepForm';
 
 
 const Home = () => {
@@ -29,6 +30,7 @@ const Home = () => {
             <Route path="/forgotpassword" element={<ForgotPassword />} />
             <Route path="/createnewpassword" element={<CreateNewPassword />} />
             <Route path="/availableaccommodations" element={<AvailableAccommodations />} />
+            <Route path="/requirementform" element={<RequirementMultiStepForm />} />
             
 
 
