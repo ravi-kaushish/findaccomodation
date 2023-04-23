@@ -2,123 +2,17 @@ import React, { useContext } from "react";
 import "./step3.css";
 import { MultiStepContext } from "../../stepContext/stepContext";
 import styled from "styled-components";
+import { FormContainer,Header,Body } from "../../utilityStyles/utilityStyles";
 
 const MainContainer = styled.div``;
 
 const Step3 = () => {
   const { next, previous } = useContext(MultiStepContext);
   return (
-    // <div className="container-fluid" style={{ padding: "0" }}>
-    //   <div className="row ">
-    //     <div>
-    //       <p
-    //         className="mhead"
-    //         style={{
-    //           color: "#626262",
-    //           font: "Lato",
-    //           fontSize: "16px",
-    //           padding: "0px",
-    //         }}
-    //       >
-    //         Step 3
-    //       </p>
-    //     </div>
-    //     <div>
-    //       <p className="p_color my-0 heading">Accommodation Type</p>
-    //     </div>
-    //   </div>
-
-    //   <hr />
-
-    //   <form>
-    //     <div className="row mb-4">
-    //       <div className="col mb-3">
-    //         <p className="my-0 subhead">Accommodation Type</p>
-    //       </div>
-    //       <div className="d-flex">
-    //         <button className="pgbutn">
-    //           <p className="ms-1 my-1">PG</p>
-    //         </button>
-    //         <button className="d-flex flatbtn mx-3">
-    //           <p className="my-0">Flat</p>
-    //         </button>
-    //       </div>
-    //     </div>
-
-    //     <div className="row">
-    //       <div className="col">
-    //         <p className="my-0 subhead">Sharing Type</p>
-    //       </div>
-
-    //       <div className="container d-flex justify-content-between ">
-    //         <button className="step3__btn-style">
-    //           <p className="" style={{ color: "black",marginBottom:"0" }}>
-    //             Single
-    //           </p>
-    //         </button>
-    //         <button
-    //           className="step3__btn-style"
-
-    //         >
-    //           <p className="" style={{ color: "black" ,marginBottom:"0"}}>
-    //             Double
-    //           </p>
-    //         </button>
-    //         <button className=" step3__btn-style ">
-    //           <p className="" style={{ color: "black" ,marginBottom:"0"}}>
-    //             Triple
-    //           </p>
-    //         </button>
-    //       </div>
-    //     </div>
-
-    //     <div className="row">
-    //       <div className="mt-4">
-    //         <p className="my-0 subhead">House Habit Permitted</p>
-    //       </div>
-
-    //       <fieldset>
-    //         <div className="mt-3">
-    //           <input
-    //             type="checkbox"
-    //             id="coding"
-    //             name="interest"
-    //             value="coding"
-    //             className=""
-    //           />
-    //           <label className="mx-3">Non Veg</label>
-    //         </div>
-    //         <div className="mt-3">
-    //           <input type="checkbox" id="music" name="interest" value="music" />
-    //           <label className="mx-3">Smoking</label>
-    //         </div>
-    //         <div className="mt-3">
-    //           <input type="checkbox" id="music" name="interest" value="music" />
-    //           <label className="mx-3">Drinking</label>
-    //         </div>
-    //       </fieldset>
-    //     </div>
-
-    //     <div className="row">
-    //       <div
-    //         className="d-flex justify-content-end"
-    //         style={{ marginTop: "150px" }}
-    //       >
-    //         <button className="d-flex imgButn mx-4" onClick={previous}>
-    //           <div className="ms-1 my-1">
-    //             <p>Previous</p>
-    //           </div>
-    //         </button>
-    //         <button className="border-0 butn" onClick={next}>
-    //           Save & Next
-    //         </button>
-    //       </div>
-    //     </div>
-    //   </form>
-    // </div>
+   
     <>
-      <MainContainer >
-        <div>
+      <FormContainer >
+        <Header>
           <p
             style={{
               margin: "0",
@@ -148,8 +42,8 @@ const Step3 = () => {
             Accommodation Type
           </p>
           <hr style={{ margin: "0" }} />
-        </div>
-        <div style={{ marginTop: "1.5rem", padding:"0 1.125rem" }}>
+        </Header>
+        <Body >
           <form >
             <p className="Step3__form-heading" style={{marginBotton:"1rem"}}>Accommodation Type</p>
             <div className="contianer d-flex flex-row gap-3" style={{marginBottom:"1.5rem"}}>
@@ -230,8 +124,8 @@ const Step3 = () => {
           </button>
         </div>
           </form>
-        </div>
-      </MainContainer>
+        </Body>
+      </FormContainer>
     </>
   );
 };

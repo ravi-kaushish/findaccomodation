@@ -1,11 +1,13 @@
 import React,{useState} from "react";
 import App from "../../App";
 import VolunteerStepInfo from "../volunteerMultiStepForm/volunteerStepInfo/volunteerStepInfo";
+import RequirementStepInfo from "../requirementMultiStepForm/requirementStepInfo/reqirementStepInfo";
 
 export const MultiStepContext = React.createContext();
 
 const StepContext = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
+  const [reqCurrentIndex,setReqCurrentIndex] = useState(1);
   const [userData,setUserData] = useState([]);
   const [finalData,setFinalData] =useState([]); 
 
@@ -24,9 +26,22 @@ const StepContext = () => {
     console.log(userData)
   }
 
+  function reqPrevious() {
+    if (reqCurrentIndex > 0)
+      return setReqCurrentIndex((reqCurrentIndex) => reqCurrentIndex - 1);
+    return reqCurrentIndex;
+  }
+  function reqNext() {
+    if (reqCurrentIndex < RequirementStepInfo.length )
+      return setReqCurrentIndex((reqCurrentIndex) => reqCurrentIndex + 1);  
+    return reqCurrentIndex;
+  }
+
+  
+
   return (
     <MultiStepContext.Provider
-      value={{ currentIndex, setCurrentIndex, previous, next,userData,setUserData,finalData,setFinalData,submitForm }}
+      value={{ setReqCurrentIndex,currentIndex,reqCurrentIndex,setCurrentIndex, reqNext,reqPrevious , previous, next,userData,setUserData,finalData,setFinalData,submitForm }}
     >
       <App />
     </MultiStepContext.Provider>

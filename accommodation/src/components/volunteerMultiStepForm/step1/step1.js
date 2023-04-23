@@ -1,14 +1,13 @@
 import React, { useContext, useState } from "react";
-import { Container, Wrapper } from "../../utilityStyles/utilityStyles";
+import { Container, Wrapper ,FormContainer,Header,Body} from "../../utilityStyles/utilityStyles";
 import alert from "../../../images/alert.svg";
 import camera from "../../../images/camera.svg";
 import "./step1.css";
 import { MultiStepContext } from "../../stepContext/stepContext";
 import dummyProfile from "../../../images/dummyProfile.svg";
-import { func } from "prop-types";
 import styled from "styled-components";
 
-const MainContainer = styled.div``;
+
 
 const Step1 = () => {
   const { currentIndex, finalData, next, userData, setUserData } =
@@ -206,8 +205,8 @@ const Step1 = () => {
         </form>
       </div>
     </div> */}
-      <MainContainer>
-        <div>
+      <FormContainer>
+        <Header>
           <p
             style={{
               margin: "0",
@@ -237,8 +236,8 @@ const Step1 = () => {
             Personal Information
           </p>
           <hr style={{ margin: "0" }} />
-        </div>
-        <div style={{ marginTop: "1.5rem" , padding:"0 1.125rem" }}>
+        </Header>
+        <Body >
           <form >
             <div className="row ">
               <div className="col-3" style={{ paddingLeft: "1.5rem" ,paddingRight:"0"}}>
@@ -381,8 +380,8 @@ const Step1 = () => {
               </div>
             </div>
           </form>
-        </div>
-      </MainContainer>
+        </Body>
+      </FormContainer>
     </>
   );
 };
