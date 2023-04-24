@@ -16,11 +16,21 @@ import Navbar from "../navbar/navbar";
 import Cupboard from "../../images/cupboard.svg";
 import Mail from "../../images/mail.svg";
 import "./landingPage.css";
+import Interest from "../interest/interest";
+import Notification from "../notification/notification";
 
-const LandingPage = () => {
+const LandingPage = ({user}) => {
   const handleAvailableAccommodation = (event) => {
     event.preventDefault();
-    window.location.href = `/availableaccommodation`;
+    window.location.href = `/availableaccommodations`;
+  };
+  const handleVolunteer = (event) => {
+    event.preventDefault();
+    window.location.href = `/form`;
+  };
+  const handlePostReq = (event) => {
+    event.preventDefault();
+    window.location.href = `/requirementform`;
   };
 
   return (
@@ -238,8 +248,8 @@ const LandingPage = () => {
             </DynamicContainer>
           </MainContainer> */}
           <div className="container-fluid">
-            <div className="row" style={{ border: "1px solid black" }}>
-              <div className="col">
+            <TopContainer className="row" style={{paddingBottom:"3.87rem"}}>
+              <div className="col-7">
                 <p
                   className="landingPage__head-para"
                   style={{
@@ -248,13 +258,13 @@ const LandingPage = () => {
                     marginTop: "3.3rem",
                   }}
                 >
-                  Welcome, John Doe
+                  Welcome, {user}
                 </p>
                 <p className="landingPage__mainheading">
                   Let's find your <b>Accommodation</b>
                 </p>
               </div>
-              <div className="col-md">
+              <div className="col-md-5" style={{marginTop:"5.87rem"}}>
                 <Button
                   className="btn"
                   style={{
@@ -263,6 +273,7 @@ const LandingPage = () => {
                     marginRight: "2.3rem",
                     padding: "0",
                   }}
+                  onClick={handleAvailableAccommodation}
                 >
                   <p
                     className="landingPage__btn-p"
@@ -272,8 +283,8 @@ const LandingPage = () => {
                   </p>
                 </Button>
               </div>
-            </div>
-            <div className="row" style={{ border: "1px solid blue" }}>
+            </TopContainer>
+            <div className="row" >
               <div className="col">
                 <p className="landingPage__mid-p" style={{ margin: "2% 0" }}>
                   Be a <strong>Volunteer</strong> and <strong>Help</strong> your
@@ -282,11 +293,11 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <div className="row" style={{ border: "1px solid yellow" }}>
-              <div className="col-md ">
+            <MidContainer className="row gap-4">
+              <VolunteerContainer className="col-md">
                 <p
                   className="landingPage__p"
-                  style={{ color: "black", marginTop: "9%" }}
+                  style={{ color: "black", marginTop: "9%",marginBottom:"0" }}
                 >
                   Help each other finding an accommodation.
                 </p>
@@ -295,7 +306,8 @@ const LandingPage = () => {
                   emphasis on privacy and security of an individual.
                 </p>
                 <Button
-                  style={{ padding: "0", marginBottom: "2.31rem" }}
+                  style={{ padding: "0", marginBottom: "2.31rem" ,marginTop:"1.56rem" }}
+                  onClick={handleVolunteer}
                   className="btn"
                 >
                   <p
@@ -305,8 +317,8 @@ const LandingPage = () => {
                     Be a Volunteer
                   </p>
                 </Button>
-              </div>
-              <div className="col-md ">
+              </VolunteerContainer>
+              <RequirementContainer className="col-md ">
                 <p
                   className="landingPage__p"
                   style={{ color: "black", marginTop: "9%" }}
@@ -319,8 +331,10 @@ const LandingPage = () => {
                   style={{
                     marginTop: "3%",
                     padding: "0",
-                    marginBottom: "2.6rem",
+                    marginBottom: "2.5rem",
+                    marginTop:"1.5rem"
                   }}
+                  onClick={handlePostReq}
                 >
                   <p
                     style={{ margin: "1rem 2rem" }}
@@ -329,28 +343,29 @@ const LandingPage = () => {
                     Post Your Requirement
                   </p>
                 </Button>
-              </div>
-            </div>
-            <div className="row" style={{ border: "1px solid blue" }}>
-              <div className="col-md">
+              </RequirementContainer>
+            </MidContainer>
+            <DynamicContainer className="row gap-4" >
+              <ShortlistContainer className="col-md-7">
                 <p className="landingPage__head" style={{ color: "black" }}>
                   Interest Sent
                 </p>
 
-                <div className="row row-cols-sm-2">
-                  <div className="col-sm">div1</div>
-                  <div className="col-sm">div2</div>
-                  <div className="col-sm">div3</div>
+                <div className="row row-cols-sm-2 ">
+                  <div className="col-sm"><Interest /></div>
+                  <div className="col-sm"><Interest /></div>
+                  <div className="col-sm"><Interest /></div>
                 </div>
-              </div>
-              <div className="col-md">
+              </ShortlistContainer>
+              <NotificationContainer className=" col-md">
                 <p className="landingPage__head" style={{ color: "black" }}>
                   Notifications
                 </p>
-                <div className="col-md">div1</div>
-                <div>div2</div>
-              </div>
-            </div>
+                <div className="col-12" style={{border:"solid 1px black", marginBottom:"1rem"}}><Notification /></div>
+                <div className="col-12" style={{border:"solid 1px black"}}><Notification /></div>
+                
+              </NotificationContainer>
+            </DynamicContainer>
           </div>
         </Container>
       </Wrapper>

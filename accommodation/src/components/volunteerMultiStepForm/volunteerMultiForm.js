@@ -1,5 +1,10 @@
 import React, { useContext, useState } from "react";
-import { Wrapper, Container ,PageContainer} from "../utilityStyles/utilityStyles";
+import "./volunteerMultiForm.css"
+import {
+  Wrapper,
+  Container,
+  PageContainer,
+} from "../utilityStyles/utilityStyles";
 import VerticalStepper from "../verticalStepper/verticalStepper";
 import Step1 from "./step1/step1";
 import Step2 from "./step2/step2";
@@ -9,6 +14,7 @@ import Step5 from "./step5/step5";
 import Navbar from "../navbar/navbar";
 import VolunteerStepInfo from "./volunteerStepInfo/volunteerStepInfo";
 import { MultiStepContext } from "../stepContext/stepContext";
+import HorizontalStepper from "../horizontalStepper/horizontalStepper";
 
 const VolunteerMultiForm = () => {
   const { currentIndex } = useContext(MultiStepContext);
@@ -27,49 +33,26 @@ const VolunteerMultiForm = () => {
     }
   }
 
-  return (
-    // <>
-    //   <Navbar />
 
-    //   <Wrapper>
-    //     <Container>
-    //       <div className="container-fluid" style={{height:"100vh"}}>
-    //         <div className="row" style={{height:"100vh"}}>
-    //           <div className="col-5" >
-    //             <VerticalStepper call="isVolunteer"/>
-    //           </div>
-    //           <div
-    //             className="col-7"
-    //             style={{ paddingLeft: "3.5rem", paddingTop: "2rem",paddingRight:"10rem",paddingBottom:"6rem" }}
-    //           >
-    //             {currentStep(currentIndex)}{" "}
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </Container>
-    //   </Wrapper>
-    // </>
+
+  return (
+   
     <>
       <Navbar />
       <Wrapper>
         <Container>
           <PageContainer
-            className="container-fluid"
+            className="container-fluid page-container"
             style={{ padding: "0", height: "100vh" }}
           >
             <div className="row" style={{ width: "100%", height: "100vh" }}>
-              <div className="col-5">
+              <div className="col-5  d-sm-flex d-none ">
                 <VerticalStepper />
               </div>
               <div
-                className="col-7"
-                style={{
-                  paddingTop: "2rem",
-                  paddingLeft: "2.75rem",
-                  paddingRight: "12rem",
-                  paddingBottom: "6rem",
-                }}
+                className="col-12 col-sm-7 form"
               >
+                <HorizontalStepper />
                 {currentStep(currentIndex)}
               </div>
             </div>

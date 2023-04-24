@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import alert from "../../../images/alert.svg";
 import { FormContainer, Header, Body } from "../../utilityStyles/utilityStyles";
 import "./step2.css";
@@ -9,7 +9,15 @@ import styled from "styled-components";
 
 
 const Step2 = () => {
-  const { next, previous } = useContext(MultiStepContext);
+  const { next, previous,userData,setUserData } = useContext(MultiStepContext);
+  const [locality,setLocality] = useState("")
+  const [nearestMetroSt,setNearestMetroSt] = useState("")
+  function handleSave () {
+    setUserData({...userData,
+      Locality:locality,
+      NearestMetroStation:nearestMetroSt})
+    console.log(userData);  
+  }
 
   return (
     <>
@@ -110,7 +118,7 @@ const Step2 = () => {
                   >
                     Locality
                   </p>
-                  <input type="text" placeholder="" className="form-control" />
+                  <input type="text" placeholder="" className="form-control"  value={locality} onChange={(e)=>{setLocality(e.target.value)}}/>
                 </div>
 
                 <div style={{ marginTop: "1.5rem" }}>
@@ -120,7 +128,7 @@ const Step2 = () => {
                   >
                     Nearest Metro Station
                   </p>
-                  <input type="text" placeholder="" className="form-control" />
+                  <input type="text" placeholder="" className="form-control" value={nearestMetroSt} onChange={(e)=>{setNearestMetroSt(e.target.value)}} />
                 </div>
 
                 <div
@@ -169,6 +177,7 @@ const Step2 = () => {
               </button>
               <button
                 onClick={() => {
+                  handleSave()
                   next();
                   //   setData();
                 }}
