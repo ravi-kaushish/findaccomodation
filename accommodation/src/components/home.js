@@ -24,7 +24,7 @@ const Home = () => {
             <Route path="/internsignup" element={<InternSignUp />} />
             <Route path="/employeesignup" element={<EmployeeSignUp />} />
             <Route path="/internverified" element={<InternVerified />} />
-            <Route path="/landingpage" element={<LandingPage />} />
+            <Route path="/landingpage" element={<LandingPage user="Gurnoor"/>} />
             <Route path="/step1" element={<Step1 />} />
             <Route path="/form" element={<VolunteerMultiForm />} />
             <Route path="/forgotpassword" element={<ForgotPassword />} />

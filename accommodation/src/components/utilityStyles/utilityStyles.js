@@ -54,6 +54,10 @@ export const FormContainer = styled.div`
 `;
 
 export const Header =styled.div`
+@media (max-width:576px) {
+  display:none;
+  
+}
 `;
 export const Body = styled.div`
 margin-top:1.5rem;

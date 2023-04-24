@@ -1,11 +1,19 @@
-import React from "react";
+import React,{useState} from "react";
 import "./internSignUp.css";
 import logo from "../../images/cgLogo.png";
 import vector from "../../images/alert.svg";
 
 const InternSignUp = () => {
+  const [firstName,setFirstName] = React.useState("");
+  const [lastName,setLastName] = React.useState("");
+  const [aadhar,setAadhar] = React.useState("");
+  const [uniEmail,setUniEmail] = React.useState("");
+  const [contact,setContact] = React.useState("");
+  const [uniNane,setUniName] = React.useState("");
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(firstName,lastName,aadhar,uniEmail,contact,uniNane);
     window.location.href = `/internverified`;
   };
 
@@ -33,11 +41,14 @@ const InternSignUp = () => {
                 type="text"
                 className="form-control internSignup-form"
                 placeholder="First"
+                value={firstName}
+                onChange={(e)=>setFirstName(e.target.value)}
               />
             </div>
             <div className="col-6">
               <p className="space">Last Name</p>
-              <input type="text" className="form-control" placeholder="Last" />
+              <input type="text" className="form-control" placeholder="Last" value={lastName}
+                onChange={(e)=>setLastName(e.target.value)} />
             </div>
           </div>
 
@@ -48,6 +59,8 @@ const InternSignUp = () => {
                 type="text"
                 className="form-control"
                 placeholder="--- ---- ----"
+                value={aadhar}
+                onChange={(e)=>setAadhar(e.target.value)}
               />
             </div>
           </div>
@@ -59,6 +72,8 @@ const InternSignUp = () => {
                 type="text"
                 className="form-control"
                 placeholder="Enter Your University Email ID"
+                value={uniEmail}
+                onChange={(e)=>setUniEmail(e.target.value)}
               />
             </div>
           </div>
@@ -85,6 +100,8 @@ const InternSignUp = () => {
                 type="text"
                 className="form-control"
                 placeholder="Enter Contact Number"
+                value={contact}
+                onChange={(e)=>setContact(e.target.value)}
               />
             </div>
           </div>
@@ -96,6 +113,8 @@ const InternSignUp = () => {
                 type="text"
                 className="form-control"
                 placeholder="Enter your University/College"
+                value={uniNane}
+                onChange={(e)=>setUniName(e.target.value)}
               />
             </div>
           </div>

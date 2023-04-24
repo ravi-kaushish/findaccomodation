@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import "./employeeSignUp.css";
 import cgLogo from "../../images/cgLogo.png";
 import building from "../../images/cgBuilding.svg";
@@ -13,10 +13,17 @@ import {
 } from "../utilityStyles/utilityStyles";
 
 const EmployeeSignUp = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
 
-  const handleSubmit = (event) =>{
+
+  const handleSubmit = async (event) =>{
     event.preventDefault();
+   
+
+    // Redirect the user to the OTP verification page
+    
     window.location.href=`/otp`;
   }
 
@@ -62,7 +69,8 @@ const EmployeeSignUp = () => {
                 <div className="col-12">
                   <div className="container w-100 g-2">
                     <form onSubmit={handleSubmit}>
-                      <label for="email" className="form-label">
+                      <label for="email" className="form-label"  value={email}
+                        onChange={(e) => setEmail(e.target.value)}>
                         Email
                       </label>
                       <input type="email" className="form-control" />
@@ -73,7 +81,8 @@ const EmployeeSignUp = () => {
                       >
                         Password
                       </label>
-                      <input type="password" className="form-control" />
+                      <input type="password" className="form-control"  value={password}
+                        onChange={(e) => setPassword(e.target.value)} />
                    
                     <button className="btn btn-warning w-100 " style={{marginTop:"2.25rem"}}>
                       Sign Up
