@@ -56,26 +56,38 @@ const ReqStep3 = () => {
         <p className="reqStep3__blue-p " style={{margin:"0.5rem 0.75rem 0.5rem 0"}}>The amount should be between 500 to 2.5K and only be provided after a successful referral.</p>
 
         </div>
-        <div className="container-fluid d-flex flex-row justify-content-between" style={{marginTop:"22.18rem"}}>
-          <button className="reqStep3__btn-pre" type="button" onClick={reqPrevious}>
-            <p
-              className="reqStep3__btn-p "
-              style={{ margin: "0.50rem 3.46rem" }}
-              
-            >
-              Previous
-            </p>
-          </button>
-
-          <button type="button" className="reqStep3__btn-next">
-            <p
-              className="reqStep2__btn-p "
-              style={{ margin: "0.25rem 3.46rem" }}
-            >
-              Save & Next
-            </p>
-          </button>
-        </div>
+        
+        <div className="row " style={{ marginTop: "25.4rem", padding: "0" }}>
+            <div className="col-6">
+              <button
+                className="reqStep2__btn-pre"
+                type="button"
+                onClick={reqPrevious}
+                style={{width:"100%"}}
+              >
+                <p
+                  className="reqStep__btn-p "
+                  style={{ margin: "5% 0" }}
+                >
+                  Previous
+                </p>
+              </button>
+            </div>
+            <div className="col-6">
+              <button
+                type="button"
+                className="reqStep2__btn-next"
+                style={{width:"100%"}}
+              >
+                <p
+                  className="reqStep__btn-p "
+                  style={{ margin:"5% 0"}}
+                >
+                  Submit
+                </p>
+              </button>
+            </div>
+          </div>
       </Body>
     </FormContainer>
   );

@@ -38,8 +38,8 @@ const Step3 = () => {
               fontFamily: "Lato",
               fontStyle: "normal",
               fontWeight: "700",
-              fontSize: "16px",
-              lineHeight: "19px",
+              fontSize: "1rem",
+              lineHeight: "1.18rem",
 
               color: "#626262",
             }}
@@ -53,8 +53,8 @@ const Step3 = () => {
               fontFamily: "Lato",
               fontStyle: "normal",
               fontWeight: "700",
-              fontSize: "20px",
-              lineHeight: "24px",
+              fontSize: "1.25rem",
+              lineHeight: "1.5rem",
             }}
           >
             Accommodation Type
@@ -62,6 +62,7 @@ const Step3 = () => {
           <hr style={{ margin: "0" }} />
         </Header>
         <Body>
+        <div className="container-fluid" style={{padding: "0 0.75rem"}}>
           <form>
             <p className="Step3__form-heading" style={{ marginBotton: "1rem" }}>
               Accommodation Type
@@ -156,7 +157,7 @@ const Step3 = () => {
                   onClick={previous}
                   style={{ width: "100%" }}
                 >
-                  <p style={{ margin: "0.5rem 0" }}>Previous</p>
+                  <p style={{ margin: "5% 0" }}>Previous</p>
                 </button>
               </div>
 
@@ -169,11 +170,12 @@ const Step3 = () => {
                   style={{ width: "100%" }}
                   className="border-0 save-btn "
                 >
-                  <p style={{ margin: "0.25rem 0" }}>Save & Next</p>
+                  <p style={{ margin: "5% 0" }}>Save & Next</p>
                 </button>
               </div>
             </div>
           </form>
+        </div>
         </Body>
       </FormContainer>
     </>

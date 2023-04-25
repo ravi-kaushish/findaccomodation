@@ -4,16 +4,16 @@
   font-family: "Lato";
   font-style: normal;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 19px;
   color: #343435;
 }
 
 .reqStep1__btn {
-    background: #FFB81C;
-    box-shadow: 0px 2px 10px rgba(34, 62, 73, 0.1);
-    border-radius: 4px;
-    border: #FFB81C;
+  background: #ffb81c;
+  box-shadow: 0px 2px 10px rgba(34, 62, 73, 0.1);
+  border-radius: 4px;
+  border: #ffb81c;
 }
 
 .reqStep1__label-h {
@@ -21,5 +21,13 @@
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
-  line-height: 16px;
+  line-height: 1rem;
+}
+.reqStep__btn-p {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.87rem;
+  line-height: 1rem;
+  color: #343435;
 }

@@ -43,6 +43,7 @@ const Step4 = () => {
           <hr style={{ margin: "0" }} />
         </Header>
         <Body>
+        <div className="container-fluid" style={{padding: "0 0.75rem"}}>
           <form>
             <div className="row">
               <div className="col">
@@ -191,7 +192,7 @@ const Step4 = () => {
                   onClick={previous}
                   style={{ width: "100%" }}
                 >
-                  <p style={{ margin: "0.5rem 0" }}>Previous</p>
+                  <p style={{ margin: "5% 0" }}>Previous</p>
                 </button>
               </div>
 
@@ -204,11 +205,12 @@ const Step4 = () => {
                   style={{ width: "100%" }}
                   className="border-0 save-btn "
                 >
-                  <p style={{ margin: "0.25rem 0" }}>Save & Next</p>
+                  <p style={{ margin: "5% 0" }}>Save & Next</p>
                 </button>
               </div>
             </div>
           </form>
+          </div>
         </Body>
       </FormContainer>
     </>

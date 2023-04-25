@@ -19,7 +19,7 @@ function VerticalStepper(props) {
   let element = null;
 
   console.log(props.call);
-  const { currentIndex, reqCurrentIndex } = useContext(MultiStepContext);
+  const { currentIndex, reqCurrentIndex ,greenTick} = useContext(MultiStepContext);
   const stepsList = VolunteerStepInfo.map((currentStep) => (
     <StepContainer
       key={currentStep.step}
@@ -36,7 +36,7 @@ function VerticalStepper(props) {
         </Description>
         
       </div>
-       {currentStep.step == currentIndex ? <img src={GreenTick} style={{marginRight:"1rem"}}/>: "" } 
+       { currentStep.step <= greenTick ? <img src={GreenTick} style={{marginRight:"1rem"}}/>: "" } 
 
       
     </StepContainer>
@@ -59,7 +59,7 @@ function VerticalStepper(props) {
           {currentStep.description}
         </Description>
       </div>
-      {currentStep.step == reqCurrentIndex ? <img src={GreenTick} style={{marginRight:"1rem"}}/>: "" }
+      { currentStep.step <= greenTick ? <img src={GreenTick} style={{marginRight:"1rem"}}/>: "" } 
     </StepContainer>
   ));
 
