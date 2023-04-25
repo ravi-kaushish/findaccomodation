@@ -23,10 +23,12 @@ import CheckboxFilterAcco from "./checkboxFilterAcco";
 import CheckboxFilterReq from "./checkboxFilterReq";
 import NoDataaPage from "./noDataaPage";
 import { Link } from "react-router-dom";
+import { func } from "prop-types";
 // import { functionTypeAnnotation } from "@babel/types";
 
 const AvailableAccommodations = (props) => {
   const [activeBtn, setActiveBtn] = useState(true);
+  const [singleCard,setSingleCard] = useState("");
   const [message, setMessage] = useState("");
   const [mapaddress, setMapAddress] = useState("Pinnacle Business Park");
   const [filterData, setFilterData] = useState("");
@@ -36,9 +38,8 @@ const AvailableAccommodations = (props) => {
   const [distancefilterdummy, setDistancefilterdummy] = useState(Data);
   const [distancefilter, setDistancefilter] = useState("");
 
-  const queryParameters = new URLSearchParams(window.location.search)
-  let type = queryParameters.get("call")
-
+  const queryParameters = new URLSearchParams(window.location.search);
+  let type = queryParameters.get("call");
 
   useEffect(() => {
     setDistancefilter(
@@ -111,19 +112,34 @@ const AvailableAccommodations = (props) => {
       (!houseHabit3.length || houseHabit3.includes(Data.houseHabit3)) &&
       (!distancefilter.length || distancefilter.includes(Data.distancefilter))
   );
+  
+  function singleCardHandle(){
+    if (filterData.length === 1){
+      setSingleCard("1240px")
+      return singleCard
+    }
+    else {
+      setSingleCard("100%")
+      return singleCard
+    }
 
+    
+  
+  }
 
   return (
     <>
       <Navbar />
       <Wrapper >
-        <Container>
+        <Container >
           <div
-            className="container-fluid"
+            className={ filteredCards.length === 1 ? "single-card": "container-fluid"}
             style={{
               backgroundColor: "#F5F5F5",
               margin: "0rem",
               padding: " 1.31rem 2.68rem",
+       
+              
             }}
           >
             <div className="mt-0">
@@ -142,7 +158,6 @@ const AvailableAccommodations = (props) => {
                       </Link>
                     </div>
                     <div className="">
-                      
                       {activeBtn === true ? (
                         <p
                           className="text-secondary mt-3"
@@ -244,32 +259,31 @@ const AvailableAccommodations = (props) => {
                     <div className="col">
                       <div className="row mb-2">
                         <div className="col-4">
-                          
-                            <div
-                              class="form d-flex border w-150 px-3"
-                              style={{
-                                backgroundColor: "#ffffff",
-                                borderRadius: "4px",
-                                padding:"0"
-                              }}
-                            >
-                              <span className="mt-1">
-                                <img src={location}></img>
-                              </span>
+                          <div
+                            class="form d-flex border w-150 px-3"
+                            style={{
+                              backgroundColor: "#ffffff",
+                              borderRadius: "4px",
+                              padding: "0",
+                            }}
+                          >
+                            <span className="mt-1">
+                              <img src={location}></img>
+                            </span>
 
-                              <input
-                                type="text"
-                                class="form-control form-input no-border"
-                                value={activeBtn === true ? mapaddress : ""}
-                                onChange={findAddressmap}
-                                style={{ border: "none", outlineStyle: "none" }}
-                              />
-                              <span class="left-pan mt-1">
-                                <img src={search} alt="img" />
-                              </span>
-                            </div>
-                          
+                            <input
+                              type="text"
+                              class="form-control form-input no-border"
+                              value={activeBtn === true ? mapaddress : ""}
+                              onChange={findAddressmap}
+                              style={{ border: "none", outlineStyle: "none" }}
+                            />
+                            <span class="left-pan mt-1">
+                              <img src={search} alt="img" />
+                            </span>
+                          </div>
                         </div>
+                        
                         {activeBtn === true ? (
                           <CheckboxFilterAcco
                             sendData={sendAccomoData}
@@ -360,7 +374,15 @@ const AvailableAccommodations = (props) => {
 
                                 <div className="d-flex mb-2">
                                   <img src={gps} alt="" />
-                                  <p className="mb-0 ms-1" style={{fontWeight:'500' , color:'#007FD3'}}>View on Map</p>
+                                  <p
+                                    className="mb-0 ms-1"
+                                    style={{
+                                      fontWeight: "500",
+                                      color: "#007FD3",
+                                    }}
+                                  >
+                                    View on Map
+                                  </p>
                                 </div>
                                 <div className="d-flex mb-3">
                                   <div className="me-3 nearby-location">
@@ -582,7 +604,12 @@ const AvailableAccommodations = (props) => {
                                               Offer Incentive:
                                             </p>
                                           </div>
-                                          <div style={{marginLeft:'0.37rem' , width:'10%'}}>
+                                          <div
+                                            style={{
+                                              marginLeft: "0.37rem",
+                                              width: "10%",
+                                            }}
+                                          >
                                             <input />
                                           </div>
                                         </div>
@@ -611,7 +638,6 @@ const AvailableAccommodations = (props) => {
                                             ></textarea>
                                           </div>
                                           <div>
-        
                                             <button
                                               className="border-0 py-2 px-3 w-100 interested"
                                               data-bs-toggle="modal"
@@ -627,8 +653,6 @@ const AvailableAccommodations = (props) => {
                                 </div>
                               </div>
                             </div>
-
-
 
                             <div
                               className="offcanvas offcanvas-end"
