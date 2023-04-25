@@ -16,11 +16,12 @@ export const MainContainer = styled.div`
 `;
 
 export const TopContainer = styled.div`
-
+   display:flex;
+  
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(46, 72, 87, 0.18);
-  padding-left: 4%;
+  padding-left: 4%; 
   background-image: url(${WhiteBuildings}), url(${Ellipse1}), url(${Ellipse2});
   background-repeat: no-repeat, no-repeat, no-repeat;
   background-position: right bottom, top left, top left;
@@ -28,10 +29,10 @@ export const TopContainer = styled.div`
 
 export const MainHeading = styled.p``;
 export const MidContainer = styled.div`
-  /* display: flex;
-  flex-direction: row;
+  
+  
   justify-content: space-between;
-  margin-bottom: 2%; */
+  margin-bottom: 2%; 
 `;
 
 export const VolunteerContainer = styled.div`
@@ -59,17 +60,16 @@ export const RequirementContainer = styled.div`
 `;
 
 export const DynamicContainer = styled.div`
-  display: flex;
-  flex-direction: row;
+  
 `;
 
 export const ShortlistContainer = styled.div`
-  width: 55%;
-  margin-right: 4%;
+  /* width: 55%;
+  margin-right: 4%; */
 `;
 
 export const NotificationContainer = styled.div`
-  width: 40%;
+  /* width: 40%; */
 `;
 
 export const Button = styled.button`

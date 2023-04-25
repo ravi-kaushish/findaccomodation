@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 import "./login.css";
 import cgLogo from "../../images/cgLogo.png";
@@ -13,14 +14,24 @@ import {
 } from "../utilityStyles/utilityStyles";
 
 const Login = () => {
-
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    window.location.href=`/otp`;
-  }
 
+    // axios.post("/api/login", { email, password })
+    //   .then((response) => {
+    //     console.log(response.data);
+    //     localStorage.setItem("token", response.data.token);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error.response.data);
+    //   });
+    console.log(email);
+    console.log(`password: ${password} (hidden visible only on backend)`);
+    window.location.href = `/otp`;
+  };
 
   return (
     <Wrapper>
@@ -69,7 +80,12 @@ const Login = () => {
                       <label for="email" className="form-label">
                         Email
                       </label>
-                      <input type="email" className="form-control" />
+                      <input
+                        type="email"
+                        className="form-control"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
                       <label
                         for="password"
                         className="form-label"
@@ -77,7 +93,12 @@ const Login = () => {
                       >
                         Password
                       </label>
-                      <input type="password" className="form-control" />
+                      <input
+                        type="password"
+                        className="form-control"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
 
                       <button className="btn btn-warning w-100 mt-3">
                         Login

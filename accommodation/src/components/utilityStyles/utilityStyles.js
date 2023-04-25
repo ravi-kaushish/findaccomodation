@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
   }
 `;
 export const Container = styled.div`
+  display:flex;
   max-width: 1240px;
 `;
 export const LeftContainer = styled.div.attrs({ className: "left-container" })`
@@ -46,3 +47,25 @@ export const BuildingImage = styled.img.attrs({ className: "img-fluid" })`
   position: relative;
   bottom: 4%;
 `;
+
+export const FormContainer = styled.div`
+
+
+`;
+
+export const Header =styled.div`
+@media (max-width:576px) {
+  display:none;
+  
+}
+`;
+export const Body = styled.div`
+margin-top:1.5rem;
+`;
+
+export const PageContainer = styled.div`
+    @media (min-width: 1240px) {
+      width: 1240px;
+    }
+`;
+

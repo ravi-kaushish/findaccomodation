@@ -34,7 +34,7 @@
   font-family: "Lato";
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 130%;
 }
 
@@ -52,4 +52,13 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
+}
+
+.landingPage__result-btn {
+  background: #ffffff;
+  border: 2px solid #343435;
+  border-radius: 50px;
+}
+@media  (max-width:576px) {
+  
 }

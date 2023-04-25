@@ -1,40 +1,36 @@
-.row {
-    padding: 0px;
-  }
-  
-  .butn {
-    background: #ffb81c;
-    box-shadow: 0px 2px 10px rgba(34, 62, 73, 0.1);
-    border-radius: 4px;
-    padding: 4px 16px;
-    color: #343435;
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 32px;
-  }
-  
-  .Step1__p-color {
-    color: #343435;
-  }
-  
-  .imgButn {
-    padding: 0.375rem 1.5rem;
-    border: 1px solid #28519e;
-    border-radius: 4px;
-    background-color: #ffffff;
-    width: 100%;
-  }
-  
-  .imgButn p {
-    color: #28519e;
-    margin-bottom: 0px;
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 20px;
-    display: flex;
+.Step1__p-color {
+  color: #343435;
+}
+
+.imgButn {
+  padding: 0.375rem 1.5rem;
+  border: 1px solid #28519e;
+  border-radius: 4px;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.imgButn p {
+  color: #28519e;
+  margin-bottom: 0px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
   align-items: end;
-  }
+}
+
+.save-btn {
+  background: #ffb81c;
+  box-shadow: 0px 2px 10px rgba(34, 62, 73, 0.1);
+  border-radius: 4px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.87rem;
+  line-height: 2rem;
+  text-align: center;
+  color: #343435;
+}

@@ -11,8 +11,12 @@ import VolunteerMultiForm from './volunteerMultiStepForm/volunteerMultiForm';
 import ForgotPassword from './accountAuth/forgotPassword';
 import CreateNewPassword from './accountAuth/createNewPassword';
 import AvailableAccommodations from './availableAccommodations/availableAccommodations';
+
 import OpenRequirements from './availableAccommodations/openRequirements';
 import Nodatapage from './availableAccommodations/noDataaPage';
+
+import RequirementMultiStepForm from './requirementMultiStepForm/requirementMultiStepForm';
+
 
 
 const Home = () => {
@@ -24,14 +28,23 @@ const Home = () => {
             <Route path="/internsignup" element={<InternSignUp />} />
             <Route path="/employeesignup" element={<EmployeeSignUp />} />
             <Route path="/internverified" element={<InternVerified />} />
-            <Route path="/landingpage" element={<LandingPage />} />
+            <Route path="/landingpage" element={<LandingPage user="Gurnoor"/>} />
             <Route path="/step1" element={<Step1 />} />
             <Route path="/form" element={<VolunteerMultiForm />} />
             <Route path="/forgotpassword" element={<ForgotPassword />} />
             <Route path="/createnewpassword" element={<CreateNewPassword />} />
             <Route path="/availableaccommodations" element={<AvailableAccommodations />} />
+
             <Route path='/OpenRequirements' element={<OpenRequirements/>}/>
             <Route path='/Nodatapage' element={<Nodatapage/>}/>
+
+            <Route path="/requirementform" element={<RequirementMultiStepForm />} />
+            
+
+
+            
+
+
         </Routes>
     </Router>
   )

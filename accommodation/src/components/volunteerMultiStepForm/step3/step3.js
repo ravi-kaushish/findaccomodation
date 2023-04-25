@@ -1,124 +1,36 @@
-import React, { useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./step3.css";
 import { MultiStepContext } from "../../stepContext/stepContext";
 import styled from "styled-components";
+import { FormContainer, Header, Body } from "../../utilityStyles/utilityStyles";
+import { func } from "prop-types";
 
 const MainContainer = styled.div``;
 
 const Step3 = () => {
-  const { next, previous } = useContext(MultiStepContext);
+  const { next, previous, userData, setUserData, currentIndex } =
+    useContext(MultiStepContext);
+  // // // useEffect(()=>{console.log("Step3 Mounted")},[])
+  // // const { next, previous ,userData,setUserData} = useContext(MultiStepContext);
+  // const [singlePg,setSinglePg] = useState(false)
+  // // // useEffect(() => {setUserData({...userData,PG:{Single:singlePg}})}, [singlePg]);
+  // const [doublePg,setDoublePg] = useState(false)
+  // // // useEffect(() => {setUserData({...userData,PG:{Double:doublePg}})}, [doublePg]);
+  // const [triplePg,setTriplePg] = useState(false)
+  // // // useEffect(() => {setUserData({...userData,PG:{Triple:triplePg}})}, [triplePg]);
+
+  // const [nonVeg, setNonVeg] = useState(false);
+  // // // useEffect(() => {setUserData({...userData,NonVeg:nonVeg})}, [nonVeg]);
+  // const [smoking, setSmoking] = useState(false);
+  // // // useEffect(()=>{setUserData({...userData,Smoking:smoking})},[smoking]);
+  // const [drinking, setDrinking] = useState(false);
+  // // useEffect(()=>{setUserData({...userData,Drinking:drinking})},[drinking]);
+
+  //  useEffect(()=>{console.log(userData)},[userData])
   return (
-    // <div className="container-fluid" style={{ padding: "0" }}>
-    //   <div className="row ">
-    //     <div>
-    //       <p
-    //         className="mhead"
-    //         style={{
-    //           color: "#626262",
-    //           font: "Lato",
-    //           fontSize: "16px",
-    //           padding: "0px",
-    //         }}
-    //       >
-    //         Step 3
-    //       </p>
-    //     </div>
-    //     <div>
-    //       <p className="p_color my-0 heading">Accommodation Type</p>
-    //     </div>
-    //   </div>
-
-    //   <hr />
-
-    //   <form>
-    //     <div className="row mb-4">
-    //       <div className="col mb-3">
-    //         <p className="my-0 subhead">Accommodation Type</p>
-    //       </div>
-    //       <div className="d-flex">
-    //         <button className="pgbutn">
-    //           <p className="ms-1 my-1">PG</p>
-    //         </button>
-    //         <button className="d-flex flatbtn mx-3">
-    //           <p className="my-0">Flat</p>
-    //         </button>
-    //       </div>
-    //     </div>
-
-    //     <div className="row">
-    //       <div className="col">
-    //         <p className="my-0 subhead">Sharing Type</p>
-    //       </div>
-
-    //       <div className="container d-flex justify-content-between ">
-    //         <button className="step3__btn-style">
-    //           <p className="" style={{ color: "black",marginBottom:"0" }}>
-    //             Single
-    //           </p>
-    //         </button>
-    //         <button
-    //           className="step3__btn-style"
-
-    //         >
-    //           <p className="" style={{ color: "black" ,marginBottom:"0"}}>
-    //             Double
-    //           </p>
-    //         </button>
-    //         <button className=" step3__btn-style ">
-    //           <p className="" style={{ color: "black" ,marginBottom:"0"}}>
-    //             Triple
-    //           </p>
-    //         </button>
-    //       </div>
-    //     </div>
-
-    //     <div className="row">
-    //       <div className="mt-4">
-    //         <p className="my-0 subhead">House Habit Permitted</p>
-    //       </div>
-
-    //       <fieldset>
-    //         <div className="mt-3">
-    //           <input
-    //             type="checkbox"
-    //             id="coding"
-    //             name="interest"
-    //             value="coding"
-    //             className=""
-    //           />
-    //           <label className="mx-3">Non Veg</label>
-    //         </div>
-    //         <div className="mt-3">
-    //           <input type="checkbox" id="music" name="interest" value="music" />
-    //           <label className="mx-3">Smoking</label>
-    //         </div>
-    //         <div className="mt-3">
-    //           <input type="checkbox" id="music" name="interest" value="music" />
-    //           <label className="mx-3">Drinking</label>
-    //         </div>
-    //       </fieldset>
-    //     </div>
-
-    //     <div className="row">
-    //       <div
-    //         className="d-flex justify-content-end"
-    //         style={{ marginTop: "150px" }}
-    //       >
-    //         <button className="d-flex imgButn mx-4" onClick={previous}>
-    //           <div className="ms-1 my-1">
-    //             <p>Previous</p>
-    //           </div>
-    //         </button>
-    //         <button className="border-0 butn" onClick={next}>
-    //           Save & Next
-    //         </button>
-    //       </div>
-    //     </div>
-    //   </form>
-    // </div>
     <>
-      <MainContainer >
-        <div>
+      <FormContainer>
+        <Header>
           <p
             style={{
               margin: "0",
@@ -148,90 +60,122 @@ const Step3 = () => {
             Accommodation Type
           </p>
           <hr style={{ margin: "0" }} />
-        </div>
-        <div style={{ marginTop: "1.5rem", padding:"0 1.125rem" }}>
-          <form >
-            <p className="Step3__form-heading" style={{marginBotton:"1rem"}}>Accommodation Type</p>
-            <div className="contianer d-flex flex-row gap-3" style={{marginBottom:"1.5rem"}}>
-              <button className="Step3__btn-style" defaultChecked><p className="Step3__btn-p-style">PG</p></button>
-              <button className="Step3__btn-style"><p className="Step3__btn-p-style">Flat</p></button>
-            </div>
-            <p className="Step3__form-heading" style={{marginBottom:"1rem"}}>Sharing Type</p>
-            <div className="contianer d-flex flex-row gap-3" style={{marginBottom:"1.5rem"}}>
-              <button className="Step3__btn-style"><p className="Step3__btn-p-style">Single</p></button>
-              <button className="Step3__btn-style"><p className="Step3__btn-p-style">Double</p></button>
-              <button className="Step3__btn-style"><p className="Step3__btn-p-style">Sharing</p></button>
-            </div>
-
-            <p className="Step3__form-heading" style={{marginBottom:"1.15rem"}}>House Habit Permitted</p>
-            <div class="form-check" style={{marginBottom:"1.18rem"}}>
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault"
-              />
-              <label class="form-check-label" for="flexCheckDefault">
-                Non Veg
-              </label>
-            </div>
-            <div class="form-check" style={{marginBottom:"1.18rem"}}>
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault"
-              />
-              <label class="form-check-label" for="flexCheckDefault">
-                Non Veg
-              </label>
-            </div>
-            <div class="form-check" style={{marginBottom:"12.37rem"}} >
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault"
-              />
-              <label class="form-check-label" for="flexCheckDefault">
-                Non Veg
-              </label>
-            </div>
-            {/* <div className="container-fluid d-flex flex-row">
-                <button onClick={previous}>
-                <p>Previous</p>
-
-                </button>
-                <button onClick={next}>
-                <p>Save & Next</p>
-
-                </button>
-            </div> */}
+        </Header>
+        <Body>
+          <form>
+            <p className="Step3__form-heading" style={{ marginBotton: "1rem" }}>
+              Accommodation Type
+            </p>
             <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-          
-          }}
-        >
-          <button type="button" class="btn btn-outline-primary" onClick={previous}>
-            Previous
-          </button>
-          <button
-            onClick={() => {
-              next();
-              //   setData();
-            }}
-            className="border-0 butn "
-            style={{ width: "40%" }}
-          >
-            Save & Next
-          </button>
-        </div>
+              className="contianer d-flex flex-row gap-3"
+              style={{ marginBottom: "1.5rem" }}
+            >
+              <button className="Step3__btn-style" defaultChecked>
+                <p className="Step3__btn-p-style">PG</p>
+              </button>
+              <button className="Step3__btn-style">
+                <p className="Step3__btn-p-style">Flat</p>
+              </button>
+            </div>
+            <p className="Step3__form-heading" style={{ marginBottom: "1rem" }}>
+              Sharing Type
+            </p>
+            <div
+              className="contianer d-flex flex-row gap-3"
+              style={{ marginBottom: "1.5rem" }}
+            >
+              <button
+                className="Step3__btn-style" /*onClick={()=>{setSinglePg(!singlePg)}}*/
+              >
+                <p className="Step3__btn-p-style">Single</p>
+              </button>
+              <button
+                className="Step3__btn-style" /*onClick={()=>{setDoublePg(!doublePg)}}*/
+              >
+                <p className="Step3__btn-p-style">Double</p>
+              </button>
+              <button
+                className="Step3__btn-style" /*onClick={()=>{setTriplePg(!triplePg)}}*/
+              >
+                <p className="Step3__btn-p-style">Triple</p>
+              </button>
+            </div>
+
+            <p
+              className="Step3__form-heading"
+              style={{ marginBottom: "1.15rem" }}
+            >
+              House Habit Permitted
+            </p>
+            <div class="form-check" style={{ marginBottom: "1.18rem" }}>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckDefault"
+                /*checked={/*Veg}
+                /*onChange={()=>{setNonVeg(!nonVeg)}}
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                Non Veg
+              </label>
+            </div>
+            <div class="form-check" style={{ marginBottom: "1.18rem" }}>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckDefault"
+                /*checked={smoking}*/
+                /*onChange={()=>{setSmoking(!smoking)}}*/
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                Smoking
+              </label>
+            </div>
+            <div class="form-check" style={{ marginBottom: "12.37rem" }}>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckDefault"
+                /*checked={drinking}*/
+                /*onChange={setDrinking(!drinking)}*/
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                Drinking
+              </label>
+            </div>
+
+            <div className="row" style={{ marginTop: "18rem" }}>
+              <div className="col-6">
+                <button
+                  className="prev-btn"
+                  type="button"
+                  class="prev-btn"
+                  onClick={previous}
+                  style={{ width: "100%" }}
+                >
+                  <p style={{ margin: "0.5rem 0" }}>Previous</p>
+                </button>
+              </div>
+
+              <div className="col-6">
+                <button
+                  onClick={() => {
+                    next();
+                    //   setData();
+                  }}
+                  style={{ width: "100%" }}
+                  className="border-0 save-btn "
+                >
+                  <p style={{ margin: "0.25rem 0" }}>Save & Next</p>
+                </button>
+              </div>
+            </div>
           </form>
-        </div>
-      </MainContainer>
+        </Body>
+      </FormContainer>
     </>
   );
 };
