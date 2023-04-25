@@ -8,7 +8,8 @@ import { func } from "prop-types";
 const MainContainer = styled.div``;
 
 const Step3 = () => {
-  // const {next,previous,userData,setUserData,currentIndex} = useContext(MultiStepContext)
+  const { next, previous, userData, setUserData, currentIndex } =
+    useContext(MultiStepContext);
   // // // useEffect(()=>{console.log("Step3 Mounted")},[])
   // // const { next, previous ,userData,setUserData} = useContext(MultiStepContext);
   // const [singlePg,setSinglePg] = useState(false)
@@ -83,13 +84,19 @@ const Step3 = () => {
               className="contianer d-flex flex-row gap-3"
               style={{ marginBottom: "1.5rem" }}
             >
-              <button className="Step3__btn-style" onClick={()=>{setSinglePg(!singlePg)}}>
+              <button
+                className="Step3__btn-style" /*onClick={()=>{setSinglePg(!singlePg)}}*/
+              >
                 <p className="Step3__btn-p-style">Single</p>
               </button>
-              <button className="Step3__btn-style" onClick={()=>{setDoublePg(!doublePg)}}>
+              <button
+                className="Step3__btn-style" /*onClick={()=>{setDoublePg(!doublePg)}}*/
+              >
                 <p className="Step3__btn-p-style">Double</p>
               </button>
-              <button className="Step3__btn-style" onClick={()=>{setTriplePg(!triplePg)}}>
+              <button
+                className="Step3__btn-style" /*onClick={()=>{setTriplePg(!triplePg)}}*/
+              >
                 <p className="Step3__btn-p-style">Triple</p>
               </button>
             </div>
@@ -106,8 +113,8 @@ const Step3 = () => {
                 type="checkbox"
                 value=""
                 id="flexCheckDefault"
-                checked={nonVeg}
-                onChange={()=>{setNonVeg(!nonVeg)}}
+                /*checked={/*Veg}
+                /*onChange={()=>{setNonVeg(!nonVeg)}}
               />
               <label class="form-check-label" for="flexCheckDefault">
                 Non Veg
@@ -119,8 +126,8 @@ const Step3 = () => {
                 type="checkbox"
                 value=""
                 id="flexCheckDefault"
-                checked={smoking}
-                onChange={()=>{setSmoking(!smoking)}}
+                /*checked={smoking}*/
+                /*onChange={()=>{setSmoking(!smoking)}}*/
               />
               <label class="form-check-label" for="flexCheckDefault">
                 Smoking
@@ -132,48 +139,39 @@ const Step3 = () => {
                 type="checkbox"
                 value=""
                 id="flexCheckDefault"
-                checked={drinking}
-                onChange={setDrinking(!drinking)}
+                /*checked={drinking}*/
+                /*onChange={setDrinking(!drinking)}*/
               />
               <label class="form-check-label" for="flexCheckDefault">
                 Drinking
               </label>
             </div>
-            {/* <div className="container-fluid d-flex flex-row">
-                <button onClick={previous}>
-                <p>Previous</p>
 
+            <div className="row" style={{ marginTop: "18rem" }}>
+              <div className="col-6">
+                <button
+                  className="prev-btn"
+                  type="button"
+                  class="prev-btn"
+                  onClick={previous}
+                  style={{ width: "100%" }}
+                >
+                  <p style={{ margin: "0.5rem 0" }}>Previous</p>
                 </button>
-                <button onClick={next}>
-                <p>Save & Next</p>
+              </div>
 
+              <div className="col-6">
+                <button
+                  onClick={() => {
+                    next();
+                    //   setData();
+                  }}
+                  style={{ width: "100%" }}
+                  className="border-0 save-btn "
+                >
+                  <p style={{ margin: "0.25rem 0" }}>Save & Next</p>
                 </button>
-            </div> */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            >
-              <button
-                type="button"
-                class="btn btn-outline-primary"
-                onClick={previous}
-              >
-                Previous
-              </button>
-              <button
-                onClick={() => {
-                  setUserData({...userData,SinglePg:singlePg,DoublePg:doublePg})
-                  next();
-                  //   setData();
-                }}
-                className="border-0 butn "
-                style={{ width: "40%" }}
-              >
-                Save & Next
-              </button>
+              </div>
             </div>
           </form>
         </Body>

@@ -6,22 +6,22 @@ import { MultiStepContext } from "../../stepContext/stepContext";
 import detectLocation from "../../../images/detectLocation.svg";
 import styled from "styled-components";
 
-
-
 const Step2 = () => {
-  const { next, previous,userData,setUserData } = useContext(MultiStepContext);
-  const [locality,setLocality] = useState("")
-  const [nearestMetroSt,setNearestMetroSt] = useState("")
-  function handleSave () {
-    setUserData({...userData,
-      Locality:locality,
-      NearestMetroStation:nearestMetroSt})
-    console.log(userData);  
+  const { next, previous, userData, setUserData } =
+    useContext(MultiStepContext);
+  const [locality, setLocality] = useState("");
+  const [nearestMetroSt, setNearestMetroSt] = useState("");
+  function handleSave() {
+    setUserData({
+      ...userData,
+      Locality: locality,
+      NearestMetroStation: nearestMetroSt,
+    });
+    console.log(userData);
   }
 
   return (
     <>
- 
       <FormContainer>
         <Header>
           <p
@@ -82,9 +82,20 @@ const Step2 = () => {
                   </p>
                 </div>
               </div>
-              <div className="row" style={{ marginTop: "2rem",marginLeft:"0.08rem",marginRight:"0.08rem" }}>
+              <div
+                className="row"
+                style={{
+                  marginTop: "2rem",
+                  marginLeft: "0.08rem",
+                  marginRight: "0.08rem",
+                }}
+              >
                 <div className="col d-flex border " style={{ padding: "0" }}>
-                  <img className="icon" style={{margin:" 0 1rem"}} src={detectLocation}></img>
+                  <img
+                    className="icon"
+                    style={{ margin: " 0 1rem" }}
+                    src={detectLocation}
+                  ></img>
                   <input
                     type="text"
                     placeholder="Detect my current location"
@@ -93,7 +104,6 @@ const Step2 = () => {
                       border: "none",
                       paddingRight: "0",
                       paddingLeft: "0",
-                      
                     }}
                   />
                 </div>
@@ -118,7 +128,15 @@ const Step2 = () => {
                   >
                     Locality
                   </p>
-                  <input type="text" placeholder="" className="form-control"  value={locality} onChange={(e)=>{setLocality(e.target.value)}}/>
+                  <input
+                    type="text"
+                    placeholder=""
+                    className="form-control"
+                    value={locality}
+                    onChange={(e) => {
+                      setLocality(e.target.value);
+                    }}
+                  />
                 </div>
 
                 <div style={{ marginTop: "1.5rem" }}>
@@ -128,7 +146,15 @@ const Step2 = () => {
                   >
                     Nearest Metro Station
                   </p>
-                  <input type="text" placeholder="" className="form-control" value={nearestMetroSt} onChange={(e)=>{setNearestMetroSt(e.target.value)}} />
+                  <input
+                    type="text"
+                    placeholder=""
+                    className="form-control"
+                    value={nearestMetroSt}
+                    onChange={(e) => {
+                      setNearestMetroSt(e.target.value);
+                    }}
+                  />
                 </div>
 
                 <div
@@ -160,34 +186,36 @@ const Step2 = () => {
               </form>
             </div>
 
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
-                marginTop: "7.5rem",
-              }}
-            >
-              <button
-                type="button"
-                class="btn btn-outline-primary"
-                onClick={previous}
-              >
-                Previous
-              </button>
-              <button
-                onClick={() => {
-                  handleSave()
-                  next();
-                  //   setData();
-                }}
-                className="border-0 butn "
-                style={{ width: "40%" }}
-              >
-                Save & Next
-              </button>
+            
+              <div className="row" style={{marginTop:"7.5rem"}}>
+                <div className="col-6">
+                  <button
+                  className="prev-btn"
+                    type="button"
+                    class="prev-btn"
+                    onClick={previous}
+                    style={{width:"100%"}}
+                  >
+                    <p style={{margin:"0.5rem 0"}}>Previous</p>
+                  </button>
+                </div>
+              
+               <div className="col-6">
+                <button
+                  onClick={() => {
+                    handleSave();
+                    next();
+                    //   setData();
+                  }}
+                  style={{width:"100%"}}
+                  className="border-0 save-btn "
+                >
+                  <p style={{margin:"0.25rem 0"}}>Save & Next</p>
+                </button>
+              </div>
+              </div>
             </div>
-          </div>
+          
         </Body>
       </FormContainer>
     </>
