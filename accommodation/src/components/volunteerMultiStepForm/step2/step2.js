@@ -187,7 +187,7 @@ const Step2 = () => {
             </div>
 
             
-              <div className="row" style={{marginTop:"7.5rem"}}>
+              <div className="row" style={{marginTop:"6.5rem"}}>
                 <div className="col-6">
                   <button
                   className="prev-btn"
@@ -196,7 +196,7 @@ const Step2 = () => {
                     onClick={previous}
                     style={{width:"100%"}}
                   >
-                    <p style={{margin:"0.5rem 0"}}>Previous</p>
+                    <p style={{margin:"5% 0"}}>Previous</p>
                   </button>
                 </div>
               
@@ -210,7 +210,7 @@ const Step2 = () => {
                   style={{width:"100%"}}
                   className="border-0 save-btn "
                 >
-                  <p style={{margin:"0.25rem 0"}}>Save & Next</p>
+                  <p style={{margin:"5% 0"}}>Save & Next</p>
                 </button>
               </div>
               </div>

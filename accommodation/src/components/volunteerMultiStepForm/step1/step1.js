@@ -73,7 +73,7 @@ const Step1 = () => {
               fontStyle: "normal",
               fontWeight: "700",
               fontSize: "1rem",
-              lineHeight: "19px",
+              lineHeight: "1.18rem",
 
               color: "#626262",
             }}
@@ -96,7 +96,7 @@ const Step1 = () => {
           <hr style={{ margin: "0" }} />
         </Header>
         <Body>
-          <div className="container-fluid">
+          <div className="container-fluid" style={{padding: "0 0.75rem"}}>
             <form>
               <div className="row ">
                 <div className=" col-md-3">
@@ -230,7 +230,7 @@ const Step1 = () => {
                 </div>
               </div>
 
-              <div className="row d-flex justify-content-end" style={{marginTop:"3.5rem"}}>
+              <div className="row d-flex justify-content-end" style={{marginTop:"3rem"}}>
                 <div className="col-6" style={{padding:"0"}}>
                   <button
                     onClick={() => {
@@ -240,7 +240,7 @@ const Step1 = () => {
                     className="border-0 save-btn"
                     style={{ width: "100%" }}
                   >
-                    <p style={{margin:" 0.25rem 4.1rem"}}>Save & Next</p>
+                    <p style={{margin:"5%"}}>Save & Next</p>
                   </button>
                 </div>
               </div>
