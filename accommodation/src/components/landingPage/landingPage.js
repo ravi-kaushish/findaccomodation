@@ -37,7 +37,7 @@ const LandingPage = ({ user }) => {
     <>
       <Navbar />
       <Wrapper>
-        <Container>
+        <Container className="main-wrapper">
           <div className="container-fluid ">
             <TopContainer
               className="row"
