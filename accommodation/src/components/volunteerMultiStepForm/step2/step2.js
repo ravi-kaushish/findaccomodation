@@ -176,7 +176,7 @@ const Step2 = () => {
                     <img src={alert} alt="" className="img2" />
                     <p
                       className=".Step2__blue-para-style"
-                      style={{ color: "black" }}
+                      style={{ color: "black" , marginTop:"0.5rem" }}
                     >
                       This information will be displayed to others. Please don’t
                       add your residence address here.

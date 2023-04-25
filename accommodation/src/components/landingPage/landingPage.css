@@ -53,3 +53,9 @@
   font-size: 16px;
   line-height: 19px;
 }
+
+.landingPage__result-btn {
+  background: #ffffff;
+  border: 2px solid #343435;
+  border-radius: 50px;
+}
