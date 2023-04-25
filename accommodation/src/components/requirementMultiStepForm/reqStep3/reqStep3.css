@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+.reqStep3__form-h {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #343435;
+}
+
+.reqStep3__btn-next {
+  background: #ffb81c;
+  box-shadow: 0px 2px 10px rgba(34, 62, 73, 0.1);
+  border-radius: 4px;
+  border: #ffb81c;
+}
+
+.reqStep3__btn-pre {
+  background: #ffffff;
+  border: 1px solid #343435;
+  box-shadow: 0px 2px 10px rgba(34, 62, 73, 0.1);
+  border-radius: 4px;
+}
+
+.reqStep3__btn-p {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.reqStep3__blue-p {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}

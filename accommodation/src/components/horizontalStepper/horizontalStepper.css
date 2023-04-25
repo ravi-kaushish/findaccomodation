@@ -1,0 +1,32 @@
+.step {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: #555353;
+}
+
+.step-heading {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.12rem;
+  line-height: 1.25rem;
+  color: #343435;
+}
+
+.step-description {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  color: #343435;
+}
+.progress {
+    height: 5px;
+}
+.progress-bar{
+    background-color: #28519E;
+}

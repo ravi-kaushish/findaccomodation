@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+.verticalStepper__active {
+  box-shadow: 0px 4px 10px rgba(66, 76, 97, 0.15);
+  border-radius: 4px;
+  border-left: 4px solid #28519e;
+}
+.verticalStepper__heading {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 147.5%;
+}
+.verticalStepper__heading-bold {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2rempx;
+  line-height: 147.5%;
+}
