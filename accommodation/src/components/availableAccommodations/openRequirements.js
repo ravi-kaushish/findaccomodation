@@ -17,8 +17,8 @@ import call from "../../images/call.svg";
 import greentick from "../../images/greentickfinal.svg";
 import femaleIcon from "../../images/femaleIcon.svg";
 // import { Wrapper, Container } from "../utilityStyles/utilityStyles";
-import './openRequirements.css';
-import Date from '../../images/date.svg';
+import "./openRequirements.css";
+import Date from "../../images/date.svg";
 
 const OpenRequirements = (props) => {
   // const [message, setMessage] = useState("");
@@ -72,7 +72,7 @@ const OpenRequirements = (props) => {
                           <p className="mb-1 availableAcco__card-p-name">
                             {data.fullName}
                           </p>
-                          <img src={Blueright_arrow} alt=""/>
+                          <img src={Blueright_arrow} alt="" />
                         </div>
 
                         <div className="d-flex">
@@ -83,32 +83,42 @@ const OpenRequirements = (props) => {
                               borderRadius: "0.12rem",
                             }}
                           >
-                              <img src={greentick} alt="" style={{margin:'0.31rem 0.31rem 0.5rem'}}/>
-                              <p
-                                className="openRequirements__card-p-verify"
-                                style={{ color: "#0C9A47" }}
-                              >
-                                Verified
-                              </p>
+                            <img
+                              src={greentick}
+                              alt=""
+                              style={{ margin: "0.31rem 0.31rem 0.5rem" }}
+                            />
+                            <p
+                              className="openRequirements__card-p-verify"
+                              style={{ color: "#0C9A47" }}
+                            >
+                              Verified
+                            </p>
                           </div>
                         </div>
-
                       </div>
                     </div>
 
-                    <div
-                      className="d-flex"
-                      style={{ marginBottom: "1.06rem" }}
-                    >
-                      <p className="openRequirements__card-p-main" style={{ marginBottom: "0rem" }}>Preferred Location :</p>
-                      <p className="openRequirements__card-p-sector" style={{ marginBottom: "0rem" }}>
+                    <div className="d-flex" style={{ marginBottom: "1.06rem" }}>
+                      <p
+                        className="openRequirements__card-p-main"
+                        style={{ marginBottom: "0rem" }}
+                      >
+                        Preferred Location :
+                      </p>
+                      <p
+                        className="openRequirements__card-p-sector"
+                        style={{ marginBottom: "0rem" }}
+                      >
                         {data.sector}
                       </p>
                     </div>
 
-                    <div className="d-flex" style={{marginBottom:'1rem'}}>
+                    <div className="d-flex" style={{ marginBottom: "1rem" }}>
                       <img src={greencheck} alt="" />
-                      <p className="openRequirements__card-p-green">I am looking for a room-mate</p>
+                      <p className="openRequirements__card-p-green">
+                        I am looking for a room-mate
+                      </p>
                     </div>
 
                     <div className="mb-3">
@@ -124,11 +134,17 @@ const OpenRequirements = (props) => {
                       </p>
                     </div>
 
-                    <div style={{marginBottom:'1rem'}}>
-                      <p className="openRequirements__card-p-main">Relocation Date</p>
+                    <div style={{ marginBottom: "1rem" }}>
+                      <p className="openRequirements__card-p-main">
+                        Relocation Date
+                      </p>
                       <div className="d-flex">
-                        <img src={Date}/>
-                        <p style={{marginBottom:'0rem', marginLeft:'0.5rem'}}>16-03-2023</p>
+                        <img src={Date} />
+                        <p
+                          style={{ marginBottom: "0rem", marginLeft: "0.5rem" }}
+                        >
+                          16-03-2023
+                        </p>
                       </div>
                     </div>
 
@@ -192,25 +208,9 @@ const OpenRequirements = (props) => {
                                   </p>
                                 </div>
                                 <div className="d-flex">
-                                  <div
-                                    className=" d-flex "
-                                    style={{
-                                      backgroundColor: "rgba(12, 100, 49, 0.1)",
-                                      borderRadius: "2px",
-                                    }}
-                                  >
-                                    <div className="ms-2">
-                                      <img src={greentick} alt="" />
-                                    </div>
-                                    <div className="me-2">
-                                      <p
-                                        className="mb-0 ms-2 "
-                                        style={{ color: "#0C9A47" }}
-                                      >
-                                        Verified
-                                      </p>
-                                    </div>
-                                  </div>
+                                  <p className="mb-0  openRequirements__card-p-id">
+                                    {data.CGIID}
+                                  </p>
                                 </div>
                               </div>
                             </div>
@@ -263,59 +263,7 @@ const OpenRequirements = (props) => {
                                     fontWeight: "500",
                                   }}
                                 >
-                                  {" "}
                                   9876543210
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="row">
-                            <div className="d-flex">
-                              <div>
-                                <p
-                                  style={{
-                                    color: "#343435",
-                                    fontWeight: "700",
-                                  }}
-                                >
-                                  University/College Name:
-                                </p>
-                              </div>
-                              <div>
-                                <p
-                                  className="ms-2"
-                                  style={{
-                                    color: "#343435",
-                                    fontWeight: "500",
-                                  }}
-                                >
-                                  Chitkara University
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="row">
-                            <div className="d-flex">
-                              <div>
-                                <p
-                                  style={{
-                                    color: "#343435",
-                                    fontWeight: "700",
-                                  }}
-                                >
-                                  Offer Incentive:
-                                </p>
-                              </div>
-                              <div>
-                                <p
-                                  className="ms-2"
-                                  style={{
-                                    color: "#343435",
-                                    fontWeight: "500",
-                                  }}
-                                >
-                                  1000
                                 </p>
                               </div>
                             </div>
@@ -344,7 +292,11 @@ const OpenRequirements = (props) => {
                                 ></textarea>
                               </div>
                               <div>
-                                <button className="btn btn-primary">
+                                <button
+                                  className="border-0 py-2 px-3 w-100 interested"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="/OpenRequirements"
+                                >
                                   Send Request
                                 </button>
                               </div>
