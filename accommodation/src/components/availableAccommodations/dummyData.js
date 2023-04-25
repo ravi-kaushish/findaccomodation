@@ -14,7 +14,7 @@ const Data = [
         
          "profileImageAlt": "Brittney profile image",
         
-         "distance": "10Km ",
+         "distance": "10",
         
          "sector": "sec-93",
         
@@ -26,7 +26,13 @@ const Data = [
         
          "furnishedType": "Fully Furnished",
         
-         "lookingForFlatMate": true
+         "lookingForFlatMate": true,
+
+         "houseHabit1": 'Smoker' ,
+
+         "houseHabit2": 'Drinker',
+
+         "houseHabit3": 'Non-veg'
         
      },
         
@@ -44,7 +50,7 @@ const Data = [
         
          profileImageAlt: "Paige profile image",
         
-         distance: "7Km ",
+         distance: "7",
         
          sector: "sec-16",
         
@@ -56,7 +62,13 @@ const Data = [
         
          furnishedType: "Fully Furnished",
         
-         lookingForFlatMate: true
+         lookingForFlatMate: true,
+
+         houseHabit1: 'Smoker',
+
+         houseHabit2: 'Drinker',
+
+         houseHabit3: 'Veg'
         
         },
         
@@ -74,7 +86,7 @@ const Data = [
         
          profileImageAlt: "Bradford profile image",
         
-         distance: "6Km ",
+         distance: "6",
         
          sector: "sec-60",
         
@@ -86,7 +98,13 @@ const Data = [
         
          furnishedType: "Fully Furnished",
         
-         lookingForFlatMate: true
+         lookingForFlatMate: true,
+
+         houseHabit1: 'Non-smoker',
+
+         houseHabit2: 'Non-drinker',
+
+         houseHabit3: 'Veg'
         
          },
         
@@ -104,7 +122,7 @@ const Data = [
         
          profileImageAlt: "Drake profile image",
         
-         distance: "1Km ",
+         distance: "1",
         
          sector: "sec-103",
         
@@ -116,7 +134,13 @@ const Data = [
         
          furnishedType: "Fully Furnished",
         
-         lookingForFlatMate: true
+         lookingForFlatMate: true,
+
+         houseHabit1: 'Non-smoker',
+
+         houseHabit2: 'Non-drinker',
+
+         houseHabit3: 'Non-veg'
         
          },
         
@@ -134,7 +158,7 @@ const Data = [
         
          profileImageAlt: "Leonor profile image",
         
-         distance: "4Km ",
+         distance: "4",
         
          sector: "sec-31",
         
@@ -146,7 +170,13 @@ const Data = [
         
          furnishedType: "Fully Furnished",
         
-         lookingForFlatMate: true
+         lookingForFlatMate: true,
+
+         houseHabit1: 'Smoker',
+
+         houseHabit2: 'Drinker',
+
+         houseHabit3: 'Veg'
         
          },
         
@@ -164,7 +194,7 @@ const Data = [
         
          profileImageAlt: "Lorna profile image",
         
-         distance: "5Km ",
+         distance: "5",
         
          sector: "sec-17",
         
@@ -174,7 +204,13 @@ const Data = [
         
          flatType: "1 Sharing",
         
-         lookingForRoomMate: true
+         lookingForRoomMate: true,
+
+         houseHabit1: 'Smoker',
+
+         houseHabit2: 'Drinker',
+
+         houseHabit3: 'Veg'
         
          },
         
@@ -192,7 +228,7 @@ const Data = [
         
          profileImageAlt: "Elisa profile image",
         
-         distance: "10Km ",
+         distance: "10",
         
          sector: "sec-27",
         
@@ -202,7 +238,13 @@ const Data = [
         
          flatType: "1 Sharing",
         
-         lookingForRoomMate: true
+         lookingForRoomMate: true,
+
+         houseHabit1: 'Non-smoker',
+
+         houseHabit2: 'Non-drinker',
+
+         houseHabit3: 'Veg'
         
          },
         
@@ -220,7 +262,7 @@ const Data = [
         
          profileImageAlt: "Merle profile image",
         
-         distance: "10Km ",
+         distance: "10",
         
          sector: "sec-109",
         
@@ -230,8 +272,13 @@ const Data = [
         
          flatType: "3 Sharing",
         
-         lookingForRoomMate: true
-        
+         lookingForRoomMate: true,
+
+         houseHabit1: 'Non-smoker',
+
+         houseHabit2: 'Drinker',
+
+         houseHabit3: 'Veg'
          },
                  {
         
@@ -247,7 +294,7 @@ const Data = [
         
          profileImageAlt: "Ester profile image",
         
-         distance: "4Km ",
+         distance: "4",
         
          sector: "sec-14",
         
@@ -257,7 +304,13 @@ const Data = [
         
          flatType: "3 Sharing",
         
-         lookingForRoomMate: true
+         lookingForRoomMate: true,
+
+         houseHabit1: 'Non-Smoker',
+
+         houseHabit2: 'Drinker',
+
+         houseHabit3: 'Veg'
         
          },
         
@@ -275,7 +328,7 @@ const Data = [
         
          profileImageAlt: "Tate profile image",
         
-         distance: "6Km ",
+         distance: "6",
         
          sector: "sec-16",
         
@@ -285,7 +338,13 @@ const Data = [
         
          flatType: "2 Sharing",
         
-         lookingForRoomMate: true
+         lookingForRoomMate: true,
+
+         houseHabit1: 'Non-smoker',
+
+         houseHabit2: 'Non-drinker',
+
+         houseHabit3: 'Non-veg'
         
         }
 

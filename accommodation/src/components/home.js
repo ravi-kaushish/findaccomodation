@@ -4,7 +4,6 @@ import Login from './accountAuth/login';
 import Otp from './accountAuth/otp';
 import EmployeeSignUp from './accountAuth/employeeSignUp';
 import InternSignUp from './accountAuth/internSignUp';
-
 import InternVerified from './accountAuth/internVerified';
 import LandingPage from './landingPage/landingPage';
 import Step1 from './volunteerMultiStepForm/step1/step1';
@@ -12,6 +11,8 @@ import VolunteerMultiForm from './volunteerMultiStepForm/volunteerMultiForm';
 import ForgotPassword from './accountAuth/forgotPassword';
 import CreateNewPassword from './accountAuth/createNewPassword';
 import AvailableAccommodations from './availableAccommodations/availableAccommodations';
+import OpenRequirements from './availableAccommodations/openRequirements';
+import Nodatapage from './availableAccommodations/noDataaPage';
 
 
 const Home = () => {
@@ -29,11 +30,8 @@ const Home = () => {
             <Route path="/forgotpassword" element={<ForgotPassword />} />
             <Route path="/createnewpassword" element={<CreateNewPassword />} />
             <Route path="/availableaccommodations" element={<AvailableAccommodations />} />
-            
-
-
-            
-
+            <Route path='/OpenRequirements' element={<OpenRequirements/>}/>
+            <Route path='/Nodatapage' element={<Nodatapage/>}/>
         </Routes>
     </Router>
   )
