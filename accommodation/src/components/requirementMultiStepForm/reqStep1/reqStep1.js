@@ -18,7 +18,7 @@ const ReqStep1 = () => {
             fontFamily: "Lato",
             fontStyle: "normal",
             fontWeight: "700",
-            fontSize: "16px",
+            fontSize: "1rem",
             lineHeight: "19px",
 
             color: "#626262",
@@ -33,8 +33,8 @@ const ReqStep1 = () => {
             fontFamily: "Lato",
             fontStyle: "normal",
             fontWeight: "700",
-            fontSize: "20px",
-            lineHeight: "24px",
+            fontSize: "1.25rem",
+            lineHeight: "1.5rem",
           }}
         >
           Basic Information

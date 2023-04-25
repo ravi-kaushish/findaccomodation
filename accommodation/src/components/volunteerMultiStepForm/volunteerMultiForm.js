@@ -51,6 +51,12 @@ const VolunteerMultiForm = () => {
               </div>
               <div
                 className="col-12 col-sm-7 form"
+                style={{
+                  paddingTop: "2rem",
+                  paddingLeft: "2.75rem",
+                  paddingRight: "15%",
+                  paddingBottom: "6rem",
+                }}
               >
                 <HorizontalStepper />
                 {currentStep(currentIndex)}

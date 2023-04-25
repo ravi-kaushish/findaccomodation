@@ -68,7 +68,7 @@ function VerticalStepper(props) {
   element = stepsList
  
   return (
-    <MainContainer style={{ padding: "2rem 4rem 0", height: "100%" }}>
+    <MainContainer style={{ padding: "2rem 15% 0", height: "100%" }}>
      {callf === "isRequirement" ? <ReqStepHeader /> : <VolunteerStepHeader />  } 
       {element}
 
