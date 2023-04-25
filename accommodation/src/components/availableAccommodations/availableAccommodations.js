@@ -23,8 +23,9 @@ import CheckboxFilterAcco from "./checkboxFilterAcco";
 import CheckboxFilterReq from "./checkboxFilterReq";
 import NoDataaPage from "./noDataaPage";
 import { Link } from "react-router-dom";
+// import { functionTypeAnnotation } from "@babel/types";
 
-const AvailableAccommodations = () => {
+const AvailableAccommodations = (props) => {
   const [activeBtn, setActiveBtn] = useState(true);
   const [message, setMessage] = useState("");
   const [mapaddress, setMapAddress] = useState("Pinnacle Business Park");
@@ -34,6 +35,10 @@ const AvailableAccommodations = () => {
   const [houseHabit3, setHouseHabit3] = useState("");
   const [distancefilterdummy, setDistancefilterdummy] = useState(Data);
   const [distancefilter, setDistancefilter] = useState("");
+
+  const queryParameters = new URLSearchParams(window.location.search)
+  let type = queryParameters.get("call")
+
 
   useEffect(() => {
     setDistancefilter(
@@ -107,12 +112,11 @@ const AvailableAccommodations = () => {
       (!distancefilter.length || distancefilter.includes(Data.distancefilter))
   );
 
-  const filteredCardsLength = filteredCards.length;
 
   return (
     <>
       <Navbar />
-      <Wrapper>
+      <Wrapper >
         <Container>
           <div
             className="container-fluid"
@@ -138,6 +142,7 @@ const AvailableAccommodations = () => {
                       </Link>
                     </div>
                     <div className="">
+                      
                       {activeBtn === true ? (
                         <p
                           className="text-secondary mt-3"
@@ -239,12 +244,13 @@ const AvailableAccommodations = () => {
                     <div className="col">
                       <div className="row mb-2">
                         <div className="col-4">
-                          <div class="col-8 w-100">
+                          
                             <div
                               class="form d-flex border w-150 px-3"
                               style={{
                                 backgroundColor: "#ffffff",
                                 borderRadius: "4px",
+                                padding:"0"
                               }}
                             >
                               <span className="mt-1">
@@ -262,7 +268,7 @@ const AvailableAccommodations = () => {
                                 <img src={search} alt="img" />
                               </span>
                             </div>
-                          </div>
+                          
                         </div>
                         {activeBtn === true ? (
                           <CheckboxFilterAcco
@@ -354,7 +360,7 @@ const AvailableAccommodations = () => {
 
                                 <div className="d-flex mb-2">
                                   <img src={gps} alt="" />
-                                  <p className="mb-0 ms-1">View on Map</p>
+                                  <p className="mb-0 ms-1" style={{fontWeight:'500' , color:'#007FD3'}}>View on Map</p>
                                 </div>
                                 <div className="d-flex mb-3">
                                   <div className="me-3 nearby-location">
@@ -394,7 +400,7 @@ const AvailableAccommodations = () => {
                                   <div className="d-flex">
                                     <img src={greencheck} alt="" />
                                     <p
-                                      className="openRequirements__card-p-green"
+                                      className="availableAcco__card-p-green"
                                       style={{}}
                                     >
                                       I am looking for a room-mate
@@ -621,6 +627,8 @@ const AvailableAccommodations = () => {
                                 </div>
                               </div>
                             </div>
+
+
 
                             <div
                               className="offcanvas offcanvas-end"

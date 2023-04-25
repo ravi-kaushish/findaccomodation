@@ -35,7 +35,7 @@ const Home = () => {
             <Route path="/createnewpassword" element={<CreateNewPassword />} />
             <Route path="/availableaccommodations" element={<AvailableAccommodations />} />
 
-            <Route path='/OpenRequirements' element={<OpenRequirements/>}/>
+            <Route path='/availableaccommodations?call=openRequirement' element={<AvailableAccommodations />}/>
             <Route path='/Nodatapage' element={<Nodatapage/>}/>
 
             <Route path="/requirementform" element={<RequirementMultiStepForm />} />
