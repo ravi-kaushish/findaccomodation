@@ -28,7 +28,7 @@ const LandingPage = ({ user }) => {
 
   const handleOpenrequirements = (event) => {
     event.preventDefault();
-    window.location.href = `/openRequirements`;
+    window.location.href = `/openaccommodation`;
   };
   
   const handleVolunteer = (event) => {
