@@ -1,0 +1,44 @@
+.changedPassword__maincontainer {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 10px rgba(46, 72, 87, 0.18);
+    border-radius: 8px;
+  }
+  
+  .changedPassword__alertbox {
+    background: #e3f3fc;
+    border-radius: 4px;
+  }
+  
+  .changedPassword__alertbox-p {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    color: #343435;
+    margin: 0.62rem 0.62rem 0.62rem 0.5rem;
+  }
+  
+  .changedPassword__heading {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+  
+  .changedPassword__main-heading
+  {
+      font-family: 'Lato';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.25rem;
+  /* identical to box height */
+  
+  
+  /* Primary/Gray */
+  
+  
+  }
+  
