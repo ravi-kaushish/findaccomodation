@@ -18,6 +18,11 @@ import Nodatapage from "./availableAccommodations/noDataaPage";
 import RequirementMultiStepForm from "./requirementMultiStepForm/requirementMultiStepForm";
 import OpenAccommodation from "./availableAccommodations/openAccommodation2";
 
+import Changedpassword from "./accountAuth/changedPassword";
+import Registrationsuccessful from "./accountAuth/registrationSuccessful";
+
+import Postrequirement from "./requirementMultiStepForm/postSuccessful";
+
 const Home = () => {
   return (
     <Router>
@@ -32,6 +37,8 @@ const Home = () => {
         <Route path="/form" element={<VolunteerMultiForm />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/createnewpassword" element={<CreateNewPassword />} />
+        <Route path="/registrationsuccessful" element={<Registrationsuccessful />} />
+        <Route path="/postrequirement" element={<Postrequirement />} />
         <Route
           path="/availableaccommodations"
           element={<AvailableAccommodations />}
@@ -41,6 +48,8 @@ const Home = () => {
 
         <Route path="/requirementform" element={<RequirementMultiStepForm />} />
         <Route path="/openaccommodation" element={<OpenAccommodation />} />
+
+        <Route path="/changedpassword" element={<Changedpassword />} />
       </Routes>
     </Router>
   );
