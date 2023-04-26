@@ -25,8 +25,8 @@ const CreateNewPassword = () => {
                     src={building}
                     style={{}}
                   />
-                  <p className="find-accomo">Find Your Accommodation</p>
-                  <p className="description">
+                  <p className="find-accomo" style={{color:"#FFFFFF"}}>Find Your Accommodation</p>
+                  <p className="description" style={{color:"#FFFFFF"}}>
                     This is an online platform that helps other to find
                     accommodation
                   </p>

@@ -78,13 +78,14 @@ const Login = () => {
                   <div className="container w-100 g-2">
                     <form onSubmit={handleSubmit}>
                       <label for="email" className="form-label">
-                        Email
+                        Email ID
                       </label>
                       <input
                         type="email"
                         className="form-control"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Enter your Email ID"
                       />
                       <label
                         for="password"
@@ -98,6 +99,7 @@ const Login = () => {
                         className="form-control"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Enter Password"
                       />
 
                       <button className="btn btn-warning w-100 mt-3">
@@ -128,7 +130,7 @@ const Login = () => {
                     padding: "0.5rem 0",
                   }}
                 >
-                  <p style={{ color: "black" }}>First time user? Sign Up </p>
+                  <p style={{ color: "black" ,marginBottom:"0"}}>First time user? Sign Up </p>
                   <a href="/employeesignup" className="link-primary">
                     CGI Employees
                   </a>
