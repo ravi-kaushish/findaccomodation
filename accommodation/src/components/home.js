@@ -17,6 +17,7 @@ import Nodatapage from "./availableAccommodations/noDataaPage";
 
 import RequirementMultiStepForm from "./requirementMultiStepForm/requirementMultiStepForm";
 import OpenAccommodation from "./availableAccommodations/openAccommodation2";
+import ForgotPassOtp from "./accountAuth/forgotPassOtp";
 
 import Changedpassword from "./accountAuth/changedPassword";
 import Registrationsuccessful from "./accountAuth/registrationSuccessful";
@@ -49,7 +50,12 @@ const Home = () => {
         <Route path="/requirementform" element={<RequirementMultiStepForm />} />
         <Route path="/openaccommodation" element={<OpenAccommodation />} />
 
+
         <Route path="/changedpassword" element={<Changedpassword />} />
+
+        <Route path="/forgotpassotp" element={<ForgotPassOtp />} />
+
+
       </Routes>
     </Router>
   );

@@ -17,7 +17,7 @@ const ForgotPassword = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    window.location.href=`/otp`;
+    window.location.href=`/forgotpassotp`;
   }
 
 
@@ -26,7 +26,7 @@ const ForgotPassword = () => {
     <Wrapper>
       <Container>
         <MainContainer className="container " style={{ padding: "0 6.7%" }}>
-          <div className="row main-row " style={{ height: "35.75rem" }}>
+          <div className="row main-row " style={{ height: "35.75rem",width:"90%" }}>
             <LeftContainer className="col-6 d-sm-flex d-none ">
               <div className="row">
                 <div
@@ -77,8 +77,8 @@ const ForgotPassword = () => {
                         style={{ margin: "0 0.5rem 0.7rem" }}
                       />
                       <p
-                        className="mb-2 mt-2 alerttext"
-                        style={{ color: "black" }}
+                        className="mb-2 mt-2 alerttext "
+                        style={{ color: "black" ,fontSize:"1rem",lineHeight:"1.25rem"}}
                       >
                         Please enter your email address below. You will receive
                         a OTP to reset your password.
@@ -88,7 +88,7 @@ const ForgotPassword = () => {
                       <label for="email" className="form-label">
                         Email ID
                       </label>
-                      <input type="email" className="form-control" />
+                      <input type="email" className="form-control" placeholder="Enter Your Email ID" />
 
                       <button className="btn btn-warning w-100 mt-3">
                         Submit
