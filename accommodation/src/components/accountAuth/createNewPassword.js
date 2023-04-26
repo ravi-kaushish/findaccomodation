@@ -56,7 +56,7 @@ const CreateNewPassword = () => {
                       <label for="email" className="form-label">
                         New Password
                       </label>
-                      <input type="password" className="form-control" />
+                      <input type="password" className="form-control" placeholder="Enter New Password" />
                       <label
                         for="password"
                         className="form-label"
@@ -64,16 +64,14 @@ const CreateNewPassword = () => {
                       >
                         Confirm Password
                       </label>
-                      <input type="password" className="form-control" />
+                      <input type="password" className="form-control" placeholder="Enter Confirm Password" />
                     </form>
-                    <button className="btn btn-warning w-100 mt-3">
-                      Submit
-                    </button>
+                    
                     <div
                       className="col-12 d-flex"
                       style={{
                         backgroundColor: "#E3F3FC",
-                        margin: "1.5rem 0 4.18rem",
+                        margin: "1.5rem 0 1.5rem",
                       }}
                     >
                       <img
@@ -90,6 +88,9 @@ const CreateNewPassword = () => {
                         one number.
                       </p>
                     </div>
+                    <button className="btn btn-warning w-100 mt-3">
+                      Submit
+                    </button>
                   </div>
                 </div>
               </div>

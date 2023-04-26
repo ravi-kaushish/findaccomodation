@@ -132,7 +132,7 @@ const Step5 = () => {
                 className="row "
                 style={{
                   marginTop: "1rem",
-                  marginLeft: "0.8rem",
+                  marginLeft: "0rem",
                   marginRight: "2rem",
                 }}
               >
@@ -144,9 +144,9 @@ const Step5 = () => {
                     padding: "0.5rem 0.75rem",
                   }}
                 >
-                  <img src={alert} alt="" className="" />
-                  <p className="" style={{ marginBottom: "0" }}>
-                    Please provide this information after your landlord’s
+                  <img src={alert} alt="" className="" style={{marginRight:"4px"}}/>
+                  <p className="" style={{ marginBottom: "0"}}>
+                    Please provide this information after your landlord's
                     consent.
                   </p>
                 </div>
