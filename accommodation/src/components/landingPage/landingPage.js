@@ -24,6 +24,13 @@ const LandingPage = ({ user }) => {
     event.preventDefault();
     window.location.href = `/availableaccommodations`;
   };
+
+
+  const handleOpenrequirements = (event) => {
+    event.preventDefault();
+    window.location.href = `/openaccommodation`;
+  };
+  
   const handleVolunteer = (event) => {
     event.preventDefault();
     window.location.href = `/form`;
@@ -124,6 +131,7 @@ const LandingPage = ({ user }) => {
                         <p
                           className="landingPage__btn-p"
                           style={{ margin: "1rem 1.5rem 0.8rem" }}
+                          onClick={handleOpenrequirements}
                         >
                           See Open Results
                         </p>

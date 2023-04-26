@@ -19,7 +19,7 @@ const ReqStep1 = () => {
             fontStyle: "normal",
             fontWeight: "700",
             fontSize: "1rem",
-            lineHeight: "19px",
+            lineHeight: "1.25rem",
 
             color: "#626262",
           }}
@@ -76,14 +76,15 @@ const ReqStep1 = () => {
             </label>
             <input id="relocationDate" className="form-control" type="date" />
           </div>
-          <div
-            className="container-fluid d-flex justify-content-end"
-            style={{ marginTop: "17.75rem", padding: "0" }}
-          >
-            <button className="reqStep1__btn" type="button" onClick={()=>{reqNext();}}>
-              <p style={{ margin: "0.25rem 3.46rem" }}> Save & Next</p>
+          <div className="row justify-content-end"  style={{marginTop: "17.75rem"}}>
+            <div className="col-6">
+            <button style={{width:"100%"}} className="reqStep1__btn" type="button" onClick={()=>{reqNext();}}>
+              <p className="reqStep__btn-p" style={{ margin: "5% 0" }}> Save & Next</p>
             </button>
+
+            </div>
           </div>
+          
         </form>
       </Body>
     </FormContainer>

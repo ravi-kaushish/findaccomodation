@@ -4,22 +4,22 @@
   font-family: "Lato";
   font-style: normal;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 19px;
 }
 .reqStep2__btn-p {
   font-family: "Lato";
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 0.8rem;
+  line-height: 1rem;
 }
 .reqStep2__checkbox-p {
   font-family: "Lato";
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1rem;
+  line-height: 1.25rem;
 }
 
 .reqStep2__btn-next {

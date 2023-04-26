@@ -7,6 +7,8 @@ import styled from "styled-components";
 import ReqStep1 from "./reqStep1/reqStep1";
 import ReqStep2 from "./reqStep2/reqStep2";
 import ReqStep3 from "./reqStep3/reqStep3";
+import "./requirementMultiStepForm.css"
+import HorizontalStepper from "../horizontalStepper/horizontalStepper";
 
 const RequirementMultiStepForm = () => {
   const [call, setCall] = React.useState("isRequirement");
@@ -42,18 +44,19 @@ function currentStep(step) {
             style={{ padding: "0", height: "100vh" }}
           >
             <div className="row" style={{ width: "100%", height: "100vh" }}>
-              <div className="col-5">
+              <div className="col-5 d-sm-flex d-none">
                 <VerticalStepper call={call} />
               </div>
               <div
-                className="col-7"
+                className="col-12 col-sm-7 form"
                 style={{
                   paddingTop: "2rem",
                   paddingLeft: "2.75rem",
-                  paddingRight: "12rem",
+                  paddingRight: "15%",
                   paddingBottom: "6rem",
                 }}
               >
+                <HorizontalStepper call="requirement" />
                 {currentStep(reqCurrentIndex)}
               </div>
             </div>

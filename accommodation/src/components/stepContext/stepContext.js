@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import App from "../../App";
 import VolunteerStepInfo from "../volunteerMultiStepForm/volunteerStepInfo/volunteerStepInfo";
 import RequirementStepInfo from "../requirementMultiStepForm/requirementStepInfo/reqirementStepInfo";
@@ -7,41 +7,74 @@ export const MultiStepContext = React.createContext();
 
 const StepContext = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
-  const [reqCurrentIndex,setReqCurrentIndex] = useState(1);
-  const [userData,setUserData] = useState([]);
-  const [finalData,setFinalData] =useState([]); 
+  const [reqCurrentIndex, setReqCurrentIndex] = useState(1);
+  const [greenTick, setGreenTick] = useState(0);
+  const [userData, setUserData] = useState([]);
+  const [finalData, setFinalData] = useState([]);
 
   function previous() {
-    if (currentIndex > 0)
-      return setCurrentIndex((currentIndex) => currentIndex - 1);
-    return currentIndex;
+    if (currentIndex > 0){
+      setCurrentIndex((currentIndex) => currentIndex - 1);
+      setGreenTick((greenTick) => greenTick - 1);
+    }
+    else {
+      return currentIndex;
+    }
   }
   function next() {
-    if (currentIndex < VolunteerStepInfo.length )
-      return setCurrentIndex((currentIndex) => currentIndex + 1);  
-    return currentIndex;
+    if (currentIndex < VolunteerStepInfo.length) {
+      setCurrentIndex((currentIndex) => currentIndex + 1);
+      setGreenTick((greenTick) => greenTick + 1);
+    } else {
+      return currentIndex;
+    }
   }
 
-  function submitForm(){
-    console.log(userData)
+  function submitForm() {
+    console.log(userData);
   }
 
   function reqPrevious() {
-    if (reqCurrentIndex > 0)
-      return setReqCurrentIndex((reqCurrentIndex) => reqCurrentIndex - 1);
-    return reqCurrentIndex;
+    if (reqCurrentIndex > 0) {
+      setReqCurrentIndex((reqCurrentIndex) => reqCurrentIndex - 1);
+      setGreenTick((greenTick) => greenTick - 1);
+    }
+    else {
+      return reqCurrentIndex;
+    }
+
+    
   }
   function reqNext() {
-    if (reqCurrentIndex < RequirementStepInfo.length )
-      return setReqCurrentIndex((reqCurrentIndex) => reqCurrentIndex + 1);  
-    return reqCurrentIndex;
-  }
+    if (reqCurrentIndex < RequirementStepInfo.length){
+      setReqCurrentIndex((reqCurrentIndex) => reqCurrentIndex + 1);
+      setGreenTick((greenTick)=>greenTick+1)
+    }
+    else {
+      return reqCurrentIndex;
 
-  
+    }
+    
+  }
 
   return (
     <MultiStepContext.Provider
-      value={{ setReqCurrentIndex,currentIndex,reqCurrentIndex,setCurrentIndex, reqNext,reqPrevious , previous, next,userData,setUserData,finalData,setFinalData,submitForm }}
+      value={{
+        setReqCurrentIndex,
+        currentIndex,
+        reqCurrentIndex,
+        setCurrentIndex,
+        reqNext,
+        reqPrevious,
+        previous,
+        next,
+        userData,
+        setUserData,
+        finalData,
+        setFinalData,
+        submitForm,
+        greenTick,
+      }}
     >
       <App />
     </MultiStepContext.Provider>

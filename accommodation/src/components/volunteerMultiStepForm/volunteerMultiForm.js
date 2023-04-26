@@ -58,7 +58,7 @@ const VolunteerMultiForm = () => {
                   paddingBottom: "6rem",
                 }}
               >
-                <HorizontalStepper />
+                <HorizontalStepper call="volunteer" />
                 {currentStep(currentIndex)}
               </div>
             </div>

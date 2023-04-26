@@ -1,12 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
-/* p {
-  color: #f3f2f2;
+/* .demo {
+  color: red;
 } */
+/* .main-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+ 
+.left-container { 
+  background-color: #002c3f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.right-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  
 
-
-
-/* input[type="text"] {
+} */
+.otp_input[type="text"] {
   border-top: 0;
   border-right: 0;
   border-left: 0;
@@ -16,7 +35,7 @@
 
   -webkit-box-shadow: none;
   box-shadow: none;
-} */
+}
 .code-msg {
   font-family: "Lato";
   font-style: normal;
@@ -39,17 +58,17 @@ h4 {
 font-style: normal;
 font-weight: 700;
 font-size: 24px;
-line-height: 28.8px;
+line-height: 29px;
 position: relative;
     top: 2%;
 }
 
-.login__main-heading{
+.otp__main-heading{
   font-family: 'Lato';
 font-style: normal;
 font-weight: 600;
 font-size: 20px;
-line-height: 28.8px;
+line-height: 29px;
 }
 .description{
   font-family: 'Lato';
@@ -74,13 +93,3 @@ font-weight: 400;
 font-size: 15px;
 line-height: 20px;
 }
-
-@media (max-width:576px) {
-  .login__main-heading{
-    color: #28519E;
-  }
-  
-}
-
-
-
