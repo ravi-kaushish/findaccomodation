@@ -163,17 +163,15 @@ const InternSignUp = () => {
 
           <div className="row nspace mb-4">
             <div className="col-12 ">
-              <button
-                className="btn btn-warning w-100 mt-3"
-                onClick={handleInternSignUp}
-              >
-                Sign Up
+
+              <button className="btn btn-warning w-100 mt-3">
+              <p style={{fontWeight: '500' , fontFamily:'Lato', marginBottom:"0"}}>Sign Up</p>
               </button>
             </div>
           </div>
         </form>
         <div className="row mb-4">
-          <Link className="alink" to="/">
+          <Link className="alink" to="/"  style={{color:'#28519E' , fontWeight:'500'}}>
             Already have an account Login
           </Link>
         </div>

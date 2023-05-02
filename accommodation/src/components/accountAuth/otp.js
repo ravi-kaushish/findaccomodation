@@ -15,6 +15,7 @@ import {
 } from "../utilityStyles/utilityStyles";
 
 const Otp = () => {
+
   const [otp, setOtp] = useState();
   const navigate = useNavigate();
 
@@ -86,6 +87,7 @@ const Otp = () => {
                   style={{ width: "100%", padding: "0 1.21rem" }}
                 >
                   <div className="col-12  " style={{ marginTop: "2.5rem" }}>
+
                     <Link to="/employeesignup" style={{ textDecoration: "none" }}>
                       <img src={arrow} />{" "}
                     </Link>
@@ -96,7 +98,9 @@ const Otp = () => {
                       Please type the Six digit code we have sent on your
                       Microsoft account.
                     </p>
+
                     <form style={{ marginBottom: "4%" }} onSubmit={handleOtp}>
+
                       <input
                         type="text"
                         id="otp"
@@ -106,6 +110,7 @@ const Otp = () => {
                         value={otp}
                         onChange={(e) => setOtp(e.target.value)}
                       />
+
 
                       <button
                         className="btn btn-warning w-100 mt-3"
@@ -120,7 +125,14 @@ const Otp = () => {
                   className="container text-center"
                   style={{ marginTop: "5%", marginBottom: "3rem" }}
                 >
-                  <a className="link-primary" href="/">
+
+                  <a
+                    className="link-primary"
+                    href="/"
+                    style={{ color: "#28519E" , fontWeight:'500'}}
+                  >
+          
+
                     Use Another Account
                   </a>
                 </div>

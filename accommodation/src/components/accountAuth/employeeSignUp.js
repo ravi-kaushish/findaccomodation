@@ -97,8 +97,10 @@ const EmployeeSignUp = () => {
                       <input type="password" className="form-control"  value={password}
                         onChange={(e) => setPassword(e.target.value)} />
                    
-                    <button className="btn btn-warning w-100 " style={{marginTop:"2.25rem"}} type="submit">
-                      Sign Up
+
+                    <button className="btn btn-warning w-100 " style={{marginTop:"2.25rem"}}>
+                      <p style={{fontWeight: '500' , fontFamily:'Lato', marginBottom:"0"}}>Sign Up</p>
+
                     </button>
                     </form>
                   </div>
@@ -108,7 +110,7 @@ const EmployeeSignUp = () => {
                 className="container text-center"
                 style={{ marginTop: "5%" ,marginBottom:"6rem"}}
               >
-                <a href="/" className="link-primary">
+                <a href="/" className="link-primary" style={{color:'#28519E' , fontWeight:'500'}}>
                   Already Have an Account
                 </a>
               </div>

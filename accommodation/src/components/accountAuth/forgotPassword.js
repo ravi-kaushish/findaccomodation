@@ -119,7 +119,7 @@ const ForgotPassword = () => {
                 className="container text-center"
                 style={{ marginTop: "5%", marginBottom: "5.87rem" }}
               >
-                <a href="/" className="link-primary">
+                <a href="/" className="link-primary" style={{color:'#28519E' , fontWeight:'500'}}>
                   Back to login
                 </a>
               </div>
