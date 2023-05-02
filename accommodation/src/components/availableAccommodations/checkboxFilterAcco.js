@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 
 const CheckboxFilterAcco = (props) => {
-  const [filteroption, setFilteroption] = useState("");
-  const [houseHabit1, setHouseHabit1] = useState("");
-  const [houseHabit2, setHouseHabit2] = useState("");
-  const [houseHabit3, setHouseHabit3] = useState("");
-  const [selectedDistances, setSelectedDistances] = useState('');
+  const [filteroption, setFilteroption] = useState([]);
+  const [houseHabit1, setHouseHabit1] = useState([]);
+  const [houseHabit2, setHouseHabit2] = useState([]);
+  const [houseHabit3, setHouseHabit3] = useState([]);
+  const [selectedDistances1, setSelectedDistances1] = useState('');
+  const [selectedDistances2, setSelectedDistances2] = useState('');
+  const [selectedDistances3, setSelectedDistances3] = useState('');
+  const [selectedDistances4, setSelectedDistances4] = useState('');
 
   const handleFilter = (event) => {
     const val = event.target.value;
@@ -51,23 +54,49 @@ const CheckboxFilterAcco = (props) => {
 
 
 
-  const handleDistanceChange = (e) => {
-    const value = e.target.value;
-    const isChecked = e.target.checked;
-  
-    setSelectedDistances(prevDistances => {
-      if (isChecked) {
-        return [...prevDistances, value];
-        // props.sendDistanceData([...prevDistances, value]);
-      } else {
-        return prevDistances.filter(d => d !== value);
-        // props.sendDistanceData(prevDistances.filter(d => d !== value));
-      }
-    });
-
-    props.sendDistanceData(selectedDistances);
+  const handleDistanceChange1 = (e) => {
+    const value = e.target.value;  
+    if (selectedDistances1.includes(value)) {
+      setSelectedDistances1(selectedDistances1.filter((item) => item !== value));
+      props.Distances1(selectedDistances1.filter((item) => item !== value));
+    } else {
+      setSelectedDistances1([...selectedDistances1, value]);
+      props.Distances1([...selectedDistances1, value]);
+    }
   };
 
+  const handleDistanceChange2 = (e) => {
+    const value = e.target.value;  
+    if (selectedDistances2.includes(value)) {
+      setSelectedDistances2(selectedDistances2.filter((item) => item !== value));
+      props.Distances2(selectedDistances2.filter((item) => item !== value));
+    } else {
+      setSelectedDistances2([...selectedDistances2, value]);
+      props.Distances2([...selectedDistances2, value]);
+    }
+  };
+
+  const handleDistanceChange3 = (e) => {
+    const value = e.target.value;  
+    if (selectedDistances3.includes(value)) {
+      setSelectedDistances3(selectedDistances3.filter((item) => item !== value));
+      props.Distances3(selectedDistances3.filter((item) => item !== value));
+    } else {
+      setSelectedDistances3([...selectedDistances3, value]);
+      props.Distances3([...selectedDistances3, value]);
+    }
+  };
+
+  const handleDistanceChange4 = (e) => {
+    const value = e.target.value;  
+    if (selectedDistances4.includes(value)) {
+      setSelectedDistances4(selectedDistances4.filter((item) => item !== value));
+      props.Distances4(selectedDistances4.filter((item) => item !== value));
+    } else {
+      setSelectedDistances4([...selectedDistances4, value]);
+      props.Distances4([...selectedDistances4, value]);
+    }
+  };
   return (
     <>
       <div className="col-8 container d-flex justify-content-end gap-2">
@@ -165,8 +194,8 @@ const CheckboxFilterAcco = (props) => {
                               class="form-check-input"
                               type="checkbox"
                               value="0-2"
-                              checked={selectedDistances.includes("0-2")}
-                              onChange={handleDistanceChange}
+                              checked={selectedDistances1.includes("0-2")}
+                              onChange={handleDistanceChange1}
                               id="flexCheckChecked"
                             />
                             <label
@@ -183,8 +212,8 @@ const CheckboxFilterAcco = (props) => {
                               class="form-check-input"
                               type="checkbox"
                               value="2-5"
-                              checked={selectedDistances.includes("2-5")}
-                              onChange={handleDistanceChange}
+                              checked={selectedDistances2.includes("2-5")}
+                              onChange={handleDistanceChange2}
                               id="flexCheckChecked"
                             />
                             <label
@@ -201,8 +230,8 @@ const CheckboxFilterAcco = (props) => {
                               class="form-check-input"
                               type="checkbox"
                               value="5-8"
-                              checked={selectedDistances.includes("5-8")}
-                              onChange={handleDistanceChange}
+                              checked={selectedDistances3.includes("5-8")}
+                              onChange={handleDistanceChange3}
                               id="flexCheckChecked"
                             />
                             <label
@@ -219,8 +248,8 @@ const CheckboxFilterAcco = (props) => {
                               class="form-check-input"
                               type="checkbox"
                               value="8-10"
-                              checked={selectedDistances.includes("8-10")}
-                              onChange={handleDistanceChange}
+                              checked={selectedDistances4.includes("8-10")}
+                              onChange={handleDistanceChange4}
                               id="flexCheckChecked"
                             />
                             <label

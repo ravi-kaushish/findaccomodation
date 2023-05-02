@@ -13,14 +13,10 @@ import {
 } from "../utilityStyles/utilityStyles";
 
 const Otp = () => {
-
-
-  const handleSubmit = (event) =>{
+  const handleSubmit = (event) => {
     event.preventDefault();
-    window.location.href=`/landingpage`;
-  }
-
-
+    window.location.href = `/landingpage`;
+  };
 
   return (
     <>
@@ -65,17 +61,23 @@ const Otp = () => {
                   style={{ width: "100%", padding: "0 1.21rem" }}
                 >
                   <div className="col-12  " style={{ marginTop: "2.5rem" }}>
-                    <a href="/" style={{textDecoration:'none'}}>
+                    <a
+                      href="/"
+                      style={{ textDecoration: "none", color: "#28519E" }}
+                    >
                       <img src={arrow} />{" "}
                     </a>
-                      <span className="mail">email@email.com</span>
-                    
+                    <span className="mail">email@email.com</span>
+
                     <h4 className="mt-4 enter-code">Enter Code</h4>
                     <p className="code-msg">
                       Please type the Six digit code we have sent on your
                       Microsoft account.
                     </p>
-                    <form style={{ marginBottom: "4%" }} onSubmit={handleSubmit}>
+                    <form
+                      style={{ marginBottom: "4%" }}
+                      onSubmit={handleSubmit}
+                    >
                       <input
                         type="text"
                         id="otp"
@@ -85,7 +87,15 @@ const Otp = () => {
                       />
 
                       <button className="btn btn-warning w-100 mt-3">
-                        Verify
+                        <p
+                          style={{
+                            fontWeight: "500",
+                            fontFamily: "Lato",
+                            marginBottom: "0",
+                          }}
+                        >
+                          Verify
+                        </p>
                       </button>
                     </form>
                   </div>
@@ -94,7 +104,13 @@ const Otp = () => {
                   className="container text-center"
                   style={{ marginTop: "5%", marginBottom: "3rem" }}
                 >
-                  <a className="link-primary" href="/">Use Another Account</a>
+                  <a
+                    className="link-primary"
+                    href="/"
+                    style={{ color: "#28519E" , fontWeight:'500'}}
+                  >
+                    Use Another Account
+                  </a>
                 </div>
               </RightContainer>
             </div>

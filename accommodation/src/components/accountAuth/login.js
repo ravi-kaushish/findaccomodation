@@ -103,7 +103,7 @@ const Login = () => {
                       />
 
                       <button className="btn btn-warning w-100 mt-3">
-                        Login
+                      <p style={{fontWeight: '500' , fontFamily:'Lato', marginBottom:"0"}}>Login</p>
                       </button>
                     </form>
                   </div>
@@ -113,7 +113,7 @@ const Login = () => {
                 className="container text-center"
                 style={{ marginTop: "5%" }}
               >
-                <a href="/forgotpassword" className="link-primary">
+                <a href="/forgotpassword" className="link-primary" style={{ color: "#28519E" , fontWeight:'500'}}>
                   Forgot Password?
                 </a>
               </div>
@@ -130,12 +130,12 @@ const Login = () => {
                     padding: "0.5rem 0",
                   }}
                 >
-                  <p style={{ color: "black" ,marginBottom:"0"}}>First time user? Sign Up </p>
-                  <a href="/employeesignup" className="link-primary">
+                  <p style={{ color: "#002C3F" ,marginBottom:"0" , fontWeight:'600'}}>First time user? Sign Up </p>
+                  <a href="/employeesignup" className="link-primary" style={{ color: "#28519E" , fontWeight:'450'}}>
                     CGI Employees
                   </a>
                   <span> | </span>
-                  <a href="/internsignup" className="link-primary">
+                  <a href="/internsignup" className="link-primary" style={{ color: "#28519E" , fontWeight:'450'}}>
                     CGI Interns
                   </a>
                 </div>

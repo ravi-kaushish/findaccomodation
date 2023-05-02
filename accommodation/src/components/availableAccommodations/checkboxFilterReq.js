@@ -4,10 +4,10 @@ const CheckboxFilterReq = (props) => {
 
 
 
-    const [filteroption , setFilteroption] = useState('');
-    const [houseHabit1 , setHouseHabit1] = useState('');
-    const [houseHabit2 , setHouseHabit2] = useState('');
-    const [houseHabit3 , setHouseHabit3] = useState('');
+    const [filteroption , setFilteroption] = useState([]);
+    const [houseHabit1 , setHouseHabit1] = useState([]);
+    const [houseHabit2 , setHouseHabit2] = useState([]);
+    const [houseHabit3 , setHouseHabit3] = useState([]);
   
 
 
