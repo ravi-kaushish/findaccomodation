@@ -1,20 +1,42 @@
 import React, { useState } from "react";
 import "./internSignUp.css";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../images/cgLogo.png";
 import vector from "../../images/alert.svg";
 
 const InternSignUp = () => {
   const [firstName, setFirstName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
-  const [aadhar, setAadhar] = React.useState("");
-  const [uniEmail, setUniEmail] = React.useState("");
+  const [aadharCard, setAadharCard] = React.useState("");
+  const [email, setEmail] = React.useState("");
   const [contact, setContact] = React.useState("");
-  const [uniNane, setUniName] = React.useState("");
+  const [college, setCollege] = React.useState("");
 
-  const handleSubmit = (event) => {
+  const navigate = useNavigate();
+  const handleInternSignUp = (event) => {
     event.preventDefault();
-    console.log(firstName, lastName, aadhar, uniEmail, contact, uniNane);
-    window.location.href = `/internverified`;
+
+
+    axios
+      .post("https://cg-accommodation.azurewebsites.net/registerIntern", {
+        firstName,
+        lastName,
+        aadharCard,
+        email,
+        contact,
+        college
+  
+      })
+      .then((response) => {
+        console.log(response.data);
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("email", email);
+        navigate("/internOtp");
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
   };
 
   return (
@@ -33,7 +55,7 @@ const InternSignUp = () => {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleInternSignUp}>
           <div className="row mb-4">
             <div className="col-6">
               <p className="space">First Name</p>
@@ -64,8 +86,8 @@ const InternSignUp = () => {
                 type="text"
                 className="form-control"
                 placeholder="--- ---- ----"
-                value={aadhar}
-                onChange={(e) => setAadhar(e.target.value)}
+                value={aadharCard}
+                onChange={(e) => setAadharCard(e.target.value)}
               />
             </div>
           </div>
@@ -77,8 +99,8 @@ const InternSignUp = () => {
                 type="text"
                 className="form-control"
                 placeholder="Enter Your University Email ID"
-                value={uniEmail}
-                onChange={(e) => setUniEmail(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
           </div>
@@ -111,29 +133,29 @@ const InternSignUp = () => {
             </div>
           </div>
 
-          <div className="row" style={{ marginBottom:'0.75rem' }}>
+          <div className="row" style={{ marginBottom: "0.75rem" }}>
             <div className="col-12">
               <p className="space">University / College</p>
               <input
                 type="text"
                 className="form-control"
                 placeholder="Enter your University/College"
-                value={uniNane}
-                onChange={(e) => setUniName(e.target.value)}
+                value={college}
+                onChange={(e) => setCollege(e.target.value)}
               />
             </div>
           </div>
 
           <div
             className="row mt-1 w-100 "
-            style={{ marginLeft: "0.30%" , marginBottom:'2.25rem' }}
+            style={{ marginLeft: "0.30%", marginBottom: "2.25rem" }}
           >
             <div
               className="col-12 d-flex "
               style={{ backgroundColor: "#E3F3FC", borderRadius: "4px" }}
             >
               <img src={vector} alt="" className="img2" />
-              <p className="alerttext" style={{ margin:'0.5rem'}}>
+              <p className="alerttext" style={{ margin: "0.5rem" }}>
                 Please enter full name of your university/college
               </p>
             </div>
@@ -141,14 +163,19 @@ const InternSignUp = () => {
 
           <div className="row nspace mb-4">
             <div className="col-12 ">
-              <button className="btn btn-warning w-100 mt-3">Sign Up</button>
+              <button
+                className="btn btn-warning w-100 mt-3"
+                onClick={handleInternSignUp}
+              >
+                Sign Up
+              </button>
             </div>
           </div>
         </form>
         <div className="row mb-4">
-          <a className="alink" href="/">
+          <Link className="alink" to="/">
             Already have an account Login
-          </a>
+          </Link>
         </div>
       </div>
     </div>

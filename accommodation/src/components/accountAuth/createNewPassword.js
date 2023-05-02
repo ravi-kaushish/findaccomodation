@@ -12,6 +12,10 @@ import {
 } from "../utilityStyles/utilityStyles";
 
 const CreateNewPassword = () => {
+  function handleNewPassword (event){
+    event.preventDefault();
+    window.location.href = `/changedpassword`;
+  }
   return (
     <Wrapper>
       <Container>
@@ -88,7 +92,7 @@ const CreateNewPassword = () => {
                         one number.
                       </p>
                     </div>
-                    <button className="btn btn-warning w-100 mt-3">
+                    <button className="btn btn-warning w-100 mt-3" onClick={handleNewPassword}>
                       Submit
                     </button>
                   </div>

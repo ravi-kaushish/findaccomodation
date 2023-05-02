@@ -9,7 +9,17 @@ import GreenThumb from "../../images/Green-ThumbsUp.svg";
 import Alert from "../../images/alert.svg";
 import "./postSuccessful.css";
 
-const postRequirement = () => {
+const PostSuccessful = () => {
+  function handleHome(event){
+    event.preventDefault();
+    window.location.href = `/landingpage`;
+
+  }
+  function handleReq(event){
+    event.preventDefault();
+    window.location.href = `/postrequirement`;
+
+  }
   return (
     <>
       <Wrapper>
@@ -45,6 +55,7 @@ const postRequirement = () => {
                     <button
                       className="btn w-100 mt-3"
                       style={{ fontWeight: "600" , borderColor:'black' }}
+                      onClick={handleHome}
                     >
                       Go to Home
                     </button>
@@ -54,6 +65,7 @@ const postRequirement = () => {
                     <button
                       className="btn btn-warning w-100 mt-3"
                       style={{ fontWeight: "600"}}
+                      onClick={handleReq}
                     >
                       Post Requirement  
                     </button>
@@ -68,4 +80,4 @@ const postRequirement = () => {
   );
 };
 
-export default postRequirement;
+export default PostSuccessful;

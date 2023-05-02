@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
-
+import { useNavigate } from 'react-router-dom';
 import "./login.css";
 import cgLogo from "../../images/cgLogo.png";
 import building from "../../images/cgBuilding.svg";
@@ -12,25 +12,37 @@ import {
   RightContainer,
   BuildingImage,
 } from "../utilityStyles/utilityStyles";
+import {MultiStepContext} from "../stepContext/stepContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  
+  const {currentUser,setCurrentUser}=useContext(MultiStepContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    
 
-    // axios.post("/api/login", { email, password })
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     localStorage.setItem("token", response.data.token);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error.response.data);
-    //   });
+
+    axios.post("https://cg-accommodation.azurewebsites.net/login", { email, password })
+      .then((response) => {
+        console.log(response.data);
+        setCurrentUser(response.data);
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("email", email);
+
+        navigate('/landingpage')
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+        
+      });
     console.log(email);
     console.log(`password: ${password} (hidden visible only on backend)`);
-    window.location.href = `/otp`;
+    
+    
   };
 
   return (

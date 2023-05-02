@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext} from "react";
 import {
   MainContainer,
   TopContainer,
@@ -18,8 +18,15 @@ import Mail from "../../images/mail.svg";
 import "./landingPage.css";
 import Interest from "../interest/interest";
 import Notification from "../notification/notification";
+import { MultiStepContext } from "../stepContext/stepContext";
+import { useNavigate } from "react-router-dom";
 
-const LandingPage = ({ user }) => {
+
+const LandingPage = () => {
+
+  const navigate = useNavigate();
+  const {currentUser}=useContext(MultiStepContext);
+  console.log(currentUser.response[0].firstname)
   const handleAvailableAccommodation = (event) => {
     event.preventDefault();
     window.location.href = `/availableaccommodations`;
@@ -33,7 +40,7 @@ const LandingPage = ({ user }) => {
   
   const handleVolunteer = (event) => {
     event.preventDefault();
-    window.location.href = `/form`;
+    navigate('/form')
   };
   const handlePostReq = (event) => {
     event.preventDefault();
@@ -59,7 +66,7 @@ const LandingPage = ({ user }) => {
                     marginTop: "3.3rem",
                   }}
                 >
-                  Welcome, {user}
+                  Welcome, {currentUser.response[0].firstname}
                 </p>
                 <p className="landingPage__mainheading">
                   Let's find your <b>Accommodation</b>

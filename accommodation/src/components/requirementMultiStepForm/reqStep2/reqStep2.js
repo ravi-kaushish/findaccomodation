@@ -43,7 +43,7 @@ const ReqStep2 = () => {
             Accommodation Type
           </p>
           <div
-            className="container-fluid d-flex flex-row justify-content-between"
+            className="container-fluid d-flex flex-row gap-4"
             style={{ padding: "0", marginBottom: "1.5rem" }}
           >
             <button type="button" className="reqStep2__btn">
@@ -67,7 +67,7 @@ const ReqStep2 = () => {
             Sharing Type
           </p>
           <div
-            className="container-fluid d-flex flex-row justify-content-between"
+            className="container-fluid d-flex flex-row gap-4"
             style={{ padding: "0", marginBottom: "1.5rem" }}
           >
             <button type="button" className="reqStep2__btn">
