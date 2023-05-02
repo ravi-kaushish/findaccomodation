@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 import "./otp.css";
 import arrow from "../../images/back_arrow.png";
 import cgLogo from "../../images/cgLogo.png";
@@ -13,10 +15,34 @@ import {
 } from "../utilityStyles/utilityStyles";
 
 const Otp = () => {
-  const handleSubmit = (event) => {
+
+  const [otp, setOtp] = useState();
+  const navigate = useNavigate();
+
+  function handleOtp(event) {
     event.preventDefault();
-    window.location.href = `/landingpage`;
-  };
+    const token = localStorage.getItem("token");
+    const email = localStorage.getItem("email")
+    axios
+      .post(
+        "https://cg-accommodation.azurewebsites.net/EmpVerifyOtp",
+        { email,otp },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response.data);
+        localStorage.setItem('token',)
+        navigate("/landingpage");
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
+    console.log(otp);
+  }
 
   return (
     <>
@@ -61,12 +87,10 @@ const Otp = () => {
                   style={{ width: "100%", padding: "0 1.21rem" }}
                 >
                   <div className="col-12  " style={{ marginTop: "2.5rem" }}>
-                    <a
-                      href="/"
-                      style={{ textDecoration: "none", color: "#28519E" }}
-                    >
+
+                    <Link to="/employeesignup" style={{ textDecoration: "none" }}>
                       <img src={arrow} />{" "}
-                    </a>
+                    </Link>
                     <span className="mail">email@email.com</span>
 
                     <h4 className="mt-4 enter-code">Enter Code</h4>
@@ -74,28 +98,25 @@ const Otp = () => {
                       Please type the Six digit code we have sent on your
                       Microsoft account.
                     </p>
-                    <form
-                      style={{ marginBottom: "4%" }}
-                      onSubmit={handleSubmit}
-                    >
+
+                    <form style={{ marginBottom: "4%" }} onSubmit={handleOtp}>
+
                       <input
                         type="text"
                         id="otp"
                         className="otp_input"
                         placeholder="Code"
                         style={{ width: "100%" }}
+                        value={otp}
+                        onChange={(e) => setOtp(e.target.value)}
                       />
 
-                      <button className="btn btn-warning w-100 mt-3">
-                        <p
-                          style={{
-                            fontWeight: "500",
-                            fontFamily: "Lato",
-                            marginBottom: "0",
-                          }}
-                        >
-                          Verify
-                        </p>
+
+                      <button
+                        className="btn btn-warning w-100 mt-3"
+                        onClick={handleOtp}
+                      >
+                        Verify
                       </button>
                     </form>
                   </div>
@@ -104,11 +125,14 @@ const Otp = () => {
                   className="container text-center"
                   style={{ marginTop: "5%", marginBottom: "3rem" }}
                 >
+
                   <a
                     className="link-primary"
                     href="/"
                     style={{ color: "#28519E" , fontWeight:'500'}}
                   >
+          
+
                     Use Another Account
                   </a>
                 </div>

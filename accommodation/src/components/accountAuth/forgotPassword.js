@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import cgLogo from "../../images/cgLogo.png";
+import axios from "axios";
+import { Link,useNavigate } from "react-router-dom";
 import building from "../../images/cgBuilding.svg";
 import vector from "../../images/vector.svg";
 import {
@@ -12,12 +14,28 @@ import {
 } from "../utilityStyles/utilityStyles";
 
 const ForgotPassword = () => {
+  const navigate = useNavigate();
+  const [email,setEmail] = useState();
 
 
 
-  const handleSubmit = (event) => {
+  const handleForgotPass = (event) => {
     event.preventDefault();
-    window.location.href=`/forgotpassotp`;
+    
+    axios
+    .post(
+      "https://cg-accommodation.azurewebsites.net/forgetPassword",
+      { email },
+      
+    )
+    .then((response) => {
+      console.log(response.data);
+      localStorage.setItem('token',response.data.token)
+      navigate('/forgotpassotp');
+    })
+    .catch((error) => {
+      console.log(error.response.data);
+    });
   }
 
 
@@ -84,11 +102,11 @@ const ForgotPassword = () => {
                         a OTP to reset your password.
                       </p>
                     </div>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleForgotPass}>
                       <label for="email" className="form-label">
                         Email ID
                       </label>
-                      <input type="email" className="form-control" placeholder="Enter Your Email ID" />
+                      <input type="email" className="form-control" placeholder="Enter Your Email ID" value={email} onChange={(e) =>setEmail(e.target.value)}/>
 
                       <button className="btn btn-warning w-100 mt-3">
                         Submit

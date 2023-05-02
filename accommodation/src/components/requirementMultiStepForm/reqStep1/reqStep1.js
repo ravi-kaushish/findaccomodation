@@ -54,7 +54,7 @@ const ReqStep1 = () => {
             >
               Locality
             </label>
-            <input id="locality" className="form-control" type="text" />
+            <input id="locality" className="form-control" type="text" placeholder="Locality" />
           </div>
           <div className="form-group" style={{ marginTop: "2rem" }}>
             <label
@@ -62,9 +62,9 @@ const ReqStep1 = () => {
               style={{ marginBottom: "0.375rem" }}
               className="reqStep1__label-h"
             >
-              Contact No
+              Contact No.
             </label>
-            <input id="contactInfo" className="form-control" type="tel" />
+            <input id="contactInfo" className="form-control" type="tel" placeholder="Contact No."/>
           </div>
           <div className="form-group" style={{ marginTop: "2rem" }}>
             <label

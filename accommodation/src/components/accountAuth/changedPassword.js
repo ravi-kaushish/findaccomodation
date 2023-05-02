@@ -8,9 +8,17 @@ import Cglogo from "../../images/cgLogo.svg";
 import Tick from "../../images/circle.svg";
 import Alert from "../../images/alert.svg";
 import "./changedPassword.css";
+import { func } from "prop-types";
 
 const changedPassword = () => {
+
+  function handleNewPassLogin (event){
+    event.preventDefault();
+    window.location.href = `/landingpage`;
+  }
+
   return (
+    
     <>
       <Wrapper>
         <Container>
@@ -36,7 +44,7 @@ const changedPassword = () => {
 
                 <div className="row nspace mb-4">
                   <div className="col-12 ">
-                    <button className="btn btn-warning w-100 mt-3" style={{fontWeight:'600'}}>
+                    <button className="btn btn-warning w-100 mt-3" style={{fontWeight:'600'}} onClick={handleNewPassLogin}>
                     Continue
                     </button>
                   </div>

@@ -7,6 +7,10 @@ import { MultiStepContext } from "../../stepContext/stepContext";
 
 const ReqStep3 = () => {
     const {reqPrevious} = useContext(MultiStepContext)
+    function handleReqForm(event) {
+      event.preventDefault() ;
+      window.location.href =`/postSuccess`; 
+    }
   return (
     <FormContainer>
       <Header>
@@ -82,8 +86,9 @@ const ReqStep3 = () => {
                 <p
                   className="reqStep__btn-p "
                   style={{ margin:"5% 0"}}
+                  onClick={handleReqForm}
                 >
-                  Submit
+                  Save
                 </p>
               </button>
             </div>

@@ -19,9 +19,11 @@ const Step1 = () => {
   // };
   // useEffect(()=>{console.log("Componenet Mounted")},[] )
 
-  const { currentIndex, finalData, next, userData, setUserData } =
+  const { currentIndex, finalData, next, userData, setUserData,currentUser,user } =
     useContext(MultiStepContext);
 
+
+    console.log( currentUser ,"FDeom contxt")
   const [nearbyAccommodation, setNearbyAccomodation] = useState(false);
   useEffect(() => {
     setUserData({ ...userData, NearbyAccommodation: nearbyAccommodation });
@@ -105,9 +107,9 @@ const Step1 = () => {
 
                 <div className=" col-md-5" style={{}}>
                   <p className="p_color" style={{ marginBottom: "0" }}>
-                    <strong>John Doe</strong>{" "}
+                    <strong>{currentUser.response[0].firstname}{currentUser.response[0].lastname} </strong>{" "}
                   </p>
-                  <p className="p_color">johndoe@example.com</p>
+                  <p className="p_color">{currentUser.response[0].email}</p>
                   {/* <input type="file" /> */}
                   <button className="d-flex imgButn">
                     <div className="me-2 d-flex align-items-baseline">

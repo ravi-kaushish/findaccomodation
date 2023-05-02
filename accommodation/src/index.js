@@ -8,11 +8,13 @@ import StepContext from "./components/stepContext/stepContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <StepContext>
+  
     <React.StrictMode>
+    <StepContext>
       <App />
+      </StepContext>
     </React.StrictMode>
-  </StepContext>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

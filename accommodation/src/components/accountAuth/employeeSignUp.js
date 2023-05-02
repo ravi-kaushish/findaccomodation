@@ -1,4 +1,6 @@
 import React,{useState} from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./employeeSignUp.css";
 import cgLogo from "../../images/cgLogo.png";
 import building from "../../images/cgBuilding.svg";
@@ -13,19 +15,30 @@ import {
 } from "../utilityStyles/utilityStyles";
 
 const EmployeeSignUp = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-
-
-  const handleSubmit = async (event) =>{
+  function handleSignup (event){
     event.preventDefault();
-   
 
-    // Redirect the user to the OTP verification page
-    
-    window.location.href=`/otp`;
+    axios.post("https://cg-accommodation.azurewebsites.net/EmpSignUp", { email, password })
+      .then((response) => {
+        console.log(response.data);
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("email", email);
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
+    console.log(email);
+    console.log(`password: ${password} (hidden visible only on backend)`);
+    navigate('/otp');
+
+
   }
+  
+
+
 
 
   return (
@@ -68,12 +81,12 @@ const EmployeeSignUp = () => {
               >
                 <div className="col-12">
                   <div className="container w-100 g-2">
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSignup}>
                       <label for="email" className="form-label"  value={email}
                         onChange={(e) => setEmail(e.target.value)}>
                         Email
                       </label>
-                      <input type="email" className="form-control" />
+                      <input type="email" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)}/>
                       <label
                         for="password"
                         className="form-label"
@@ -84,8 +97,10 @@ const EmployeeSignUp = () => {
                       <input type="password" className="form-control"  value={password}
                         onChange={(e) => setPassword(e.target.value)} />
                    
+
                     <button className="btn btn-warning w-100 " style={{marginTop:"2.25rem"}}>
                       <p style={{fontWeight: '500' , fontFamily:'Lato', marginBottom:"0"}}>Sign Up</p>
+
                     </button>
                     </form>
                   </div>

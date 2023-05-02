@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./forgotPassOtp.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import "./otp.css";
 import arrow from "../../images/back_arrow.png";
 import cgLogo from "../../images/cgLogo.png";
 import building from "../../images/cgBuilding.svg";
@@ -14,19 +14,34 @@ import {
   BuildingImage,
 } from "../utilityStyles/utilityStyles";
 
-const ForgotPassOtp = () => {
+const InternOtp = () => {
+  const [otp, setOtp] = useState();
   const navigate = useNavigate();
-  const [password,setPassword] = useState("");
-  const [confirmPassword,setConfirmPassword] = useState("");
 
-
-  const handleForgotPass = (event) =>{
+  function handleOtp(event) {
     event.preventDefault();
-    navigate("/")
-    window.location.href=`/createnewpassword`;
+    const token = localStorage.getItem("token");
+    const email = localStorage.getItem("email");
+    axios
+      .post(
+        "https://cg-accommodation.azurewebsites.net/registerOTP",
+        { otp },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response.data);
+        localStorage.setItem('token',)
+        navigate("/landingpage");
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
+    console.log(otp);
   }
-
-
 
   return (
     <>
@@ -71,26 +86,31 @@ const ForgotPassOtp = () => {
                   style={{ width: "100%", padding: "0 1.21rem" }}
                 >
                   <div className="col-12  " style={{ marginTop: "2.5rem" }}>
-                    <a href="/" style={{textDecoration:'none'}} >
+                    <Link to="/internsignup" style={{ textDecoration: "none" }}>
                       <img src={arrow} />{" "}
-                    </a>
-                      <span className="mail">email@email.com</span>
-                    
+                    </Link>
+                    <span className="mail">email@email.com</span>
+
                     <h4 className="mt-4 enter-code">Enter Code</h4>
                     <p className="code-msg">
                       Please type the Six digit code we have sent on your
                       Microsoft account.
                     </p>
-                    <form style={{ marginBottom: "4%" }} >
+                    <form style={{ marginBottom: "4%" }} onSubmit={handleOtp}>
                       <input
                         type="text"
                         id="otp"
                         className="otp_input"
                         placeholder="Code"
                         style={{ width: "100%" }}
+                        value={otp}
+                        onChange={(e) => setOtp(e.target.value)}
                       />
 
-                      <button className="btn btn-warning w-100 mt-3" onClick={handleForgotPass}>
+                      <button
+                        className="btn btn-warning w-100 mt-3"
+                        onClick={handleOtp}
+                      >
                         Verify
                       </button>
                     </form>
@@ -100,7 +120,9 @@ const ForgotPassOtp = () => {
                   className="container text-center"
                   style={{ marginTop: "5%", marginBottom: "3rem" }}
                 >
-                  <a className="link-primary" href="/" style={{color:'#28519E' , fontWeight:'500'}}>Use Another Account</a>
+                  <a className="link-primary" href="/">
+                    Use Another Account
+                  </a>
                 </div>
               </RightContainer>
             </div>
@@ -111,4 +133,4 @@ const ForgotPassOtp = () => {
   );
 };
 
-export default ForgotPassOtp;
+export default InternOtp;
