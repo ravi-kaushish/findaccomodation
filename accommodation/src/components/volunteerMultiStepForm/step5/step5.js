@@ -4,12 +4,26 @@ import alert from "../../../images/alert.svg";
 import { MultiStepContext } from "../../stepContext/stepContext";
 import styled from "styled-components";
 import { FormContainer, Header, Body } from "../../utilityStyles/utilityStyles";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const MainContainer = styled.div``;
 
 const Step5 = () => {
-  const { previous, submitForm } = useContext(MultiStepContext);
+  const { previous, submitForm ,userData,setUserData} = useContext(MultiStepContext);
+  const navigate = useNavigate();
   const { activeBtn, setActiveBtn } = useState(true);
+  axios.post("https://cg-accommodation.azurewebsites.net/createAccommodation", { userData})
+  .then((response) => {
+    console.log(response.data);
+    navigate("/postSuccess");
+  })
+  .catch((error) => {
+    console.log(error.response.data);
+    
+  });
+
+
   function btnHandler() {
     setActiveBtn(!activeBtn);
   }

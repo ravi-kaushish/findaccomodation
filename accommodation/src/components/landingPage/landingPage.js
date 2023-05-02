@@ -29,13 +29,13 @@ const LandingPage = () => {
   console.log(currentUser.response[0].firstname)
   const handleAvailableAccommodation = (event) => {
     event.preventDefault();
-    window.location.href = `/availableaccommodations`;
+    navigate('/availableaccommodations')
   };
 
 
   const handleOpenrequirements = (event) => {
     event.preventDefault();
-    window.location.href = `/openaccommodation`;
+    navigate('/openaccommodation');
   };
   
   const handleVolunteer = (event) => {
@@ -44,7 +44,7 @@ const LandingPage = () => {
   };
   const handlePostReq = (event) => {
     event.preventDefault();
-    window.location.href = `/requirementform`;
+    navigate('/requirementform');
   };
 
   return (

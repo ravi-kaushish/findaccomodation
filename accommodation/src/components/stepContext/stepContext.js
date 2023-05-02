@@ -12,8 +12,8 @@ const StepContext = ({children}) => {
   const [userData, setUserData] = useState([]);
   const [finalData, setFinalData] = useState([]);
   const [currentUser,setCurrentUser]=useState([]);
-  let user="sanjay";
-
+  const [requirementData , setRequirementData] = useState([]);
+  let user = "gurnoor"
   function previous() {
     if (currentIndex > 0){
       setCurrentIndex((currentIndex) => currentIndex - 1);
@@ -78,7 +78,10 @@ const StepContext = ({children}) => {
         greenTick,
         setCurrentUser,
         currentUser,
-        user
+        user,
+        requirementData,
+        setRequirementData
+
       }}
     >
      {children}
