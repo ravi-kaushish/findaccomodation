@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React,{useContext, useEffect} from "react";
 import {
   MainContainer,
   TopContainer,
@@ -20,16 +20,33 @@ import Interest from "../interest/interest";
 import Notification from "../notification/notification";
 import { MultiStepContext } from "../stepContext/stepContext";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 const LandingPage = () => {
 
+
   const navigate = useNavigate();
-  const {currentUser}=useContext(MultiStepContext);
-  console.log(currentUser.response[0].firstname)
+
+  const {currentUser,availableAccommodations,setAvailableAccommodations}=useContext(MultiStepContext);
+
+
   const handleAvailableAccommodation = (event) => {
     event.preventDefault();
-    navigate('/availableaccommodations')
+    axios.get('https://cg-accommodation.azurewebsites.net/getAllAcc')
+    .then(response => {
+      // Handle Success
+      console.log(response.data);
+      setAvailableAccommodations({...availableAccommodations,PG:response.data})
+      navigate('/availableaccommodations')
+
+    })
+    .catch(error => {
+      // Handle error
+      console.log(error);
+    });
+  
+    
   };
 
 

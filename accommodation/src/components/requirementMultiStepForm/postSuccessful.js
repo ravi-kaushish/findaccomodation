@@ -8,16 +8,18 @@ import Cglogo from "../../images/cgLogo.svg";
 import GreenThumb from "../../images/Green-ThumbsUp.svg";
 import Alert from "../../images/alert.svg";
 import "./postSuccessful.css";
+import { useNavigate } from "react-router-dom";
 
 const PostSuccessful = () => {
+  const navigate = useNavigate();
   function handleHome(event){
     event.preventDefault();
-    window.location.href = `/landingpage`;
+    navigate(`/landingpage`);
 
   }
   function handleReq(event){
     event.preventDefault();
-    window.location.href = `/postrequirement`;
+    navigate(`/postrequirement`);
 
   }
   return (
