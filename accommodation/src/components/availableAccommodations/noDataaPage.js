@@ -4,10 +4,10 @@ import Nodata from "../../images/nodatalogo.svg";
 const NoDataaPage = () => {
   return (
     <>
-      <div
-        className="container d-flex justify-content-center align-items-center" >
-        <div className=" row row-cols-2 d-flex align-items-center">
-          <div className="text-center align-middle align-items-center" style={{width:'75%'}}>
+      <div style={{height:"100%"}}
+        className="container d-flex justify-content-center align-items-center " >
+        <div className=" row d-flex justify-content-center ">
+          <div className="text-center align-middle align-items-center " style={{width:'75%'}}>
             <img src={Nodata} />
             <p
               style={{

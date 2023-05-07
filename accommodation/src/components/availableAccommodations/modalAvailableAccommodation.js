@@ -24,7 +24,7 @@ import CheckboxFilterReq from "./checkboxFilterReq";
 import NoDataaPage from "./noDataaPage";
 import { Link } from "react-router-dom";
 
-const ModalAvailableAccommodation = () => {
+const ModalAvailableAccommodation = (props) => {
   const [message, setMessage] = useState("");
 
   const handlemessageText = (event) => {
@@ -35,6 +35,12 @@ const ModalAvailableAccommodation = () => {
   const handleSubmit = (data) => {
     console.log(data);
   };
+
+
+
+  const handleModalbtn = () => {
+    props.sendData("clicked");
+  }
 
   return (
     <>
@@ -206,7 +212,7 @@ const ModalAvailableAccommodation = () => {
                         width: "10%",
                       }}
                     >
-                      <input />
+                      <input  />
                     </div>
                   </div>
                 </div>
@@ -238,6 +244,7 @@ const ModalAvailableAccommodation = () => {
                         className="border-0 py-2 px-3 w-100 interested"
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal"
+                        onClick={handleModalbtn}
                       >
                         Send Request
                       </button>

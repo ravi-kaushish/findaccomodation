@@ -55,7 +55,7 @@ const MapAvailableAccommodations = (props) => {
           style={{ backgroundColor: "#F5F5F5" }}
         >
           {props.sendingData.length > 0 ? (
-            <div className=" row row-cols-2 ">
+            <div className=" row row-cols-2">
               {props.sendingData.map((data, index) => (
                 <div key={data.id}>
                   <div

@@ -1,4 +1,5 @@
 import React , {useState} from "react";
+import filterLogo from "../../images/filter-logo.svg"
 
 const CheckboxFilterReq = (props) => {
 
@@ -57,7 +58,11 @@ const CheckboxFilterReq = (props) => {
 
   return (
     <>
-      <div className="col-8 container d-flex justify-content-end gap-2">
+      <div className="col-8 container d-flex justify-content-end align-items-center">
+         <div className="d-flex">
+          <img src={filterLogo} />
+          <p style={{marginBottom:'0' , marginLeft:'0.31rem' , fontWeight:'600'}}>Filter:</p>
+        </div>
         <nav class="navbar navbar-expand-lg navbar-light ">
           <div class="container-fluid d-flex gap-2">
             <button

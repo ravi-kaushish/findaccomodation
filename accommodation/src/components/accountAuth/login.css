@@ -82,5 +82,12 @@ line-height: 20px;
   
 }
 
+.login__link_tag
+{
+  color: #28519E;
+  font-weight: 450 ;
+  text-decoration: underline;
+}
+
 
 
