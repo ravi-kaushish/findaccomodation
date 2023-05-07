@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import cgLogo from "../../images/cgLogo.png";
 import building from "../../images/cgBuilding.svg";
 import vector from "../../images/vector.svg";
@@ -10,16 +10,48 @@ import {
   RightContainer,
   BuildingImage,
 } from "../utilityStyles/utilityStyles";
+import { useNavigate } from "react-router";
 
 const CreateNewPassword = () => {
-  function handleNewPassword (event){
+  const navigate = useNavigate();
+
+  const [password, setPassword] = useState("");
+  const [isPasswordValid, setIsPasswordValid] = useState(false);
+
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [isconfirmPasswordValid, setIsConfirmPasswordValid] = useState(false);
+  // const [isValid, setIsValid] = useState(true);
+
+  const handlePasswordChange = (event) => {
+    const { value } = event.target;
+    setPassword(value);
+    setIsPasswordValid(
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$/.test(value) ||
+        !value.length >= 6
+        ? true
+        : false
+    );
+    // setIsValid(value === confirmPassword && event.target.value.length >= 8);
+  };
+
+  const handleConfirmPasswordChange = (event) => {
+    const { value } = event.target;
+    setConfirmPassword(value);
+    setIsConfirmPasswordValid(
+      value === password && password.length >= 8 ? true : false
+    );
+    // setIsValid(event.target.value === password && password.length >= 8);
+  };
+
+  function handleNewPassword(event) {
     event.preventDefault();
-    window.location.href = `/changedpassword`;
+
+    navigate("/changedpassword");
   }
   return (
     <Wrapper>
       <Container>
-        <MainContainer className="container " style={{padding:"0 2.7%"}}>
+        <MainContainer className="container " style={{ padding: "0 2.7%" }}>
           <div className="row main-row " style={{ height: "35.75rem" }}>
             <LeftContainer className="col-6 d-sm-flex d-none ">
               <div className="row">
@@ -29,8 +61,10 @@ const CreateNewPassword = () => {
                     src={building}
                     style={{}}
                   />
-                  <p className="find-accomo" style={{color:"#FFFFFF"}}>Find Your Accommodation</p>
-                  <p className="description" style={{color:"#FFFFFF"}}>
+                  <p className="find-accomo" style={{ color: "#FFFFFF" }}>
+                    Find Your Accommodation
+                  </p>
+                  <p className="description" style={{ color: "#FFFFFF" }}>
                     This is an online platform that helps other to find
                     accommodation
                   </p>
@@ -52,15 +86,33 @@ const CreateNewPassword = () => {
               </div>
               <div
                 className="row"
-                style={{ width: "100%", padding: "0 1.21rem",marginTop:"1.5rem" }}
+                style={{
+                  width: "100%",
+                  padding: "0 1.21rem",
+                  marginTop: "1.5rem",
+                }}
               >
                 <div className="col-12">
                   <div className="container w-100 g-2">
-                    <form>
+                    <form onSubmit={handleNewPassword}>
                       <label for="email" className="form-label">
                         New Password
                       </label>
-                      <input type="password" className="form-control" placeholder="Enter New Password" />
+                      <input
+                        type="password"
+                        className="form-control"
+                        placeholder="Enter New Password"
+                        value={password}
+                        onChange={handlePasswordChange}
+                        required
+                      />
+                      {!isPasswordValid && password && (
+                        <span style={{ color: "red", fontSize: "12px" }}>
+                          use minimum 6 digit , uppercase , lowercase , number &
+                          symbol
+                        </span>
+                      )}
+
                       <label
                         for="password"
                         className="form-label"
@@ -68,33 +120,52 @@ const CreateNewPassword = () => {
                       >
                         Confirm Password
                       </label>
-                      <input type="password" className="form-control" placeholder="Enter Confirm Password" />
-                    </form>
-                    
-                    <div
-                      className="col-12 d-flex"
-                      style={{
-                        backgroundColor: "#E3F3FC",
-                        margin: "1.5rem 0 1.5rem",
-                      }}
-                    >
-                      <img
-                        src={vector}
-                        alt=""
-                        className="img2"
-                        style={{ margin: "0 0.5rem 0.7rem" }}
+                      <input
+                        type="password"
+                        className="form-control"
+                        placeholder="Enter Confirm Password"
+                        value={confirmPassword}
+                        onChange={handleConfirmPasswordChange}
+                        required
                       />
-                      <p
-                        className="mb-2 mt-2 alerttext"
-                        style={{ color: "black" }}
+                      {!isconfirmPasswordValid && confirmPassword && (
+                        <span style={{ color: "red", fontSize: "0.75rem" }}>
+                          Passwords do not match !
+                        </span>
+                      )}
+
+                      <div
+                        className="col-12 d-flex"
+                        style={{
+                          backgroundColor: "#E3F3FC",
+                          margin: "1.5rem 0 1.5rem",
+                        }}
                       >
-                        Must contain 8 characters, at least one character and
-                        one number.
-                      </p>
-                    </div>
-                    <button className="btn btn-warning w-100 mt-3" onClick={handleNewPassword}>
-                      Submit
-                    </button>
+                        <img
+                          src={vector}
+                          alt=""
+                          className="img2"
+                          style={{ margin: "0 0.5rem 0.7rem" }}
+                        />
+                        <p
+                          className="mb-2 mt-2 alerttext"
+                          style={{ color: "black" }}
+                        >
+                          Must contain 8 characters, at least one character and
+                          one number.
+                        </p>
+                      </div>
+                      <button
+                        className="btn btn-warning w-100 mt-3"
+                        
+                        disabled={
+                          (!isPasswordValid && password) ||
+                          (!isconfirmPasswordValid && confirmPassword)
+                        }
+                      >
+                        Submit
+                      </button>
+                    </form>
                   </div>
                 </div>
               </div>

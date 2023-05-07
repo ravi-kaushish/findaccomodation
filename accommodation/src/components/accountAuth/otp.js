@@ -15,17 +15,32 @@ import {
 } from "../utilityStyles/utilityStyles";
 
 const Otp = () => {
-  const [otp, setOtp] = useState();
+  const [otp, setOtp] = useState("");
+  const [isotpValid, setIsOtpValid] = useState(false);
+
+  const handleotpChange = (event) => {
+    const { value } = event.target;
+    const formattedValue = value.replace(/\D/g, "").replace(/(.{1})/g, "$1 ");
+    if (formattedValue.trim().length <= 11) {
+      setOtp(formattedValue.trim());
+    }
+    setIsOtpValid(
+      formattedValue.length === 0 || formattedValue.trim().length < 11
+        ? false
+        : true
+    );
+  };
+
   const navigate = useNavigate();
 
   function handleOtp(event) {
     event.preventDefault();
     const token = localStorage.getItem("token");
-    const email = localStorage.getItem("email")
+    const email = localStorage.getItem("email");
     axios
       .post(
         "https://cg-accommodation.azurewebsites.net/EmpVerifyOtp",
-        { email,otp },
+        { email, otp },
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -34,7 +49,7 @@ const Otp = () => {
       )
       .then((response) => {
         console.log(response.data);
-        localStorage.setItem('token',)
+        localStorage.setItem("token");
         navigate("/landingpage");
       })
       .catch((error) => {
@@ -86,7 +101,10 @@ const Otp = () => {
                   style={{ width: "100%", padding: "0 1.21rem" }}
                 >
                   <div className="col-12  " style={{ marginTop: "2.5rem" }}>
-                    <Link to="/employeesignup" style={{ textDecoration: "none" }}>
+                    <Link
+                      to="/employeesignup"
+                      style={{ textDecoration: "none" }}
+                    >
                       <img src={arrow} />{" "}
                     </Link>
                     <span className="mail">email@email.com</span>
@@ -96,6 +114,7 @@ const Otp = () => {
                       Please type the Six digit code we have sent on your
                       Microsoft account.
                     </p>
+
                     <form style={{ marginBottom: "4%" }} onSubmit={handleOtp}>
                       <input
                         type="text"
@@ -104,8 +123,13 @@ const Otp = () => {
                         placeholder="Code"
                         style={{ width: "100%" }}
                         value={otp}
-                        onChange={(e) => setOtp(e.target.value)}
+                        onChange={handleotpChange}
                       />
+                      {!isotpValid && otp && (
+                        <span style={{ color: "red", fontSize: "12px" }}>
+                          Not a Valid OTP
+                        </span>
+                      )}
 
                       <button
                         className="btn btn-warning w-100 mt-3"
@@ -120,7 +144,11 @@ const Otp = () => {
                   className="container text-center"
                   style={{ marginTop: "5%", marginBottom: "3rem" }}
                 >
-                  <a className="link-primary" href="/">
+                  <a
+                    className="link-primary"
+                    href="/"
+                    style={{ color: "#28519E", fontWeight: "500" }}
+                  >
                     Use Another Account
                   </a>
                 </div>

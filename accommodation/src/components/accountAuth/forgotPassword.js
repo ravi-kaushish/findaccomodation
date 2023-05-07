@@ -15,9 +15,19 @@ import {
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
-  const [email,setEmail] = useState();
+  const [email, setEmail] = useState("");
+  const [isEmailValid, setIsEmailValid] = useState(false);
 
 
+  const handleEmailChange = (event) => {
+    const { value } = event.target;
+    setEmail(value);
+    setIsEmailValid(
+      value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) || value.length === 0
+        ? true
+        : false
+    );
+  };
 
   const handleForgotPass = (event) => {
     event.preventDefault();
@@ -106,9 +116,14 @@ const ForgotPassword = () => {
                       <label for="email" className="form-label">
                         Email ID
                       </label>
-                      <input type="email" className="form-control" placeholder="Enter Your Email ID" value={email} onChange={(e) =>setEmail(e.target.value)}/>
+                      <input type="email" className="form-control" placeholder="Enter Your Email ID" value={email} onChange={handleEmailChange} required/>
+                      {!isEmailValid && email && (
+                          <span style={{ color: "red", fontSize: "12px" }}>
+                            Email is not valid
+                          </span>
+                        )}
 
-                      <button className="btn btn-warning w-100 mt-3">
+                      <button className="btn btn-warning w-100 mt-3" disabled={!isEmailValid && email}>
                         Submit
                       </button>
                     </form>
@@ -119,7 +134,7 @@ const ForgotPassword = () => {
                 className="container text-center"
                 style={{ marginTop: "5%", marginBottom: "5.87rem" }}
               >
-                <a href="/" className="link-primary">
+                <a href="/" className="link-primary" style={{color:'#28519E' , fontWeight:'500'}}>
                   Back to login
                 </a>
               </div>

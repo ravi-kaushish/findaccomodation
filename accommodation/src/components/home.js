@@ -23,6 +23,9 @@ import Changedpassword from "./accountAuth/changedPassword";
 import Registrationsuccessful from "./accountAuth/registrationSuccessful";
 
 import Postrequirement from "./requirementMultiStepForm/postSuccessful";
+
+import MapAvailableAccommodations from "./availableAccommodations/mapAvailableAccommodations";
+
 import PostSuccessful from "./requirementMultiStepForm/postSuccessful";
 import InternOtp from "./accountAuth/internOpt";
 
@@ -42,16 +45,14 @@ const Home = () => {
         <Route path="/createnewpassword" element={<CreateNewPassword />} />
         <Route path="/registrationsuccessful" element={<Registrationsuccessful />} />
         <Route path="/postrequirement" element={<Postrequirement />} />
-        <Route
-          path="/availableaccommodations"
-          element={<AvailableAccommodations />}
-        />
+        <Route path="/availableaccommodations" element={<AvailableAccommodations />} />
 
 
         <Route path="/Nodatapage" element={<Nodatapage />} />
 
         <Route path="/requirementform" element={<RequirementMultiStepForm />} />
         <Route path="/openaccommodation" element={<OpenAccommodation />} />
+        <Route path="/mapaccommodation" element={<MapAvailableAccommodations />} />
 
 
         <Route path="/changedpassword" element={<Changedpassword />} />
