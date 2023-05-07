@@ -54,6 +54,7 @@
   font-size: 1rem;
   line-height: 1.18rem;
   color: #28519e;
+  cursor: pointer;
 }
 
 .availableAcco__card-p-id {
@@ -155,4 +156,6 @@
   border-radius: 0.5rem;
   height: 46.37rem;
 }
+
+
 

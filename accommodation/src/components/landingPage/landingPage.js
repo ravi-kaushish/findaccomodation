@@ -37,7 +37,7 @@ const LandingPage = () => {
     .then(response => {
       // Handle Success
       console.log(response.data);
-      setAvailableAccommodations({...availableAccommodations,PG:response.data})
+      setAvailableAccommodations({...availableAccommodations,accommodations:response.data})
       navigate('/availableaccommodations')
 
     })

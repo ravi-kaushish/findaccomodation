@@ -27,6 +27,20 @@ import OffcanvusAvailableAccommodation from "./offcanvusAvailableAccommodation";
 import ModalAvailableAccommodation from "./modalAvailableAccommodation";
 
 const MapAvailableAccommodations = (props) => {
+  const furnishType = '';
+  function isFurnished (value){
+    if (value.fullyfurnished ==  true) {
+      furnishType = "Fully Furnished"
+    }
+    else if (value.semifurnished ==  true) {
+      furnishType = "Semi Furnished"
+    }
+    else if (value.unfurnished ==  true) {
+      furnishType = "Un-Furnished"
+    }
+    return furnishType
+
+  }
   return (
     <>
       <div
@@ -48,15 +62,15 @@ const MapAvailableAccommodations = (props) => {
 
         <div
           className={
-            props.sendingData.length > 0
+            props.AccData.length > 0
               ? "scrollbar col-8"
               : "col-8 no_data_box"
           }
           style={{ backgroundColor: "#F5F5F5" }}
         >
-          {props.sendingData.length > 0 ? (
+          {props.AccData.length > 0 ? (
             <div className=" row row-cols-2">
-              {props.sendingData.map((data, index) => (
+              {props.AccData.map((data, index) => (
                 <div key={data.id}>
                   <div
                     className="availableAcco__card"
@@ -75,12 +89,12 @@ const MapAvailableAccommodations = (props) => {
                             aria-controls="offcanvasRight"
                           >
                             <p className="mb-1 availableAcco__card-p-name">
-                              {data.fullName}
+                              {data.firstname} {data.lastname}
                             </p>
                             <img src={Blueright_arrow} alt="" />
                           </div>
                           <p className="mb-0  availableAcco__card-p-id">
-                            {data.CGIID}
+                            {data.cgiid}
                           </p>
                         </div>
                       </div>
@@ -91,7 +105,7 @@ const MapAvailableAccommodations = (props) => {
                       >
                         <p className="availableAcco__card-p-main">Landmark:</p>
                         <p className="availableAcco__card-p-sector">
-                          {data.sector}, Noida
+                          {data.locality}, Noida
                         </p>
                       </div>
 
@@ -114,7 +128,7 @@ const MapAvailableAccommodations = (props) => {
                           </div>
                           <div className="d-flex justify-content-center">
                             <p className="mb-0 text-center px-2">
-                              {data.distance} km from Sec-3 Office
+                              {/* {data.distance} */}2 km from Sec-3 Office 
                             </p>
                           </div>
                         </div>
@@ -124,7 +138,7 @@ const MapAvailableAccommodations = (props) => {
                           </div>
                           <div className="d-flex justify-content-center">
                             <p className="mb-0 text-center">
-                              Nearest Metro {data.nearestMetro}
+                              Nearest Metro  {data.nearestmetrostation} 
                             </p>
                           </div>
                         </div>
@@ -137,7 +151,7 @@ const MapAvailableAccommodations = (props) => {
                           Accommodation Type:
                         </p>
                         <p>
-                          {data.accommodationType} | {data.flatType}{" "}
+                          {data.acctypename} | {data.flatType}{" "}
                           {data.furnishedType ? `| ${data.furnishedType}` : ""}
                         </p>
                         <div className="d-flex">
@@ -158,7 +172,7 @@ const MapAvailableAccommodations = (props) => {
                       </div>
                     </div>
                   </div>
-                  <ModalAvailableAccommodation />
+                  <ModalAvailableAccommodation modalData/>
                   <OffcanvusAvailableAccommodation />
                 </div>
               ))}

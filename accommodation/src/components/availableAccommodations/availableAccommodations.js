@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Wrapper, Container } from "../utilityStyles/utilityStyles";
 import "./availableAccommodations.css";
 import Data from "./dummyData";
@@ -26,10 +26,12 @@ import { Link } from "react-router-dom";
 import MapAvailableAccommodations from "./mapAvailableAccommodations";
 import ModalAvailableAccommodation from "./modalAvailableAccommodation";
 import filterLogo from '../../images/filter-logo.svg'
-// import { func } from "prop-types";
-// import { functionTypeAnnotation } from "@babel/types";
+import { MultiStepContext } from "../stepContext/stepContext";
+
 
 const AvailableAccommodations = (props) => {
+  const {availableAccommodations ,setAvailableAccommodations } = useContext(MultiStepContext);
+  console.log(availableAccommodations.accommodations.response);
   const [activeBtn, setActiveBtn] = useState(true);
   const [singleCard,setSingleCard] = useState("");
   const [mapaddress, setMapAddress] = useState("Pinnacle Business Park");
@@ -100,12 +102,12 @@ const AvailableAccommodations = (props) => {
 
  
 
-  const filteredCards = Data.filter(
+  const filteredCards = availableAccommodations.accommodations.response.filter(
     (Data) =>
-      (!filterData.length || filterData.includes(Data.accommodationType)) &&
-      (!houseHabit1.length || houseHabit1.includes(Data.houseHabit1)) &&
-      (!houseHabit2.length || houseHabit2.includes(Data.houseHabit2)) &&
-      (!houseHabit3.length || houseHabit3.includes(Data.houseHabit3)) &&
+      (!filterData.length || filterData.includes(Data.acctypename)) &&
+      (!houseHabit1.length || houseHabit1.includes(Data.issmoking)) &&
+      (!houseHabit2.length || houseHabit2.includes(Data.isdrinking)) &&
+      (!houseHabit3.length || houseHabit3.includes(Data.isnonveg)) &&
       (!distancefilter1.length || (distancefilter1.length!=0 && Data.distance>0 && Data.distance<=2)) &&
       (!distancefilter2.length || (distancefilter2.length!=0 && Data.distance>2 && Data.distance<=5)) &&
       (!distancefilter3.length || (distancefilter3.length!=0 && Data.distance>5 && Data.distance<=8)) &&
@@ -341,7 +343,7 @@ const AvailableAccommodations = (props) => {
               style={{ margin: "0", padding: "0" }}
             >
               {activeBtn === true ? (
-                <MapAvailableAccommodations sendingData={filteredCards}/>
+                <MapAvailableAccommodations AccData={filteredCards}/>
               ) : (
                 <OpenRequirements sendingData={filteredCards} />
               )}
