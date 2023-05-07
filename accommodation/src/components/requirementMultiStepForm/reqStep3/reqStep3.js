@@ -3,13 +3,28 @@ import { FormContainer, Header, Body } from "../../utilityStyles/utilityStyles";
 import Alert from "../../../images/alert.svg"
 import "./reqStep3.css";
 import { MultiStepContext } from "../../stepContext/stepContext";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 const ReqStep3 = () => {
-    const {reqPrevious} = useContext(MultiStepContext)
+    const navigate = useNavigate();
+    const {reqPrevious,requirementData,setRequirementData} = useContext(MultiStepContext)
     function handleReqForm(event) {
       event.preventDefault() ;
-      window.location.href =`/postSuccess`; 
+      
+
+
+      axios.post("https://cg-accommodation.azurewebsites.net/requirement", { requirementData})
+      .then((response) => {
+        console.log(response.data);
+        navigate("/postSuccess");
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+        
+      });
+    
     }
   return (
     <FormContainer>

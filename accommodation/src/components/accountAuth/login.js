@@ -15,8 +15,8 @@ import {
 import {MultiStepContext} from "../stepContext/stepContext";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("gurnoor.toor@cginfinity.com");
+  const [password, setPassword] = useState("Abc@.123");
   const navigate = useNavigate();
   
   const {currentUser,setCurrentUser}=useContext(MultiStepContext);
@@ -96,7 +96,7 @@ const Login = () => {
                         type="email"
                         className="form-control"
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        // onChange={(e) => setEmail(e.target.value)}
                         placeholder="Enter your Email ID"
                       />
                       <label
@@ -110,7 +110,7 @@ const Login = () => {
                         type="password"
                         className="form-control"
                         value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        // onChange={(e) => setPassword(e.target.value)}
                         placeholder="Enter Password"
                       />
 

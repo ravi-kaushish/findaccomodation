@@ -40,7 +40,7 @@ function HorizontalStepper(props) {
                 ariaValuemax="100"
               ></div>
             </div>
-            {console.log(currentWidth)}
+           
           </div>
           <div className="col" style={{marginTop:"1.25rem"}}>
             <p className="step-description">{currentStep.description}</p>

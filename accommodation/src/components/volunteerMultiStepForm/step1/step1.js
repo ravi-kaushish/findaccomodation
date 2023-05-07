@@ -14,57 +14,34 @@ import dummyProfile from "../../../images/dummyProfile.svg";
 import styled from "styled-components";
 
 const Step1 = () => {
-  // useEffect(()=>{
-  //   console.log("Component Mounted") },[])
-  // };
-  // useEffect(()=>{console.log("Componenet Mounted")},[] )
+ 
 
   const { currentIndex, finalData, next, userData, setUserData,currentUser,user } =
     useContext(MultiStepContext);
 
 
-    console.log( currentUser ,"FDeom contxt")
-  const [nearbyAccommodation, setNearbyAccomodation] = useState(false);
-  useEffect(() => {
-    setUserData({ ...userData, NearbyAccommodation: nearbyAccommodation });
-  }, [nearbyAccommodation]);
+    
+  // const [nearbyAccommodation, setNearbyAccomodation] = useState(false);
+  // useEffect(() => {
+  //   setUserData({ ...userData, NearbyAccommodation: nearbyAccommodation });
+  // }, [nearbyAccommodation]);
 
-  const [roommate, setRoommate] = useState(false);
-  useEffect(() => {
-    setUserData({ ...userData, Roommate: roommate });
-  }, [roommate]);
+  // const [roommate, setRoommate] = useState(false);
+  // useEffect(() => {
+  //   setUserData({ ...userData, Roommate: roommate });
+  // }, [roommate]);
+  // const [flatmate, setFlatmate] = useState(false);
 
-  const [flatmate, setFlatmate] = useState(false);
-  useEffect(() => {
-    setUserData({ ...userData, Flatmate: flatmate });
-  }, [flatmate]);
-  // const [personalInfo, setPersonalInfo] = useState({
-  //   CGI: "",
-  //   ContactInfo: "",
-  //   NearbyAccommodationAvailable: "",
-  // });
+ 
 
-  // function setData() {
-  //   console.log(userData);
-  //   setUserData({ ...userData, personalInfo });
-  // }
-
-  // function checkHandler(e) {
-  //   e.target.checked
-  //     ? setNearbyAccomodation(true)
-  //     : setNearbyAccomodation(false);
-  //   setPersonalInfo({
-  //     ...personalInfo,
-  //     NearbyAccommodationAvailable: nearbyAccommodation,
-  //   })
-  //}
 
   function handleCheckboxChange(event) {
-    setNearbyAccomodation(event.target.checked);
+    console.log(event.target.checked);
   }
 
   return (
     <>
+    {/* {console.log(currentUser)} */}
       <FormContainer>
         <Header>
           <p
@@ -107,9 +84,9 @@ const Step1 = () => {
 
                 <div className=" col-md-5" style={{}}>
                   <p className="p_color" style={{ marginBottom: "0" }}>
-                    <strong>{currentUser.response[0].firstname}{currentUser.response[0].lastname} </strong>{" "}
+                    {/* <strong>{currentUser.response[0].firstname} {currentUser.response[0].lastname} </strong> */}
                   </p>
-                  <p className="p_color">{currentUser.response[0].email}</p>
+                  {/* <p className="p_color">{currentUser.response[0].email}</p> */}
                   {/* <input type="file" /> */}
                   <button className="d-flex imgButn">
                     <div className="me-2 d-flex align-items-baseline">
@@ -146,11 +123,11 @@ const Step1 = () => {
                     type="number"
                     placeholder="****"
                     className="form-control"
-                    value={userData["ContactInfo"]}
+                    value={userData["contact"]}
                     onChange={(e) =>
                       setUserData({
                         ...userData,
-                        ContactInfo: e.target.value,
+                        contact: e.target.value,
                       })
                     }
                   />
@@ -169,8 +146,13 @@ const Step1 = () => {
                       class="form-check-input"
                       type="checkbox"
                       id="flexSwitchCheckDefault"
-                      checked={nearbyAccommodation}
-                      onChange={handleCheckboxChange}
+                      checked={ userData["isNearBy"] == undefined ? false :userData["isNearBy"]}
+                      onChange={(e) => {
+                      setUserData({
+                        ...userData,
+                        isNearBy: e.target.checked,
+                      });
+                      console.log(e.target.checked)}}
                     />
                   </div>
                 </div>
@@ -186,10 +168,13 @@ const Step1 = () => {
                       class="form-check-input"
                       type="checkbox"
                       id="flexSwitchCheckDefault"
-                      checked={roommate}
-                      onChange={() => {
-                        setRoommate(!roommate);
-                      }}
+                      checked={ userData["isRoomMate"] == undefined ? false :userData["isRoomMate"]}
+                      onChange={(e) => {
+                      setUserData({
+                        ...userData,
+                        isRoomMate: e.target.checked,
+                      });
+                     }}
                     />
                   </div>
                 </div>
@@ -205,10 +190,13 @@ const Step1 = () => {
                       class="form-check-input"
                       type="checkbox"
                       id="flexSwitchCheckDefault"
-                      checked={flatmate}
-                      onChange={() => {
-                        setFlatmate(!flatmate);
-                      }}
+                      checked={ userData["isFlatMate"] == undefined ? false :userData["isFlatMate"]}
+                      onChange={(e) => {
+                      setUserData({
+                        ...userData,
+                        isFlatMate: e.target.checked,
+                      });
+                     }}
                     />
                   </div>
                 </div>
@@ -235,7 +223,8 @@ const Step1 = () => {
               <div className="row d-flex justify-content-end" style={{marginTop:"3rem"}}>
                 <div className="col-6" style={{padding:"0"}}>
                   <button
-                    onClick={() => {
+                    onClick={(event) => {
+                      event.preventDefault();
                       next();
                       console.log(userData);
                     }}
@@ -250,6 +239,7 @@ const Step1 = () => {
           </div>
         </Body>
       </FormContainer>
+      {/* {console.log(userData)} */}
     </>
   );
 };
