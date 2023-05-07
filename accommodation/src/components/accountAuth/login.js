@@ -41,8 +41,8 @@ const Login = () => {
     const { value } = event.target;
     setPassword(value);
     setIsPasswordValid(
-      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{6,}$/.test(value) ||
-        !value.length >= 6
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$/.test(value) ||
+        !value.length >= 8
         ? true
         : false
     );
@@ -129,7 +129,7 @@ const Login = () => {
                               : "form-control"
                           }
                           value={email}
-                          // onChange={handleEmailChange}
+                          onChange={handleEmailChange}
                           placeholder="Enter your Email ID"
                           required
                         />
@@ -153,7 +153,7 @@ const Login = () => {
                           type="password"
                           className="form-control"
                           value={password}
-                          // onChange={handlePasswordChange}
+                          onChange={handlePasswordChange}
                           placeholder="Enter Password"
                           required
                         />
