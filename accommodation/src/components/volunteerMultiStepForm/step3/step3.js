@@ -3,7 +3,7 @@ import "./step3.css";
 import { MultiStepContext } from "../../stepContext/stepContext";
 import styled from "styled-components";
 import { FormContainer, Header, Body } from "../../utilityStyles/utilityStyles";
-import { func } from "prop-types";
+
 
 const MainContainer = styled.div``;
 

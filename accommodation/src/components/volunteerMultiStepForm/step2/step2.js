@@ -7,8 +7,7 @@ import detectLocation from "../../../images/detectLocation.svg";
 import styled from "styled-components";
 
 const Step2 = () => {
-  const { next, previous, userData, setUserData } =
-    useContext(MultiStepContext);
+  const { next, previous, userData, setUserData } = useContext(MultiStepContext);
 
  
 
@@ -194,8 +193,8 @@ const Step2 = () => {
               
                <div className="col-6">
                 <button
-                  onClick={() => {
-           
+                  onClick={(event) => {
+                    event.preventDefault();
                     next();
              
                   }}
