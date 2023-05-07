@@ -5,13 +5,15 @@ import RequirementStepInfo from "../requirementMultiStepForm/requirementStepInfo
 
 export const MultiStepContext = React.createContext();
 
-const StepContext = () => {
+const StepContext = ({children}) => {
   const [currentIndex, setCurrentIndex] = useState(1);
   const [reqCurrentIndex, setReqCurrentIndex] = useState(1);
   const [greenTick, setGreenTick] = useState(0);
   const [userData, setUserData] = useState([]);
   const [finalData, setFinalData] = useState([]);
-
+  const [currentUser,setCurrentUser]=useState([]);
+  const [requirementData , setRequirementData] = useState([]);
+  let user = "gurnoor"
   function previous() {
     if (currentIndex > 0){
       setCurrentIndex((currentIndex) => currentIndex - 1);
@@ -74,9 +76,15 @@ const StepContext = () => {
         setFinalData,
         submitForm,
         greenTick,
+        setCurrentUser,
+        currentUser,
+        user,
+        requirementData,
+        setRequirementData
+
       }}
     >
-      <App />
+     {children}
     </MultiStepContext.Provider>
   );
 };

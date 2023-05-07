@@ -19,6 +19,13 @@ import RequirementMultiStepForm from "./requirementMultiStepForm/requirementMult
 import OpenAccommodation from "./availableAccommodations/openAccommodation2";
 import ForgotPassOtp from "./accountAuth/forgotPassOtp";
 
+import Changedpassword from "./accountAuth/changedPassword";
+import Registrationsuccessful from "./accountAuth/registrationSuccessful";
+
+import Postrequirement from "./requirementMultiStepForm/postSuccessful";
+import PostSuccessful from "./requirementMultiStepForm/postSuccessful";
+import InternOtp from "./accountAuth/internOpt";
+
 const Home = () => {
   return (
     <Router>
@@ -28,21 +35,32 @@ const Home = () => {
         <Route path="/internsignup" element={<InternSignUp />} />
         <Route path="/employeesignup" element={<EmployeeSignUp />} />
         <Route path="/internverified" element={<InternVerified />} />
-        <Route path="/landingpage" element={<LandingPage user="Gurnoor" />} />
+        <Route path="/landingpage" element={<LandingPage  />} />
         <Route path="/step1" element={<Step1 />} />
         <Route path="/form" element={<VolunteerMultiForm />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/createnewpassword" element={<CreateNewPassword />} />
+        <Route path="/registrationsuccessful" element={<Registrationsuccessful />} />
+        <Route path="/postrequirement" element={<Postrequirement />} />
         <Route
           path="/availableaccommodations"
           element={<AvailableAccommodations />}
         />
 
+
         <Route path="/Nodatapage" element={<Nodatapage />} />
 
         <Route path="/requirementform" element={<RequirementMultiStepForm />} />
         <Route path="/openaccommodation" element={<OpenAccommodation />} />
+
+
+        <Route path="/changedpassword" element={<Changedpassword />} />
+
         <Route path="/forgotpassotp" element={<ForgotPassOtp />} />
+        <Route path="/postSuccess" element={<PostSuccessful />} />
+        <Route path="/internOtp" element={<InternOtp />} />
+        
+
 
       </Routes>
     </Router>

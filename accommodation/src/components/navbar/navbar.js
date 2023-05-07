@@ -3,21 +3,29 @@ import cglogowhite from "../../images/cgLogoWhite.svg";
 import profilePic from "../../images/profilePic.svg";
 import bell from "../../images/bell.svg";
 import dropdownArrow from "../../images/dropdownArrow.svg";
+import { func } from "prop-types";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  function handleLandingPage(event){
+    event.preventDefault();
+    navigate('/landingpage');
+    
+  }
   return (
     <nav
       className="navbar navbar-expand-lg navbar-light"
       style={{ backgroundColor: "#002C3F" }}
     >
       <div className="container-fluid">
-        <a href="#">
+        <Link style={{cursor:"pointer"}} onClick={handleLandingPage}>
           <img
             className="d-inline-block align-text-top"
             style={{ width: "155.81px", height: "35px" }}
             src={cglogowhite}
           />
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"

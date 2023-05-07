@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext} from "react";
 import {
   MainContainer,
   TopContainer,
@@ -18,26 +18,33 @@ import Mail from "../../images/mail.svg";
 import "./landingPage.css";
 import Interest from "../interest/interest";
 import Notification from "../notification/notification";
+import { MultiStepContext } from "../stepContext/stepContext";
+import { useNavigate } from "react-router-dom";
 
-const LandingPage = ({ user }) => {
+
+const LandingPage = () => {
+
+  const navigate = useNavigate();
+  const {currentUser}=useContext(MultiStepContext);
+  console.log(currentUser.response[0].firstname)
   const handleAvailableAccommodation = (event) => {
     event.preventDefault();
-    window.location.href = `/availableaccommodations`;
+    navigate('/availableaccommodations')
   };
 
 
   const handleOpenrequirements = (event) => {
     event.preventDefault();
-    window.location.href = `/openaccommodation`;
+    navigate('/openaccommodation');
   };
   
   const handleVolunteer = (event) => {
     event.preventDefault();
-    window.location.href = `/form`;
+    navigate('/form')
   };
   const handlePostReq = (event) => {
     event.preventDefault();
-    window.location.href = `/requirementform`;
+    navigate('/requirementform');
   };
 
   return (
@@ -50,7 +57,7 @@ const LandingPage = ({ user }) => {
               className="row"
               style={{ paddingBottom: "3.87rem", marginTop: "1.25rem" }}
             >
-              <div className="col-7">
+              <div className="col-8">
                 <p
                   className="landingPage__head-para"
                   style={{
@@ -59,13 +66,13 @@ const LandingPage = ({ user }) => {
                     marginTop: "3.3rem",
                   }}
                 >
-                  Welcome, {user}
+                  Welcome, {currentUser.response[0].firstname}
                 </p>
                 <p className="landingPage__mainheading">
                   Let's find your <b>Accommodation</b>
                 </p>
               </div>
-              <div className="col-md-5" style={{ marginTop: "5.87rem" }}>
+              <div className="col-md-4" style={{ marginTop: "5.87rem" }}>
                 <Button
                   className="btn"
                   style={{
@@ -73,6 +80,7 @@ const LandingPage = ({ user }) => {
                     marginLeft: "3.3rem",
                     marginRight: "2.3rem",
                     padding: "0",
+                    margin:"0"
                   }}
                   onClick={handleAvailableAccommodation}
                 >
@@ -107,8 +115,8 @@ const LandingPage = ({ user }) => {
                   emphasis on privacy and security of an individual.
                 </p>
                 <div className="container-fluid">
-                  <div className="row">
-                    <div className="col">
+                  <div className="row  ">
+                    <div className="col-sm-6 col-12">
                       <Button
                         style={{
                           padding: "0",
@@ -126,14 +134,14 @@ const LandingPage = ({ user }) => {
                         </p>
                       </Button>
                     </div>
-                    <div className="col">
+                    <div className="col-sm-6 col-12">
                       <button style={{marginTop: "1.56rem"}} className="landingPage__result-btn">
                         <p
                           className="landingPage__btn-p"
                           style={{ margin: "1rem 1.5rem 0.8rem" }}
                           onClick={handleOpenrequirements}
                         >
-                          See Open Results
+                          See Open Requests
                         </p>
                       </button>
                     </div>
@@ -189,11 +197,13 @@ const LandingPage = ({ user }) => {
                 <p className="landingPage__head" style={{ color: "black" }}>
                   Notifications
                 </p>
+                <div style={{ boxShadow:"0px 4px 10px rgba(66,76,97,0.15)", borderRadius:"8px" ,paddingBottom:"0.0rem"}}>
                 <div className="col-12" style={{ marginBottom: "1rem" }}>
                   <Notification />
                 </div>
                 <div className="col-12">
                   <Notification />
+                </div>
                 </div>
               </NotificationContainer>
             </DynamicContainer>

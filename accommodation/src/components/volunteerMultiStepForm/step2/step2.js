@@ -7,18 +7,9 @@ import detectLocation from "../../../images/detectLocation.svg";
 import styled from "styled-components";
 
 const Step2 = () => {
-  const { next, previous, userData, setUserData } =
-    useContext(MultiStepContext);
-  const [locality, setLocality] = useState("");
-  const [nearestMetroSt, setNearestMetroSt] = useState("");
-  function handleSave() {
-    setUserData({
-      ...userData,
-      Locality: locality,
-      NearestMetroStation: nearestMetroSt,
-    });
-    console.log(userData);
-  }
+  const { next, previous, userData, setUserData } = useContext(MultiStepContext);
+
+ 
 
   return (
     <>
@@ -130,11 +121,11 @@ const Step2 = () => {
                   </p>
                   <input
                     type="text"
-                    placeholder=""
+                    placeholder="Enter you locality"
                     className="form-control"
-                    value={locality}
+                    value={userData["locality"] }
                     onChange={(e) => {
-                      setLocality(e.target.value);
+                      setUserData({...userData, locality:e.target.value});
                     }}
                   />
                 </div>
@@ -150,9 +141,9 @@ const Step2 = () => {
                     type="text"
                     placeholder=""
                     className="form-control"
-                    value={nearestMetroSt}
+                    value={userData["nearestMetroStation"] == undefined ? "":userData["nearestMetroStation"]}
                     onChange={(e) => {
-                      setNearestMetroSt(e.target.value);
+                      setUserData({...userData,nearestMetroStation:e.target.value});
                     }}
                   />
                 </div>
@@ -202,10 +193,10 @@ const Step2 = () => {
               
                <div className="col-6">
                 <button
-                  onClick={() => {
-                    handleSave();
+                  onClick={(event) => {
+                    event.preventDefault();
                     next();
-                    //   setData();
+             
                   }}
                   style={{width:"100%"}}
                   className="border-0 save-btn "

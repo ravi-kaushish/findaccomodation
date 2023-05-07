@@ -4,12 +4,26 @@ import alert from "../../../images/alert.svg";
 import { MultiStepContext } from "../../stepContext/stepContext";
 import styled from "styled-components";
 import { FormContainer, Header, Body } from "../../utilityStyles/utilityStyles";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const MainContainer = styled.div``;
 
 const Step5 = () => {
-  const { previous, submitForm } = useContext(MultiStepContext);
+  const { previous, submitForm ,userData,setUserData} = useContext(MultiStepContext);
+  const navigate = useNavigate();
   const { activeBtn, setActiveBtn } = useState(true);
+  axios.post("https://cg-accommodation.azurewebsites.net/createAccommodation", { userData})
+  .then((response) => {
+    console.log(response.data);
+    navigate("/postSuccess");
+  })
+  .catch((error) => {
+    console.log(error.response.data);
+    
+  });
+
+
   function btnHandler() {
     setActiveBtn(!activeBtn);
   }
@@ -132,7 +146,7 @@ const Step5 = () => {
                 className="row "
                 style={{
                   marginTop: "1rem",
-                  marginLeft: "0.8rem",
+                  marginLeft: "0rem",
                   marginRight: "2rem",
                 }}
               >
@@ -144,9 +158,9 @@ const Step5 = () => {
                     padding: "0.5rem 0.75rem",
                   }}
                 >
-                  <img src={alert} alt="" className="" />
-                  <p className="" style={{ marginBottom: "0" }}>
-                    Please provide this information after your landlord’s
+                  <img src={alert} alt="" className="" style={{marginRight:"4px"}}/>
+                  <p className="" style={{ marginBottom: "0"}}>
+                    Please provide this information after your landlord's
                     consent.
                   </p>
                 </div>

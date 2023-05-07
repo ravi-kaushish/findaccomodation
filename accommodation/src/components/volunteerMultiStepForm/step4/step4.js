@@ -7,7 +7,7 @@ import { FormContainer, Header, Body } from "../../utilityStyles/utilityStyles";
 const MainContainer = styled.div``;
 
 const Step4 = () => {
-  const { next, previous } = useContext(MultiStepContext);
+  const { next, previous ,userData , setUserData } = useContext(MultiStepContext);
   return (
     <>
       <FormContainer>
@@ -60,6 +60,9 @@ const Step4 = () => {
                     name="interest"
                     value="coding"
                     className=""
+                    checked = {userData["amenities.wifi"]}
+                    onChange={(e)=>{setUserData({...userData, amenities :{wifi:e.target.value}})}}
+                    
                   />
                   <label
                     className="Step4__label-text"
@@ -74,6 +77,8 @@ const Step4 = () => {
                     id="music"
                     name="interest"
                     value="music"
+                    checked = {userData["amenities.food"]}
+                    onChange={(e)=>{setUserData({...userData, amenities :{food:e.target.value}})}}
                   />
                   <label
                     className="Step4__label-text"
@@ -88,6 +93,8 @@ const Step4 = () => {
                     id="music"
                     name="interest"
                     value="music"
+                    checked = {userData["amenities.induction"]}
+                    onChange={(e)=>{setUserData({...userData, amenities :{induction:e.target.value}})}}
                   />
                   <label
                     className="Step4__label-text"
@@ -102,6 +109,8 @@ const Step4 = () => {
                     id="music"
                     name="interest"
                     value="music"
+                    checked = {userData["amenities.ac"]}
+                    onChange={(e)=>{setUserData({...userData, amenities :{ac:e.target.value}})}}
                   />
                   <label
                     className="Step4__label-text"
@@ -116,6 +125,8 @@ const Step4 = () => {
                     id="music"
                     name="interest"
                     value="music"
+                    checked = {userData["amenities.geyser"]}
+                    onChange={(e)=>{setUserData({...userData, amenities :{geyser:e.target.value}})}}
                   />
                   <label
                     className="Step4__label-text"
@@ -130,6 +141,8 @@ const Step4 = () => {
                     id="music"
                     name="interest"
                     value="music"
+                    checked = {userData["amenities.cleanliness"]}
+                    onChange={(e)=>{setUserData({...userData, amenities :{cleanliness:e.target.value}})}}
                   />
                   <label
                     className="Step4__label-text"
@@ -144,6 +157,8 @@ const Step4 = () => {
                     id="music"
                     name="interest"
                     value="music"
+                    checked = {userData["amenities.washingMachine"]}
+                    onChange={(e)=>{setUserData({...userData, amenities :{washingMachine:e.target.value}})}}
                   />
                   <label
                     className="Step4__label-text"
@@ -158,6 +173,8 @@ const Step4 = () => {
                     id="music"
                     name="interest"
                     value="music"
+                    checked = {userData["amenities.parking_2w"]}
+                    onChange={(e)=>{setUserData({...userData, amenities :{parking_2w:e.target.value}})}}
                   />
                   <label
                     className="Step4__label-text"
@@ -172,6 +189,8 @@ const Step4 = () => {
                     id="music"
                     name="interest"
                     value="music"
+                    checked = {userData["amenities.parking_4w"]}
+                    onChange={(e)=>{setUserData({...userData, amenities :{parking_4w:e.target.value}})}}
                   />
                   <label
                     className="Step4__label-text"

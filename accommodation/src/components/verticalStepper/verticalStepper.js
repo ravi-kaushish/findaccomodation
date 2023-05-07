@@ -18,7 +18,7 @@ function VerticalStepper(props) {
 
   let element = null;
 
-  console.log(props.call);
+  
   const { currentIndex, reqCurrentIndex ,greenTick} = useContext(MultiStepContext);
   const stepsList = VolunteerStepInfo.map((currentStep) => (
     <StepContainer

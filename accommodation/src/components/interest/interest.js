@@ -16,14 +16,15 @@ const Interest = () => {
                 <img className="img-fluid" src={interest} />
               </div>
               <div>
-                <a>Nakul Bagchi</a>
-                <p>CGI 154</p>
+                <a>Nakul Bagchi <span>&gt;</span></a>
+                <p style={{color:"#8E8E92" ,fontSize:"0.8rem"}}>CGI 154</p>
+               
               </div>
             </div>
           </div>
           <div className="col-12" style={{marginBottom:"1rem"}}>
             <p className="interest__para" style={{marginBottom:"0.3rem"}}>LandMark : Block B, Sector 15 Noida</p>
-            <a  className="a-link" >View On Map</a>
+            <a  className="a-link"style={{color:"#007FD3"}} ><p className="interest__a-p" style={{marginBotton:"0"}}>View on Map</p></a>
           </div>
         </div>
       </div>

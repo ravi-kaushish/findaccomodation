@@ -5,7 +5,7 @@ import { MultiStepContext } from "../../stepContext/stepContext";
 import "./reqStep1.css";
 
 const ReqStep1 = () => {
-  const { reqCurrentIndex, reqNext } = useContext(MultiStepContext);
+  const { reqCurrentIndex, reqNext , requirementData,setRequirementData } = useContext(MultiStepContext);
   console.log(reqCurrentIndex);
 
   return (
@@ -54,7 +54,8 @@ const ReqStep1 = () => {
             >
               Locality
             </label>
-            <input id="locality" className="form-control" type="text" />
+            <input id="locality" className="form-control" type="text" placeholder="Locality"
+            value={requirementData["locality"]} onChange={(e)=>setRequirementData({...requirementData, locality : e.target.value})}/>
           </div>
           <div className="form-group" style={{ marginTop: "2rem" }}>
             <label
@@ -62,9 +63,11 @@ const ReqStep1 = () => {
               style={{ marginBottom: "0.375rem" }}
               className="reqStep1__label-h"
             >
-              Contact No
+              Contact No.
             </label>
-            <input id="contactInfo" className="form-control" type="tel" />
+            <input id="contactInfo" className="form-control" type="tel" placeholder="Contact No."
+              value={requirementData["contact"]} onChange={(e)=>setRequirementData({...requirementData, contact : e.target.value})}
+            />
           </div>
           <div className="form-group" style={{ marginTop: "2rem" }}>
             <label
@@ -74,7 +77,9 @@ const ReqStep1 = () => {
             >
               Preferred Relocation Date
             </label>
-            <input id="relocationDate" className="form-control" type="date" />
+            <input id="relocationDate" className="form-control" type="date" 
+              value={requirementData["relocationDate"]} onChange={(e)=>setRequirementData({...requirementData, relocationDate : e.target.value})}
+            />
           </div>
           <div className="row justify-content-end"  style={{marginTop: "17.75rem"}}>
             <div className="col-6">
