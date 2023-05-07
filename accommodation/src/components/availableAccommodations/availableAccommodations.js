@@ -25,6 +25,7 @@ import NoDataaPage from "./noDataaPage";
 import { Link } from "react-router-dom";
 import MapAvailableAccommodations from "./mapAvailableAccommodations";
 import ModalAvailableAccommodation from "./modalAvailableAccommodation";
+import filterLogo from '../../images/filter-logo.svg'
 // import { func } from "prop-types";
 // import { functionTypeAnnotation } from "@babel/types";
 
@@ -50,10 +51,26 @@ const AvailableAccommodations = (props) => {
   };
   function handleToggleAvailable() {
     setActiveBtn(true);
+    setFilterData([]);
+    setHouseHabit1([]);
+    setHouseHabit2([]);
+    setHouseHabit3([]);
+    setDistancefilter1([]);
+    setDistancefilter2([]);
+    setDistancefilter3([]);
+    setDistancefilter4([]);
     console.log(activeBtn);
   }
   function handleToggleRequire() {
     setActiveBtn(false);
+    setFilterData([]);
+    setHouseHabit1([]);
+    setHouseHabit2([]);
+    setHouseHabit3([]);
+    setDistancefilter1([]);
+    setDistancefilter2([]);
+    setDistancefilter3([]);
+    setDistancefilter4([]);
     console.log(activeBtn);
   }
   function sendAccomoData(data) {
@@ -242,7 +259,7 @@ const AvailableAccommodations = (props) => {
                             class="form d-flex border w-150 px-3"
                             style={{
                               backgroundColor: "#ffffff",
-                              borderRadius: "4px",
+                              borderRadius: "0.25rem",
                               padding: "0",
                             }}
                           >
@@ -271,7 +288,7 @@ const AvailableAccommodations = (props) => {
                             class="form d-flex border w-150 px-3"
                             style={{
                               backgroundColor: "#ffffff",
-                              borderRadius: "4px",
+                              borderRadius: "0.25rem",
                               padding: "0",
                             }}
                           >
@@ -288,11 +305,11 @@ const AvailableAccommodations = (props) => {
                               placeholder="Select locality"
                             />
                           </div>
-                        </div>
+                        </div>  }
 
 
-          }
                         
+                        {/* <span>gbdgt</span> */}
                         {activeBtn === true ? (
                           <CheckboxFilterAcco
                             sendData={sendAccomoData}
