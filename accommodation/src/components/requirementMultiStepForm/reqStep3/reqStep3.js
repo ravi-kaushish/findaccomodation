@@ -1,18 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FormContainer, Header, Body } from "../../utilityStyles/utilityStyles";
 import Alert from "../../../images/alert.svg";
 import "./reqStep3.css";
 import { MultiStepContext } from "../../stepContext/stepContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
 
 const ReqStep3 = () => {
+  const userData = localStorage.getItem("userData")
+  
+  const [data,setData] = useState(JSON.parse(userData));
+  const [userId,setuserId] = useState(data.id);
   const navigate = useNavigate();
   const { reqPrevious, requirementData, setRequirementData } =
     useContext(MultiStepContext);
     
   function handleReqForm(event) {
-    event.preventDefault();
+    
+    console.log(requirementData)
 
     axios
       .post("https://cg-accommodation.azurewebsites.net/requirement", {
@@ -118,7 +123,7 @@ const ReqStep3 = () => {
               <p
                 className="reqStep__btn-p "
                 style={{ margin: "5% 0" }}
-                onClick={handleReqForm}
+                onClick={()=>{ setRequirementData({...requirementData,id:userId});handleReqForm();}}
               >
                 Save
               </p>

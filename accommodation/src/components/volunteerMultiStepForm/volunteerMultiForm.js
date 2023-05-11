@@ -17,8 +17,10 @@ import { MultiStepContext } from "../stepContext/stepContext";
 import HorizontalStepper from "../horizontalStepper/horizontalStepper";
 
 const VolunteerMultiForm = () => {
+
   const { currentIndex } = useContext(MultiStepContext);
   function currentStep(step) {
+   
     switch (step) {
       case 1:
         return <Step1 />;
@@ -47,7 +49,7 @@ const VolunteerMultiForm = () => {
           >
             <div className="row" style={{ width: "100%", height: "100vh" }}>
               <div className="col-5  d-sm-flex d-none ">
-                <VerticalStepper />
+                <VerticalStepper call=""/>
               </div>
               <div
                 className="col-12 col-sm-7 form"

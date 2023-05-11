@@ -136,22 +136,26 @@ const ReqStep2 = () => {
                   BHK TYPE
                 </p>
               </div>
-
-              <div className="  col-sm-2 col-md-4 reqStep2__div">
-                <p>1 RK</p>
+              <div className="row g-2">
+              <div className="  col-sm-2 col-md-3 reqStep2__div text-center " >
+                <p style={{margin:"0.75rem"}}>1 RK</p>
               </div>
-              <div className="  col-sm-2 col-md-4  reqStep2__div">
-                <p>1 BHK</p>
+              <div className="  col-sm-2 col-md-3  reqStep2__div text-center mx-2">
+                <p style={{margin:"0.75rem"}}>1 BHK</p>
               </div>
-              <div className="  col-sm-2 col-md-4 reqStep2__div">
-                <p>2 BHK</p>
+              <div className="  col-sm-2 col-md-3 reqStep2__div text-center">
+                <p style={{margin:"0.75rem"}}>2 BHK</p>
               </div>
-              <div className="  col-sm-2 col-md-4 reqStep2__div">
+              <div className="  col-sm-2 col-md-3 reqStep2__div text-center mx-2">
                 <p>3 BHK</p>
               </div>
-              <div className=" col-sm-42 col-md-4 reqStep2__div">
+              <div className=" col-sm-42 col-md-3 reqStep2__div text-center">
                 <p>4 BHK</p>
               </div>
+
+              </div>
+
+            
             </div>
             <div className="row" style={{ marginBottom: "1.5rem" }}>
               <div className="col-12 ">
@@ -164,13 +168,13 @@ const ReqStep2 = () => {
                 </p>
               </div>
 
-              <div className="  col-sm-2 col-md-4 reqStep2__div">
+              <div className="  col-sm-2 col-md-4 text-center reqStep2__div">
                 <p>Fully Furnished</p>
               </div>
-              <div className="  col-sm-2 col-md-4  reqStep2__div">
+              <div className="  col-sm-2 col-md-4   text-center reqStep2__div">
                 <p>Semi Furnished</p>
               </div>
-              <div className="  col-sm-2 col-md-4 reqStep2__div">
+              <div className="  col-sm-2 col-md-4 text-center reqStep2__div">
                 <p>Unfurnished</p>
               </div>
             </div>
@@ -250,7 +254,7 @@ const ReqStep2 = () => {
               <button
                 type="button"
                 className="reqStep2__btn-next"
-                onClick={reqNext}
+                onClick={()=>{reqNext();console.log(requirementData)}}
                 style={{ width: "100%" }}
               >
                 <p className="reqStep__btn-p " style={{ margin: "5% 0" }}>

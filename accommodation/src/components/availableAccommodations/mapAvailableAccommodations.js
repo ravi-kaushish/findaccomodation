@@ -43,12 +43,9 @@ const MapAvailableAccommodations = (props) => {
   }
   return (
     <>
-      <div
-        className="container-fluid"
-        style={{ margin: "0", padding: "0" }}
-      ></div>
+      
       <div className="row ">
-        <div className="col-4 col-sm-0 d-none d-sm-block">
+        <div className="col-4 col-sm-0 d-none d-md-flex">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.679789251819!2d77.31854831452182!3d28.579376693236757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce45a79d0f4b9%3A0x8865fb53ffb94e5a!2sPinnacle%20Business%20Park!5e0!3m2!1sen!2sin!4v1681135487004!5m2!1sen!2sin"
             width="100%"
@@ -63,13 +60,13 @@ const MapAvailableAccommodations = (props) => {
         <div
           className={
             props.AccData.length > 0
-              ? "scrollbar col-8"
-              : "col-8 no_data_box"
+              ? "scrollbar col-md-8"
+              : " no_data_box col-8"
           }
           style={{ backgroundColor: "#F5F5F5" }}
         >
           {props.AccData.length > 0 ? (
-            <div className=" row row-cols-2">
+            <div className=" row row-cols-sm-2">
               {props.AccData.map((data, index) => (
                 <div key={data.id}>
                   <div

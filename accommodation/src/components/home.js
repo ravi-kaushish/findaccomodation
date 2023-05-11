@@ -28,6 +28,7 @@ import MapAvailableAccommodations from "./availableAccommodations/mapAvailableAc
 
 import PostSuccessful from "./requirementMultiStepForm/postSuccessful";
 import InternOtp from "./accountAuth/internOpt";
+import Step3 from "./volunteerMultiStepForm/step3/step3";
 
 const Home = () => {
   return (
@@ -45,7 +46,8 @@ const Home = () => {
         <Route path="/createnewpassword" element={<CreateNewPassword />} />
         <Route path="/registrationsuccessful" element={<Registrationsuccessful />} />
         <Route path="/postrequirement" element={<Postrequirement />} />
-        <Route path="/availableaccommodations" element={<AvailableAccommodations />} />
+        <Route path="/availableaccommodationsonly" element={<AvailableAccommodations activebtn={true} />} />
+        <Route path="/availableaccommodationsreq" element={<AvailableAccommodations activebtn={false} />} />
 
 
         <Route path="/Nodatapage" element={<Nodatapage />} />
@@ -60,6 +62,8 @@ const Home = () => {
         <Route path="/forgotpassotp" element={<ForgotPassOtp />} />
         <Route path="/postSuccess" element={<PostSuccessful />} />
         <Route path="/internOtp" element={<InternOtp />} />
+        <Route path="/step3" element={<Step3 />} />
+
         
 
 

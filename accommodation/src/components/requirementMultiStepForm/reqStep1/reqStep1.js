@@ -83,7 +83,8 @@ const ReqStep1 = () => {
           </div>
           <div className="row justify-content-end"  style={{marginTop: "17.75rem"}}>
             <div className="col-6">
-            <button style={{width:"100%"}} className="reqStep1__btn" type="button" onClick={()=>{reqNext();}}>
+            <button style={{width:"100%"}} className="reqStep1__btn" type="button" onClick={()=>{reqNext();
+            console.log(requirementData)}}>
               <p className="reqStep__btn-p" style={{ margin: "5% 0" }}> Save & Next</p>
             </button>
 

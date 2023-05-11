@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import cglogowhite from "../../images/cgLogoWhite.svg";
 import profilePic from "../../images/profilePic.svg";
 import bell from "../../images/bell.svg";
 import dropdownArrow from "../../images/dropdownArrow.svg";
 import { func } from "prop-types";
 import { Link, useNavigate } from "react-router-dom";
+import "./navbar.css";
+import { MultiStepContext } from "../stepContext/stepContext";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  function handleLandingPage(event){
+  const { currentUser } = useContext(MultiStepContext);
+  function handleLandingPage(event) {
     event.preventDefault();
-    navigate('/landingpage');
-    
+    navigate("/landingpage");
   }
   return (
     <nav
@@ -19,7 +21,7 @@ const Navbar = () => {
       style={{ backgroundColor: "#002C3F" }}
     >
       <div className="container-fluid">
-        <Link style={{cursor:"pointer"}} onClick={handleLandingPage}>
+        <Link style={{ cursor: "pointer" }} onClick={handleLandingPage}>
           <img
             className="d-inline-block align-text-top"
             style={{ width: "155.81px", height: "35px" }}
@@ -56,11 +58,13 @@ const Navbar = () => {
               >
                 <img className="mx-2" src={profilePic}></img>
                 <img src={dropdownArrow}></img>
+                
               </a>
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+
+              {/* <ul className="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdown">
                 <li>
                   <a className="dropdown-item" href="#">
-                    Action
+                  {currentUser.response[0].firstname} 
                   </a>
                 </li>
                 <li>
@@ -76,7 +80,35 @@ const Navbar = () => {
                     Something else here
                   </a>
                 </li>
-              </ul>
+              </ul> */}
+              <div
+                class="dropdown-menu dropdown-menu-right"
+                aria-labelledby="navbarDropdown"
+                sx={{width:'2px'}}
+              >
+                <a class="dropdown-item">
+                  <strong>Register</strong>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <strong>Profile</strong>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <strong>My Jobs</strong>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <strong>My Searches</strong>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <strong>Employer Dashboard</strong>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <strong>Login</strong>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-divider"></div>
+                  <strong>Logout</strong>
+                </a>
+              </div>
             </li>
           </ul>
           {/* <form class="d-flex">

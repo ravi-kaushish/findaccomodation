@@ -22,9 +22,15 @@ import OpenRequirements from "./openRequirements";
 import CheckboxFilterAcco from "./checkboxFilterAcco";
 import CheckboxFilterReq from "./checkboxFilterReq";
 import NoDataaPage from "./noDataaPage";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const ModalAvailableAccommodation = (props) => {
+  const navigate = useNavigate();
+
+  const userData = localStorage.getItem("userData")
+  const [data,setData] = useState(JSON.parse(userData));
+
   const [message, setMessage] = useState("");
 
   const handlemessageText = (event) => {
@@ -36,11 +42,23 @@ const ModalAvailableAccommodation = (props) => {
     console.log(data);
   };
 
-
-
   const handleModalbtn = () => {
-    props.sendData("clicked");
-  }
+    
+    setTimeout(() => {
+      axios
+        .post("https://cg-accommodation.azurewebsites.net/", {})
+        .then((response) => {
+          console.log(response.data);
+
+          
+
+          navigate("/landingpage");
+        })
+        .catch((error) => {
+          console.log(error.response.data);
+        });
+    }, 60000);
+  };
 
   return (
     <>
@@ -87,7 +105,7 @@ const ModalAvailableAccommodation = (props) => {
                             fontWeight: "700",
                           }}
                         >
-                          {/* {data.fullName} */}
+                           {data.firstName} {data.lastName} 
                         </p>
                       </div>
                       <div className="d-flex">
@@ -212,7 +230,7 @@ const ModalAvailableAccommodation = (props) => {
                         width: "10%",
                       }}
                     >
-                      <input  />
+                      <input />
                     </div>
                   </div>
                 </div>

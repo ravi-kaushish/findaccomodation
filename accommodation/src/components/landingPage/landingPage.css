@@ -2,32 +2,32 @@
   font-family: "Lato";
   font-style: normal;
   font-weight: 400;
-  font-size: 48px;
-  line-height: 58px;
+  font-size: 3rem;
+  line-height: 3.375rem;
 }
 
 .landingPage__head-para {
   font-family: "Lato";
   font-style: normal;
   font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
 }
 
 .landingPage__btn-p {
   font-family: "Lato";
   font-style: normal;
   font-weight: 700;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1.12rem;
+  line-height: 1.375rem;
 }
 
 .landingPage__mid-p {
   font-family: "Lato";
   font-style: normal;
   font-weight: 400;
-  font-size: 32px;
-  line-height: 38px;
+  font-size: 2rem;
+  line-height: 2.375rem;
 }
 
 .landingPage__p {
@@ -42,23 +42,33 @@
   font-family: "Lato";
   font-style: normal;
   font-weight: 700;
-  font-size: 22px;
-  line-height: 26px;
+  font-size: 1.125rem;
+  line-height: 1.6rem;
 }
 
 .landingPage__dyn-p {
   font-family: "Lato";
   font-style: normal;
   font-weight: 700;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1rem;
+  line-height: 1.18rem;
 }
 
 .landingPage__result-btn {
   background: #ffffff;
   border: 2px solid #343435;
-  border-radius: 50px;
+  border-radius: 3.15rem;
 }
+.acc-btn{
+  margin-top: 5.87rem;
+}
+
 @media  (max-width:576px) {
+  .acc-btn{
+    margin-top: 1.8rem;
+  }
+  .result-btn{
+    margin-bottom: 2rem;
+  }
   
 }

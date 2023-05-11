@@ -1,4 +1,4 @@
-import React,{useContext, useEffect} from "react";
+import React,{useContext, useEffect, useState} from "react";
 import {
   MainContainer,
   TopContainer,
@@ -24,11 +24,29 @@ import axios from "axios";
 
 
 const LandingPage = () => {
+  const [interestData,setInterestData] = useState([]);
 
 
   const navigate = useNavigate();
 
   const {currentUser,availableAccommodations,setAvailableAccommodations}=useContext(MultiStepContext);
+  
+  const userData = localStorage.getItem("userData")
+  
+  const [data,setData] = useState(JSON.parse(userData));
+
+  useEffect(()=>{
+    axios.get('https://cg-accommodation.azurewebsites.net/')
+    .then(response =>{
+
+    })
+    .catch(error =>{
+      console.log(error)
+    })
+  },[])
+
+
+  
 
 
   const handleAvailableAccommodation = (event) => {
@@ -36,9 +54,9 @@ const LandingPage = () => {
     axios.get('https://cg-accommodation.azurewebsites.net/getAllAcc')
     .then(response => {
       // Handle Success
-      console.log(response.data);
-      setAvailableAccommodations({...availableAccommodations,accommodations:response.data})
-      navigate('/availableaccommodations')
+      // console.log(response.data);
+      // setAvailableAccommodations({...availableAccommodations,accommodations:response.data})
+      navigate('/availableaccommodationsonly')
 
     })
     .catch(error => {
@@ -52,7 +70,8 @@ const LandingPage = () => {
 
   const handleOpenrequirements = (event) => {
     event.preventDefault();
-    navigate('/openaccommodation');
+    
+    navigate('/availableaccommodationsreq');
   };
   
   const handleVolunteer = (event) => {
@@ -83,13 +102,13 @@ const LandingPage = () => {
                     marginTop: "3.3rem",
                   }}
                 >
-                  Welcome, {currentUser.response[0].firstname}
+                  Welcome, {data.firstName} {data.lastName}
                 </p>
                 <p className="landingPage__mainheading">
                   Let's find your <b>Accommodation</b>
                 </p>
               </div>
-              <div className="col-md-4" style={{ marginTop: "5.87rem" }}>
+              <div className="col-md-4 acc-btn" >
                 <Button
                   className="btn"
                   style={{
@@ -151,10 +170,10 @@ const LandingPage = () => {
                         </p>
                       </Button>
                     </div>
-                    <div className="col-sm-6 col-12">
+                    <div className="col-sm-6 col-12 result-btn">
                       <button style={{marginTop: "1.56rem"}} className="landingPage__result-btn">
                         <p
-                          className="landingPage__btn-p"
+                          className="landingPage__btn-p "
                           style={{ margin: "1rem 1.5rem 0.8rem" }}
                           onClick={handleOpenrequirements}
                         >
@@ -198,7 +217,7 @@ const LandingPage = () => {
                   Interest Sent
                 </p>
 
-                <div className="row row-cols-sm-2 ">
+                {/* <div className="row row-cols-sm-2 ">
                   <div className="col-sm">
                     <Interest />
                   </div>
@@ -208,6 +227,9 @@ const LandingPage = () => {
                   <div className="col-sm">
                     <Interest />
                   </div>
+                </div> */}
+                <div className="col">
+                  <Interest />
                 </div>
               </ShortlistContainer>
               <NotificationContainer className=" col-md">
