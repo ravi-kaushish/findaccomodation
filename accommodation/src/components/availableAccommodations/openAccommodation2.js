@@ -23,6 +23,7 @@ import CheckboxFilterAcco from "./checkboxFilterAcco";
 import CheckboxFilterReq from "./checkboxFilterReq";
 import NoDataaPage from "./noDataaPage";
 import { Link } from "react-router-dom";
+import axios from "axios";
 // import { functionTypeAnnotation } from "@babel/types";
 
 const OpenAccommodation = (props) => {
@@ -36,13 +37,33 @@ const OpenAccommodation = (props) => {
   const [distancefilterdummy, setDistancefilterdummy] = useState(Data);
   const [distancefilter, setDistancefilter] = useState("");
 
-  const queryParameters = new URLSearchParams(window.location.search)
-  let type = queryParameters.get("call")
+  const[openReqData,setOpenReqData] = useState();
 
+  async function handleOpenReq() {
+    await axios
+      .get("https://cg-accommodation.azurewebsites.net/allRequirement")
+      .then((response) => {
+        // Handle Success
+        console.log(response.data.response);
+        console.log("inside handleOpenReq");
+        setOpenReqData(response.data.response);
+      })
+      .catch((error) => {
+        // Handle error
+        console.log(error);
+      });
+  }
+
+  const queryParameters = new URLSearchParams(window.location.search);
+  let type = queryParameters.get("call");
+
+  useEffect(()=>{
+    handleOpenReq();
+  },[])
 
   useEffect(() => {
     setDistancefilter(
-      Data.filter((Data) => {
+      openReqData.filter((Data) => {
         const distance = Data.distance;
         return distancefilterdummy.some((range) => {
           if (range === "0-2") {
@@ -57,7 +78,9 @@ const OpenAccommodation = (props) => {
         });
       })
     );
-  }, [distancefilterdummy, Data]);
+  }, [distancefilterdummy, openReqData]);
+
+
 
   const handlemessageText = (event) => {
     const { value } = event.target;
@@ -103,7 +126,7 @@ const OpenAccommodation = (props) => {
     setDistancefilterdummy(data);
   }
 
-  const filteredCards = Data.filter(
+  const filteredCards = openReqData.filter(
     (Data) =>
       (!filterData.length || filterData.includes(Data.accommodationType)) &&
       (!houseHabit1.length || houseHabit1.includes(Data.houseHabit1)) &&
@@ -112,11 +135,10 @@ const OpenAccommodation = (props) => {
       (!distancefilter.length || distancefilter.includes(Data.distancefilter))
   );
 
-
   return (
     <>
       <Navbar />
-      <Wrapper >
+      <Wrapper>
         <Container>
           <div
             className="container-fluid"
@@ -142,7 +164,6 @@ const OpenAccommodation = (props) => {
                       </Link>
                     </div>
                     <div className="">
-                      
                       {activeBtn === true ? (
                         <p
                           className="text-secondary mt-3"
@@ -244,31 +265,29 @@ const OpenAccommodation = (props) => {
                     <div className="col">
                       <div className="row mb-2">
                         <div className="col-4">
-                          
-                            <div
-                              class="form d-flex border w-150 px-3"
-                              style={{
-                                backgroundColor: "#ffffff",
-                                borderRadius: "4px",
-                                padding:"0"
-                              }}
-                            >
-                              <span className="mt-1">
-                                <img src={location}></img>
-                              </span>
+                          <div
+                            class="form d-flex border w-150 px-3"
+                            style={{
+                              backgroundColor: "#ffffff",
+                              borderRadius: "4px",
+                              padding: "0",
+                            }}
+                          >
+                            <span className="mt-1">
+                              <img src={location}></img>
+                            </span>
 
-                              <input
-                                type="text"
-                                class="form-control form-input no-border"
-                                value={activeBtn === true ? mapaddress : ""}
-                                onChange={findAddressmap}
-                                style={{ border: "none", outlineStyle: "none" }}
-                              />
-                              <span class="left-pan mt-1">
-                                <img src={search} alt="img" />
-                              </span>
-                            </div>
-                          
+                            <input
+                              type="text"
+                              class="form-control form-input no-border"
+                              value={activeBtn === true ? mapaddress : ""}
+                              onChange={findAddressmap}
+                              style={{ border: "none", outlineStyle: "none" }}
+                            />
+                            <span class="left-pan mt-1">
+                              <img src={search} alt="img" />
+                            </span>
+                          </div>
                         </div>
                         {activeBtn === true ? (
                           <CheckboxFilterAcco
@@ -360,7 +379,15 @@ const OpenAccommodation = (props) => {
 
                                 <div className="d-flex mb-2">
                                   <img src={gps} alt="" />
-                                  <p className="mb-0 ms-1" style={{fontWeight:'500' , color:'#007FD3'}}>View on Map</p>
+                                  <p
+                                    className="mb-0 ms-1"
+                                    style={{
+                                      fontWeight: "500",
+                                      color: "#007FD3",
+                                    }}
+                                  >
+                                    View on Map
+                                  </p>
                                 </div>
                                 <div className="d-flex mb-3">
                                   <div className="me-3 nearby-location">
@@ -582,7 +609,12 @@ const OpenAccommodation = (props) => {
                                               Offer Incentive:
                                             </p>
                                           </div>
-                                          <div style={{marginLeft:'0.37rem' , width:'10%'}}>
+                                          <div
+                                            style={{
+                                              marginLeft: "0.37rem",
+                                              width: "10%",
+                                            }}
+                                          >
                                             <input />
                                           </div>
                                         </div>
@@ -611,7 +643,6 @@ const OpenAccommodation = (props) => {
                                             ></textarea>
                                           </div>
                                           <div>
-        
                                             <button
                                               className="border-0 py-2 px-3 w-100 interested"
                                               data-bs-toggle="modal"
@@ -627,8 +658,6 @@ const OpenAccommodation = (props) => {
                                 </div>
                               </div>
                             </div>
-
-
 
                             <div
                               className="offcanvas offcanvas-end"

@@ -14,6 +14,7 @@ const StepContext = ({ children }) => {
   const [currentUser, setCurrentUser] = useState([]);
   const [requirementData, setRequirementData] = useState([{ accTypeId: 1 }]);
   const [availableAccommodations, setAvailableAccommodations] = useState([]);
+ 
   let user = "gurnoor";
   function previous() {
     if (currentIndex > 0) {
@@ -25,8 +26,10 @@ const StepContext = ({ children }) => {
   }
   function next() {
     if (currentIndex < VolunteerStepInfo.length) {
+      
       setCurrentIndex((currentIndex) => currentIndex + 1);
       setGreenTick((greenTick) => greenTick + 1);
+
     } else {
       return currentIndex;
     }

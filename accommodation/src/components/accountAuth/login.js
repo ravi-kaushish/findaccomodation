@@ -55,10 +55,19 @@ const Login = () => {
         password,
       })
       .then((response) => {
-        console.log(response.data);
+        const res = {
+          token:response.data.token,
+          email:response.data.response[0].email,
+          id:response.data.response[0].id,
+          firstName:response.data.response[0].firstname,
+          lastName:response.data.response[0].lastname,
+          lastLogin:response.data.response[0].lastlogin
+        };
+        console.log(response.data.response[0].id);
+        console.log(response.data)
         setCurrentUser(response.data);
         localStorage.setItem("token", response.data.token);
-        localStorage.setItem("email", email);
+        localStorage.setItem('userData', JSON.stringify(res));
 
         navigate("/landingpage");
       })
@@ -79,7 +88,7 @@ const Login = () => {
               display: "flex",
               alignItems: "flex-start",
             },
-          }}
+          }} 
         >
           <div className="row main-row " style={{ height: "35.75rem" }}>
             <LeftContainer className="col-6 d-sm-flex d-none ">
@@ -118,6 +127,7 @@ const Login = () => {
                   <p style={{ color: "black" }} className=" d-sm-none d-flex">
                     This is an online platform that helps other to find
                     accommodation
+                    {console.log(localStorage.getItem("userData.email"))}
                   </p>
                 </div>
               </div>

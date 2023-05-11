@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Wrapper, Container } from "../utilityStyles/utilityStyles";
 import "./availableAccommodations.css";
 import Data from "./dummyData";
@@ -25,15 +25,56 @@ import NoDataaPage from "./noDataaPage";
 import { Link } from "react-router-dom";
 import MapAvailableAccommodations from "./mapAvailableAccommodations";
 import ModalAvailableAccommodation from "./modalAvailableAccommodation";
-import filterLogo from '../../images/filter-logo.svg'
+import filterLogo from "../../images/filter-logo.svg";
 import { MultiStepContext } from "../stepContext/stepContext";
-
+import axios from "axios";
 
 const AvailableAccommodations = (props) => {
-  const {availableAccommodations ,setAvailableAccommodations } = useContext(MultiStepContext);
-  console.log(availableAccommodations.accommodations.response);
-  const [activeBtn, setActiveBtn] = useState(true);
-  const [singleCard,setSingleCard] = useState("");
+  const { availableAccommodations, setAvailableAccommodations } =
+    useContext(MultiStepContext);
+
+  const [data, setData] = useState();
+  const [openReqData, setOpenReqData] = useState();
+
+  async function handleRefresh() {
+    await axios
+      .get("https://cg-accommodation.azurewebsites.net/getAllAcc")
+      .then((response) => {
+        console.log(response.data.response);
+        console.log("inside handleRefresh");
+        setData(response.data.response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  async function handleOpenReq() {
+    await axios
+      .get("https://cg-accommodation.azurewebsites.net/allRequirement")
+      .then((response) => {
+        // Handle Success
+        console.log(response.data.response);
+        console.log("inside handleOpenReq");
+        setOpenReqData(response.data.response);
+      })
+      .catch((error) => {
+        // Handle error
+        console.log(error);
+      });
+  }
+
+  useEffect(() => {
+    console.log("inside useEffect");
+    console.log(availableAccommodations);
+    handleRefresh();
+    handleOpenReq();
+    console.log(data);
+  }, []);
+
+  const [activeBtn, setActiveBtn] = useState(props.activebtn);
+  console.log(props.activebtn);
+  const [singleCard, setSingleCard] = useState("");
   const [mapaddress, setMapAddress] = useState("Pinnacle Business Park");
   const [filterData, setFilterData] = useState([]);
   const [houseHabit1, setHouseHabit1] = useState([]);
@@ -100,242 +141,253 @@ const AvailableAccommodations = (props) => {
     setDistancefilter4(data);
   }
 
- 
-
-  const filteredCards = availableAccommodations.accommodations.response.filter(
+  const filteredCards = Data.filter(
     (Data) =>
       (!filterData.length || filterData.includes(Data.acctypename)) &&
       (!houseHabit1.length || houseHabit1.includes(Data.issmoking)) &&
       (!houseHabit2.length || houseHabit2.includes(Data.isdrinking)) &&
       (!houseHabit3.length || houseHabit3.includes(Data.isnonveg)) &&
-      (!distancefilter1.length || (distancefilter1.length!=0 && Data.distance>0 && Data.distance<=2)) &&
-      (!distancefilter2.length || (distancefilter2.length!=0 && Data.distance>2 && Data.distance<=5)) &&
-      (!distancefilter3.length || (distancefilter3.length!=0 && Data.distance>5 && Data.distance<=8)) &&
-      (!distancefilter4.length || (distancefilter4.length!=0 && Data.distance>8 && Data.distance<=10))
-      
+      (!distancefilter1.length ||
+        (distancefilter1.length != 0 &&
+          Data.distance > 0 &&
+          Data.distance <= 2)) &&
+      (!distancefilter2.length ||
+        (distancefilter2.length != 0 &&
+          Data.distance > 2 &&
+          Data.distance <= 5)) &&
+      (!distancefilter3.length ||
+        (distancefilter3.length != 0 &&
+          Data.distance > 5 &&
+          Data.distance <= 8)) &&
+      (!distancefilter4.length ||
+        (distancefilter4.length != 0 &&
+          Data.distance > 8 &&
+          Data.distance <= 10))
   );
-  
-  function singleCardHandle(){
-    if (filterData.length === 1){
-      setSingleCard("1240px")
-      return singleCard
-    }
-    else {
-      setSingleCard("100%")
-      return singleCard
+
+  const reqFilteredCards = Data.filter(
+    (Data) =>
+      (!filterData.length || filterData.includes(Data.acctypename)) &&
+      (!houseHabit1.length || houseHabit1.includes(Data.issmoking)) &&
+      (!houseHabit2.length || houseHabit2.includes(Data.isdrinking)) &&
+      (!houseHabit3.length || houseHabit3.includes(Data.isnonveg))
+  );
+  function singleCardHandle() {
+    if (filterData.length === 1) {
+      setSingleCard("1240px");
+      return singleCard;
+    } else {
+      setSingleCard("100%");
+      return singleCard;
     }
   }
 
   return (
     <>
       <Navbar />
-      <Wrapper >
-        <Container >
+      <Wrapper>
+        <Container>
           <div
-            className={ filteredCards.length === 1 ? "single-card": "container-fluid"}
+            className={
+              filteredCards.length === 1
+                ? "single-card"
+                : "container acc-main-container"
+            }
             style={{
               backgroundColor: "#F5F5F5",
               margin: "0rem",
-              padding: " 1.31rem 2.68rem",}}>
-            <div className="mt-0">
-              <div className="">
-                <div className="">
-                  <div className="d-flex mt-0 ">
-                    <div
-                      className="justify-content-center"
-                      style={{ marginTop: "1rem", marginRight: "0.5rem" }}
-                    >
-                      <Link
-                        to="/landingpage"
-                        style={{ textDecoration: "none", marginBottom: "0rem" }}
+              padding: " 1.31rem 2.68rem",
+            }}
+          >
+            
+
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <Link
+                    to="/landingpage"
+                    style={{ textDecoration: "none", marginBottom: "0rem" }}
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li
+                  class="breadcrumb-item active"
+                  aria-current="page"
+                  style={{ width: "84%" }}
+                >
+                  <div className="">
+                    {activeBtn === true ? (
+                      <p
+                        className="text-secondary "
+                        style={{ marginBottom: "1rem" }}
                       >
-                        Home
-                      </Link>
-                    </div>
-                    <div className="">
-                      {activeBtn === true ? (
-                        <p
-                          className="text-secondary mt-3"
-                          style={{ marginBottom: "1rem" }}
-                        >
-                          / Available Accomodation
-                        </p>
-                      ) : (
-                        <p
-                          className="text-secondary mt-3"
-                          style={{ marginBottom: "1rem" }}
-                        >
-                          / Requirement Post
-                        </p>
-                      )}
-                    </div>
+                        Available Accomodation
+                      </p>
+                    ) : (
+                      <p
+                        className="text-secondary "
+                        style={{ marginBottom: "1rem" }}
+                      >
+                        Requirement Post
+                      </p>
+                    )}
                   </div>
+                </li>
+              </ol>
+            </nav>
 
-                  {activeBtn === true ? (
-                    <div
-                      className=" d-flex flex-row"
-                      style={{ marginRight: "0rem", marginBottom: "0.75rem" }}
+            {activeBtn === true ? (
+              <div
+                className=" d-flex flex-row"
+                style={{ marginRight: "0rem", marginBottom: "0.75rem" }}
+              >
+                <div className="availableAcco__toggle-b">
+                  <button
+                    type="button"
+                    className="availableAcco__toggle-b-blue"
+                    style={{ border: "none", marginRight: "1rem" }}
+                    onClick={() => {
+                      handleToggleAvailable();
+                    }}
+                  >
+                    <p
+                      style={{ marginBottom: "0rem" }}
+                      className="availableAcco__toggle-b-white"
                     >
-                      <div className="availableAcco__toggle-b">
-                        <button
-                          type="button"
-                          className="availableAcco__toggle-b-blue"
-                          style={{ border: "none", marginRight: "1rem" }}
-                          onClick={() => {
-                            handleToggleAvailable();
-                          }}
-                        >
-                          <p
-                            style={{ marginBottom: "0rem" }}
-                            className="availableAcco__toggle-b-white"
-                          >
-                            Available Accommodation
-                          </p>
-                        </button>
-                        <button
-                          type="button"
-                          style={{ border: "none", backgroundColor: "#E9ECEB" }}
-                          onClick={() => {
-                            handleToggleRequire();
-                          }}
-                        >
-                          <p
-                            style={{ marginBottom: "0rem" }}
-                            className="availableAcco__toggle-b-black"
-                          >
-                            Open Requirement
-                          </p>
-                        </button>
-                      </div>
-                    </div>
-                  ) : (
-                    <div
-                      className="d-flex flex-row "
-                      style={{ marginRight: "0rem", marginBottom: "0.75rem" }}
+                      Available Accommodation
+                    </p>
+                  </button>
+                  <button
+                    type="button"
+                    style={{ border: "none", backgroundColor: "#E9ECEB" }}
+                    onClick={() => {
+                      handleToggleRequire();
+                    }}
+                  >
+                    <p
+                      style={{ marginBottom: "0rem" }}
+                      className="availableAcco__toggle-b-black"
                     >
-                      <div className="availableAcco__toggle-b">
-                        <button
-                          type="button"
-                          style={{
-                            border: "none",
-                            marginRight: "1rem",
-                            backgroundColor: "#E9ECEB",
-                          }}
-                          onClick={() => {
-                            handleToggleAvailable();
-                          }}
-                        >
-                          <p
-                            style={{ marginBottom: "0rem" }}
-                            className="availableAcco__toggle-b-black"
-                          >
-                            Available Accommodation
-                          </p>
-                        </button>
-                        <button
-                          type="button"
-                          className="availableAcco__toggle-b-blue"
-                          onClick={() => {
-                            handleToggleRequire();
-                          }}
-                        >
-                          <p
-                            style={{ marginBottom: "0rem" }}
-                            className="availableAcco__toggle-b-white"
-                          >
-                            Open Requirement
-                          </p>
-                        </button>
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="row mt-1">
-                    <div className="col">
-                      <div className="row mb-2">
-
-{
-                  activeBtn === true ?
-                      <div className="col-4">
-                          <div
-                            class="form d-flex border w-150 px-3"
-                            style={{
-                              backgroundColor: "#ffffff",
-                              borderRadius: "0.25rem",
-                              padding: "0",
-                            }}
-                          >
-                            <span className="mt-1">
-                              <img src={location}></img>
-                            </span>
-
-                            <input
-                              type="text"
-                              class="form-control form-input no-border"
-                              value={mapaddress}
-                              onChange={findAddressmap}
-                              style={{ border: "none", outlineStyle: "none" }}
-                            />
-                            <span class="left-pan mt-1">
-                              <img src={search} alt="img" />
-                            </span>
-                          </div>
-                        </div>
-
-                        :
-
-
-                        <div className="col-4">
-                          <div
-                            class="form d-flex border w-150 px-3"
-                            style={{
-                              backgroundColor: "#ffffff",
-                              borderRadius: "0.25rem",
-                              padding: "0",
-                            }}
-                          >
-                            <span className="mt-1">
-                            <img src={search} alt="img" />
-                            </span>
-
-                            <input
-                              type="text"
-                              class="form-control form-input no-border"
-                              
-                              onChange={findAddressmap}
-                              style={{ border: "none", outlineStyle: "none" }}
-                              placeholder="Select locality"
-                            />
-                          </div>
-                        </div>  }
-
-
-                        
-                        {/* <span>gbdgt</span> */}
-                        {activeBtn === true ? (
-                          <CheckboxFilterAcco
-                            sendData={sendAccomoData}
-                            sendHHData1={sendhhAccomo1}
-                            sendHHData2={sendhhAccomo2}
-                            sendHHData3={sendhhAccomo3}
-                            Distances1={Distances1A}
-                            Distances2={Distances2A}
-                            Distances3={Distances3A}
-                            Distances4={Distances4A}
-                          />
-                        ) : (
-                          <CheckboxFilterReq
-                            sendData={sendAccomoData}
-                            sendHHData1={sendhhAccomo1}
-                            sendHHData2={sendhhAccomo2}
-                            sendHHData3={sendhhAccomo3}
-                          />
-                        )}
-                      </div>
-                    </div>
-                  </div>
+                      Open Requirement
+                    </p>
+                  </button>
                 </div>
               </div>
+            ) : (
+              <div
+                className="d-flex flex-row "
+                style={{ marginRight: "0rem", marginBottom: "0.75rem" }}
+              >
+                <div className="availableAcco__toggle-b">
+                  <button
+                    type="button"
+                    style={{
+                      border: "none",
+                      marginRight: "1rem",
+                      backgroundColor: "#E9ECEB",
+                    }}
+                    onClick={() => {
+                      handleToggleAvailable();
+                    }}
+                  >
+                    <p
+                      style={{ marginBottom: "0rem" }}
+                      className="availableAcco__toggle-b-black"
+                    >
+                      Available Accommodation
+                    </p>
+                  </button>
+                  <button
+                    type="button"
+                    className="availableAcco__toggle-b-blue"
+                    onClick={() => {
+                      handleToggleRequire();
+                    }}
+                  >
+                    <p
+                      style={{ marginBottom: "0rem" }}
+                      className="availableAcco__toggle-b-white"
+                    >
+                      Open Requirement
+                    </p>
+                  </button>
+                </div>
+              </div>
+            )}
+
+            <div className="row mb-2">
+              {activeBtn === true ? (
+                <div className="col-4">
+                  <div
+                    class="form d-flex border w-150 px-3"
+                    style={{
+                      backgroundColor: "#ffffff",
+                      borderRadius: "0.25rem",
+                      padding: "0",
+                    }}
+                  >
+                    <span className="mt-1">
+                      <img src={location}></img>
+                    </span>
+
+                    <input
+                      type="text"
+                      class="form-control form-input no-border"
+                      value={mapaddress}
+                      onChange={findAddressmap}
+                      style={{ border: "none", outlineStyle: "none" }}
+                    />
+                    <span class="left-pan mt-1 d-none d-md-flex">
+                      <img src={search} alt="img" />
+                    </span>
+                  </div>
+                </div>
+              ) : (
+                <div className="col-4">
+                  <div
+                    class="form d-flex border w-150 px-3"
+                    style={{
+                      backgroundColor: "#ffffff",
+                      borderRadius: "0.25rem",
+                      padding: "0",
+                    }}
+                  >
+                    <span className="mt-1">
+                      <img src={search} alt="img" />
+                    </span>
+
+                    <input
+                      type="text"
+                      class="form-control form-input no-border"
+                      onChange={findAddressmap}
+                      style={{ border: "none", outlineStyle: "none" }}
+                      placeholder="Select locality"
+                    />
+                  </div>
+                </div>
+              )}
+
+              {/* <span>gbdgt</span> */}
+              {activeBtn === true ? (
+                <CheckboxFilterAcco
+                  sendData={sendAccomoData}
+                  sendHHData1={sendhhAccomo1}
+                  sendHHData2={sendhhAccomo2}
+                  sendHHData3={sendhhAccomo3}
+                  Distances1={Distances1A}
+                  Distances2={Distances2A}
+                  Distances3={Distances3A}
+                  Distances4={Distances4A}
+                />
+              ) : (
+                <CheckboxFilterReq
+                  sendData={sendAccomoData}
+                  sendHHData1={sendhhAccomo1}
+                  sendHHData2={sendhhAccomo2}
+                  sendHHData3={sendhhAccomo3}
+                />
+              )}
             </div>
 
             <div
@@ -343,9 +395,9 @@ const AvailableAccommodations = (props) => {
               style={{ margin: "0", padding: "0" }}
             >
               {activeBtn === true ? (
-                <MapAvailableAccommodations AccData={filteredCards}/>
+                <MapAvailableAccommodations AccData={filteredCards} />
               ) : (
-                <OpenRequirements sendingData={filteredCards} />
+                <OpenRequirements sendingData={reqFilteredCards} />
               )}
             </div>
           </div>
