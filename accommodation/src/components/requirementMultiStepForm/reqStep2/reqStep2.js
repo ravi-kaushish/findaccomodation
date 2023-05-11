@@ -6,6 +6,8 @@ const ReqStep2 = () => {
   const { reqNext, reqPrevious, requirementData, setRequirementData } =
     useContext(MultiStepContext);
   const [accType, setAccType] = useState(requirementData["accTypeId"]);
+
+  const [singlePg,setSinglePg] = useState();
   return (
     <>
       <FormContainer>
@@ -97,7 +99,15 @@ const ReqStep2 = () => {
                 className="container-fluid d-flex flex-row gap-4"
                 style={{ padding: "0", marginBottom: "1.5rem" }}
               >
-                <button type="button" className="reqStep2__btn">
+                <button
+                  type="button"
+                  className="reqStep2__btn"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    setSinglePg()
+                    setRequirementData({ ...requirementData, sharingId: 1 });
+                  }}
+                >
                   <p
                     className="reqStep2__btn-p"
                     style={{ margin: "0.75rem 2.53rem" }}
@@ -105,7 +115,11 @@ const ReqStep2 = () => {
                     Single
                   </p>
                 </button>
-                <button type="button" className="reqStep2__btn">
+                <button type="button" className="reqStep2__btn"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    setRequirementData({ ...requirementData, sharingId: 2 });
+                  }}>
                   <p
                     className="reqStep2__btn-p"
                     style={{ margin: "0.75rem 2.53rem" }}
@@ -114,7 +128,11 @@ const ReqStep2 = () => {
                   </p>
                 </button>
 
-                <button type="button" className="reqStep2__btn">
+                <button type="button" className="reqStep2__btn"
+                 onClick={(event) => {
+                    event.preventDefault();
+                    setRequirementData({ ...requirementData, sharingId: 3 });
+                  }}>
                   <p
                     className="reqStep2__btn-p"
                     style={{ margin: "0.75rem 2.53rem" }}
@@ -125,60 +143,94 @@ const ReqStep2 = () => {
               </div>
             </div>
           ) : (
-          <div className="container-fluid" style={{ padding: "0" }}>
-            <div className="row" style={{ marginBottom: "1.5rem" }}>
-              <div className="col-12 " onClick={()=>{setRequirementData({...requirementData})}}>
-                <p
-                  className="reqStep2__label-h"
-                  style={{ marginBottom: "1rem" }}
+            <div className="container-fluid" style={{ padding: "0" }}>
+              <div className="row" style={{ marginBottom: "1.5rem" }}>
+                <div
+                  className="col-12 "
+                  onClick={() => {
+                    setRequirementData({ ...requirementData });
+                  }}
                 >
-                  {" "}
-                  BHK TYPE
-                </p>
+                  <p
+                    className="reqStep2__label-h"
+                    style={{ marginBottom: "1rem" }}
+                  >
+                    BHK TYPE
+                  </p>
+                </div>
+                <div className="row g-2">
+                  <div className="  col reqStep2__div text-center " 
+                   onClick={(event) => {
+                    event.preventDefault();
+                    setRequirementData({ ...requirementData, flatTypeId: 1 });
+                  }}>
+                    <p style={{ margin: "0.75rem" }}>1 RK</p>
+                  </div>
+                  <div className="  col  reqStep2__div text-center mx-2"
+                   onClick={(event) => {
+                    event.preventDefault();
+                    setRequirementData({ ...requirementData, flatTypeId: 2 });
+                  }}
+                   >
+                    <p style={{ margin: "0.75rem" }}>1 BHK</p>
+                  </div>
+                  <div className="  col reqStep2__div text-center"
+                    onClick={(event) => {
+                    event.preventDefault();
+                    setRequirementData({ ...requirementData, flatTypeId: 3 });
+                  }}>
+                    <p style={{ margin: "0.75rem" }}>2 BHK</p>
+                  </div>
+                  <div className="  col reqStep2__div text-center mx-2"
+                    onClick={(event) => {
+                    event.preventDefault();
+                    setRequirementData({ ...requirementData, flatTypeId: 4 });
+                  }}>
+                    <p style={{ margin: "0.75rem" }}>3 BHK</p>
+                  </div>
+                  <div className=" col reqStep2__div text-center"
+                    onClick={(event) => {
+                    event.preventDefault();
+                    setRequirementData({ ...requirementData, flatTypeId: 5 });
+                  }}>
+                    <p style={{ margin: "0.75rem" }}>4 BHK</p>
+                  </div>
+                </div>
               </div>
-              <div className="row g-2">
-              <div className="  col-sm-2 col-md-3 reqStep2__div text-center " >
-                <p style={{margin:"0.75rem"}}>1 RK</p>
-              </div>
-              <div className="  col-sm-2 col-md-3  reqStep2__div text-center mx-2">
-                <p style={{margin:"0.75rem"}}>1 BHK</p>
-              </div>
-              <div className="  col-sm-2 col-md-3 reqStep2__div text-center">
-                <p style={{margin:"0.75rem"}}>2 BHK</p>
-              </div>
-              <div className="  col-sm-2 col-md-3 reqStep2__div text-center mx-2">
-                <p>3 BHK</p>
-              </div>
-              <div className=" col-sm-42 col-md-3 reqStep2__div text-center">
-                <p>4 BHK</p>
-              </div>
+              <div className="row" style={{ marginBottom: "1.5rem" }}>
+                <div className="col-12 " >
+                  <p
+                    className="reqStep2__label-h"
+                    style={{ marginBottom: "1rem" }}
+                  >
+                    Furnishing Type
+                  </p>
+                </div>
 
+                <div className="  col text-center reqStep2__div"
+                 onClick={(event) => {
+                    event.preventDefault();
+                    setRequirementData({ ...requirementData, furnishedtypeId: 1 });
+                  }}>
+                  <p style={{ margin: "0.75rem" }}>Fully Furnished</p>
+                </div>
+                <div className="  col  text-center reqStep2__div mx-3" 
+                 onClick={(event) => {
+                    event.preventDefault();
+                    setRequirementData({ ...requirementData, furnishedtypeId: 2 });
+                  }}>
+                  <p style={{ margin: "0.75rem" }}>Semi Furnished</p>
+                </div>
+                <div className="  col text-center reqStep2__div" 
+                onClick={(event) => {
+                    event.preventDefault();
+                    setRequirementData({ ...requirementData, furnishedtypeId: 3 });
+                  }}>
+                  <p style={{ margin: "0.75rem" }}>Unfurnished</p>
+                </div>
               </div>
-
-            
             </div>
-            <div className="row" style={{ marginBottom: "1.5rem" }}>
-              <div className="col-12 ">
-                <p
-                  className="reqStep2__label-h"
-                  style={{ marginBottom: "1rem" }}
-                >
-                  {" "}
-                  Furnishing Type
-                </p>
-              </div>
-
-              <div className="  col-sm-2 col-md-4 text-center reqStep2__div">
-                <p>Fully Furnished</p>
-              </div>
-              <div className="  col-sm-2 col-md-4   text-center reqStep2__div">
-                <p>Semi Furnished</p>
-              </div>
-              <div className="  col-sm-2 col-md-4 text-center reqStep2__div">
-                <p>Unfurnished</p>
-              </div>
-            </div>
-          </div> )}
+          )}
 
           <p className="reqStep2__label-h" style={{ marginBottom: "1.15rem" }}>
             House Habit Preferences
@@ -254,7 +306,10 @@ const ReqStep2 = () => {
               <button
                 type="button"
                 className="reqStep2__btn-next"
-                onClick={()=>{reqNext();console.log(requirementData)}}
+                onClick={() => {
+                  reqNext();
+                  console.log(requirementData);
+                }}
                 style={{ width: "100%" }}
               >
                 <p className="reqStep__btn-p " style={{ margin: "5% 0" }}>
