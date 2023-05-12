@@ -12,7 +12,7 @@ const ReqStep3 = () => {
   const [data,setData] = useState(JSON.parse(userData));
   const [userId,setuserId] = useState(data.id);
   const navigate = useNavigate();
-  const { reqPrevious, requirementData, setRequirementData } =
+  const { reqPrevious, requirementData, setRequirementData ,setReqCurrentIndex} =
     useContext(MultiStepContext);
     
   function handleReqForm(event) {
@@ -123,7 +123,10 @@ const ReqStep3 = () => {
               <p
                 className="reqStep__btn-p "
                 style={{ margin: "5% 0" }}
-                onClick={()=>{ setRequirementData({...requirementData,id:userId});handleReqForm();}}
+                onClick={()=>{ 
+                  setRequirementData({...requirementData,id:userId});
+                handleReqForm();
+                }}
               >
                 Save
               </p>

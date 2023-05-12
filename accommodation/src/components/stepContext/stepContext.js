@@ -80,6 +80,7 @@ const StepContext = ({ children }) => {
         setRequirementData,
         availableAccommodations,
         setAvailableAccommodations,
+        setGreenTick
       }}
     >
       {children}

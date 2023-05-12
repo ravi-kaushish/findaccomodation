@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Wrapper,
   Container,
@@ -9,8 +9,14 @@ import GreenThumb from "../../images/Green-ThumbsUp.svg";
 import Alert from "../../images/alert.svg";
 import "./postSuccessful.css";
 import { useNavigate } from "react-router-dom";
+import { MultiStepContext } from "../stepContext/stepContext";
 
 const PostSuccessful = () => {
+  const {requirementData,setRequirementData,setReqCurrentIndex,setGreenTick} = useContext(MultiStepContext);
+  setRequirementData({locality:"",contact:"",relocationDate:"",accTypeId:"",flatTypeId:"",
+  furnishedtypeId:"",isNonVeg:false,isSmoking:false,isDrinking:false})
+  setReqCurrentIndex(1);
+  setGreenTick(0);
   const navigate = useNavigate();
   function handleHome(event){
     event.preventDefault();
