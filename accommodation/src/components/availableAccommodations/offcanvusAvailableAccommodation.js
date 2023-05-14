@@ -46,16 +46,10 @@ const OffcanvusAvailableAccommodation = () => {
             <div className="row">
               <div className="col 12">
                 <div>
-                  <div className="row mb-3">
-                    <div className="d-flex">
-                      <div className="me-2">
-                        <img src={userphoto} alt="" />
-                      </div>
-                      <div className="ms-1">
-                        <p className="mb-0">{/* {data.fullName} */}</p>
-                        <p className="mb-0">{/* {data.CGIID} */}</p>
-                      </div>
-                    </div>
+                  <div className="row mb-3 justify-content-center">
+                        <img src={userphoto} style={{width: '150px',height: '150px'}}/>
+                        <p style={{marginBottom:'0'}}>{/* {data.fullName} */}</p>
+                        <p style={{marginBottom:'0'}}>{/* {data.CGIID} */}</p>
                   </div>
                   <div className="row mb-2">
                     <div>
