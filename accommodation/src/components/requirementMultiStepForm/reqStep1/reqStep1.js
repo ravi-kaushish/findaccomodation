@@ -1,12 +1,45 @@
-import React, { useContext } from "react";
+import React, { useContext , useState } from "react";
 import { FormContainer, Header, Body } from "../../utilityStyles/utilityStyles";
 import styled from "styled-components";
 import { MultiStepContext } from "../../stepContext/stepContext";
 import "./reqStep1.css";
 
 const ReqStep1 = () => {
-  const { reqCurrentIndex, reqNext , requirementData,setRequirementData } = useContext(MultiStepContext);
-  console.log(reqCurrentIndex);
+
+  const [locality, setLocality] = useState("");
+  const [isLocalityValid, setIsLocalityValid] = useState(false);
+
+  const [contact, setContact] = useState("");
+  const [isPhoneNumberValid, setIsPhoneNumberValid] = useState(false);
+
+  const [date, setDate] = useState("");
+  const [issetDateValid, setIsDateValid] = useState(false);
+
+  const handlePhoneNumberChange = (event) => {
+    const phoneNumber = event.target.value;
+    if (phoneNumber.trim().length <= 10) {
+      setContact(phoneNumber.trim());
+    }
+    setIsPhoneNumberValid(
+      phoneNumber.length === 0 || phoneNumber.trim().length < 10 ? false : true
+    );
+  };
+
+
+  const handleDateChange = (event) => {
+    const phoneNumber = event.target.value;
+    if (phoneNumber.trim().length <= 10) {
+      setContact(phoneNumber.trim());
+    }
+    setIsPhoneNumberValid(
+      phoneNumber.length === 0 || phoneNumber.trim().length < 10 ? false : true
+    );
+  };
+
+
+
+  // const { reqCurrentIndex, reqNext , requirementData,setRequirementData } = useContext(MultiStepContext);
+  // console.log(reqCurrentIndex);
 
   return (
     <FormContainer>
@@ -66,8 +99,13 @@ const ReqStep1 = () => {
               Contact No.
             </label>
             <input id="contactInfo" className="form-control" type="tel" placeholder="Contact No."
-              value={requirementData["contact"]} onChange={(e)=>setRequirementData({...requirementData, contact : e.target.value})}
+              value={contact} onChange={handlePhoneNumberChange}
             />
+            {!isPhoneNumberValid && contact && (
+                <span style={{ color: "red", fontSize: "12px" }}>
+                  Phone no. cannot be empty
+                </span>
+              )}
           </div>
           <div className="form-group" style={{ marginTop: "2rem" }}>
             <label
@@ -78,7 +116,7 @@ const ReqStep1 = () => {
               Preferred Relocation Date
             </label>
             <input id="relocationDate" className="form-control" type="date" 
-              value={requirementData["relocationDate"]} onChange={(e)=>setRequirementData({...requirementData, relocationDate : e.target.value})}
+              value={date} onChange={handleDateChange}
             />
           </div>
           <div className="row justify-content-end"  style={{marginTop: "17.75rem"}}>
