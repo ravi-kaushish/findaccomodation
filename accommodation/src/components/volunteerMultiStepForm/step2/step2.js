@@ -188,7 +188,7 @@ const Step2 = () => {
                   className="prev-btn"
                     type="button"
                     class="prev-btn"
-                    onClick={previous}
+                    onClick={()=>{previous()}}
                     style={{width:"100%"}}
                   >
                     <p style={{margin:"5% 0"}}>Previous</p>
@@ -199,7 +199,7 @@ const Step2 = () => {
                 <button
                   onClick={(event) => {
                     event.preventDefault();
-                    navigate("/step3");
+                    next();
                     
              
                   }}

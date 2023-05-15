@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import { MultiStepContext } from "./components/stepContext/stepContext";
 import StepContext from "./components/stepContext/stepContext";
+import { AuthProvider } from "./components/context/authProvider";
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -11,8 +12,10 @@ root.render(
   
     <React.StrictMode>
     <StepContext>
-      <App />
-      </StepContext>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </StepContext>
     </React.StrictMode>
 
 );

@@ -25,6 +25,7 @@ import axios from "axios";
 
 const LandingPage = () => {
   const [interestData,setInterestData] = useState([]);
+  
 
 
   const navigate = useNavigate();
@@ -34,7 +35,6 @@ const LandingPage = () => {
   const userData = localStorage.getItem("userData")
   
   const [data,setData] = useState(JSON.parse(userData));
-
   useEffect(()=>{
     axios.get('https://cg-accommodation.azurewebsites.net/')
     .then(response =>{
