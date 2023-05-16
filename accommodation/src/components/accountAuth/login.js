@@ -1,5 +1,5 @@
 import React, { useContext, useState,useRef ,useEffect} from "react";
-import axios from "axios";
+// import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import "./login.css";
 import cgLogo from "../../images/cgLogo.png";
@@ -14,13 +14,19 @@ import {
 } from "../utilityStyles/utilityStyles";
 import { MultiStepContext } from "../stepContext/stepContext";
 import AuthContext from "../context/authProvider";
-// import axios from "../api/axios"
+import axios from "../api/axios"
+import useAuth from "../hooks/useAuth";
+import {  useLocation } from 'react-router-dom';
+
 const LOGIN_URL = '/login';
 
 
 const Login = () => {
   const userRef = useRef();
-  const { setAuth } = useContext(AuthContext);
+  const { setAuth } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/landingpage";
   useEffect(()=>{
     userRef.current.focus();
     console.log("inside useEffect")
@@ -32,7 +38,7 @@ const Login = () => {
   const [password, setPassword] = useState("Abc@.123");
   const [isPasswordValid, setIsPasswordValid] = useState(false);
 
-  const navigate = useNavigate();
+
 
   const handleEmailChange = (event) => {
     const { value } = event.target;
@@ -61,7 +67,7 @@ const Login = () => {
     event.preventDefault();
 
     await axios
-      .post("https://cg-accommodation.azurewebsites.net//login", {
+      .post(LOGIN_URL, {
         email,
         password,
       })
@@ -82,9 +88,7 @@ const Login = () => {
         localStorage.setItem("token", response.data.token);
         localStorage.setItem('userData', JSON.stringify(res));
         setAuth({ email, password, token });
-
-
-        navigate("/landingpage");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.response?.data);
