@@ -7,7 +7,8 @@ const ReqStep2 = () => {
     useContext(MultiStepContext);
   const [accType, setAccType] = useState(requirementData["accTypeId"]);
 
-  const [singlePg,setSinglePg] = useState();
+
+  const [singlePg,setSinglePg] = useState(false);
   return (
     <>
       <FormContainer>
@@ -97,19 +98,25 @@ const ReqStep2 = () => {
               </p>
               <div
                 className="container-fluid d-flex flex-row gap-4"
+                
                 style={{ padding: "0", marginBottom: "1.5rem" }}
               >
                 <button
                   type="button"
-                  className="reqStep2__btn"
+                  // className="reqStep2__btn"
+                  className={
+                singlePg === true ? "reqStep2__btn-active": "reqStep2__btn"
+                }
                   onClick={(event) => {
                     event.preventDefault();
-                    setSinglePg()
+                    setSinglePg(true)
+                    console.log(singlePg)
                     setRequirementData({ ...requirementData, sharingId: 1 });
                   }}
                 >
                   <p
-                    className="reqStep2__btn-p"
+                    // className="reqStep2__btn-p"
+                   
                     style={{ margin: "0.75rem 2.53rem" }}
                   >
                     Single

@@ -15,29 +15,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router";
 
 const Step1 = () => {
- 
-
-  const {next, userData, setUserData } =
-    useContext(MultiStepContext);
-  const navigate = useNavigate();  
-
-
-
-
-    
-  // const [nearbyAccommodation, setNearbyAccomodation] = useState(false);
-  // useEffect(() => {
-  //   setUserData({ ...userData, NearbyAccommodation: nearbyAccommodation });
-  // }, [nearbyAccommodation]);
-
-  // const [roommate, setRoommate] = useState(false);
-  // useEffect(() => {
-  //   setUserData({ ...userData, Roommate: roommate });
-  // }, [roommate]);
-  // const [flatmate, setFlatmate] = useState(false);
-
- 
-
+  const {currentIndex, setCurrentIndex,next, userData, setUserData } = useContext(MultiStepContext);
 
   function handleCheckboxChange(event) {
     console.log(event.target.checked);
@@ -45,7 +23,6 @@ const Step1 = () => {
 
   return (
     <>
-    {/* {console.log(currentUser)} */}
       <FormContainer>
         <Header>
           <p
@@ -79,7 +56,7 @@ const Step1 = () => {
           <hr style={{ margin: "0" }} />
         </Header>
         <Body>
-          <div className="container-fluid" style={{padding: "0 0.75rem"}}>
+          <div className="container-fluid" style={{ padding: "0 0.75rem" }}>
             <form>
               <div className="row ">
                 <div className=" col-md-3">
@@ -141,7 +118,10 @@ const Step1 = () => {
               <div className="row " style={{ marginTop: "1.5rem" }}>
                 <div className="d-flex justify-content-between">
                   <div>
-                    <p className="p_color" style={{ width: "fit-content" ,marginBottom:"0"}}>
+                    <p
+                      className="p_color"
+                      style={{ width: "fit-content", marginBottom: "0" }}
+                    >
                       Accommodations are currently available near me
                     </p>
                   </div>
@@ -150,63 +130,80 @@ const Step1 = () => {
                       class="form-check-input"
                       type="checkbox"
                       id="flexSwitchCheckDefault"
-                      checked={ userData["isNearBy"] == undefined ? false :userData["isNearBy"]}
+                      checked={
+                        userData["isNearBy"] == undefined
+                          ? false
+                          : userData["isNearBy"]
+                      }
                       onChange={(e) => {
-                      setUserData({
-                        ...userData,
-                        isNearBy: e.target.checked,
-                      });
-                      console.log(e.target.checked)}}
+                        setUserData({
+                          ...userData,
+                          isNearBy: e.target.checked,
+                        });
+                        console.log(e.target.checked);
+                      }}
                     />
                   </div>
                 </div>
               </div>
 
-              <div className="row" style={{marginTop:"1.9rem"}}>
+              <div className="row" style={{ marginTop: "1.9rem" }}>
                 <div className="d-flex justify-content-between">
                   <div>
-                    <p className="p_color" style={{marginBottom:"0"}}>I am looking for a roommate</p>
+                    <p className="p_color" style={{ marginBottom: "0" }}>
+                      I am looking for a roommate
+                    </p>
                   </div>
                   <div class="form-check form-switch">
                     <input
                       class="form-check-input"
                       type="checkbox"
                       id="flexSwitchCheckDefault"
-                      checked={ userData["isRoomMate"] == undefined ? false :userData["isRoomMate"]}
+                      checked={
+                        userData["isRoomMate"] == undefined
+                          ? false
+                          : userData["isRoomMate"]
+                      }
                       onChange={(e) => {
-                      setUserData({
-                        ...userData,
-                        isRoomMate: e.target.checked,
-                      });
-                     }}
+                        setUserData({
+                          ...userData,
+                          isRoomMate: e.target.checked,
+                        });
+                      }}
                     />
                   </div>
                 </div>
               </div>
 
-              <div className="row" style={{marginTop:"1.9rem"}}>
+              <div className="row" style={{ marginTop: "1.9rem" }}>
                 <div className="d-flex justify-content-between">
                   <div>
-                    <p className="p_color" style={{marginBottom:"0"}}>I am looking for a flatmate</p>
+                    <p className="p_color" style={{ marginBottom: "0" }}>
+                      I am looking for a flatmate
+                    </p>
                   </div>
                   <div class="form-check form-switch">
                     <input
                       class="form-check-input"
                       type="checkbox"
                       id="flexSwitchCheckDefault"
-                      checked={ userData["isFlatMate"] == undefined ? false :userData["isFlatMate"]}
+                      checked={
+                        userData["isFlatMate"] == undefined
+                          ? false
+                          : userData["isFlatMate"]
+                      }
                       onChange={(e) => {
-                      setUserData({
-                        ...userData,
-                        isFlatMate: e.target.checked,
-                      });
-                     }}
+                        setUserData({
+                          ...userData,
+                          isFlatMate: e.target.checked,
+                        });
+                      }}
                     />
                   </div>
                 </div>
               </div>
 
-              <div className="row " style={{marginTop:"1.625rem"}}>
+              <div className="row " style={{ marginTop: "1.625rem" }}>
                 <div
                   className="col-12 d-flex "
                   style={{ backgroundColor: "#E3F3FC", borderRadius: "4px" }}
@@ -224,21 +221,19 @@ const Step1 = () => {
                 </div>
               </div>
 
-              <div className="row d-flex justify-content-end" style={{marginTop:"3rem"}}>
-                <div className="col-6" style={{padding:"0"}}>
+              <div
+                className="row d-flex justify-content-end"
+                style={{ marginTop: "3rem" }}
+              >
+                <div className="col-6" style={{ padding: "0" }}>
                   <button
-                    onClick={(event) => {
-                      event.preventDefault();
-                      
-                      next();
-
-                      console.log(userData);
-                      
-                    }}
+                    type="button"
+                    onClick={(event) => {event.preventDefault();
+                     next();}}
                     className="border-0 save-btn"
                     style={{ width: "100%" }}
                   >
-                    <p style={{margin:"5%"}}>Save & Next</p>
+                    <p style={{ margin: "5%" }}>Save & Next</p>
                   </button>
                 </div>
               </div>

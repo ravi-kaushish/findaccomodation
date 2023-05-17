@@ -79,7 +79,7 @@ const Step5 = () => {
                     className={
                       activeBtn ? "Step5__btn-style" : "Step5__btn-active"
                     }
-                    onClick={btnHandler}
+                    onClick={()=>btnHandler}
                   >
                     <p
                       className={
@@ -206,6 +206,7 @@ const Step5 = () => {
 
               <div className="col-6">
                 <button
+                  type="button"
                   onClick={() => {
                     submitForm();
                     //   setData();

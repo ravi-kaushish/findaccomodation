@@ -52,4 +52,8 @@
   border: 1px solid #cacaca;
   border-radius: 4px;
 }
+.reqStep2__change-color{
+  color:white;
+  background: #28519e;
+}
 
