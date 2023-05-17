@@ -229,7 +229,8 @@ const Step1 = () => {
                   <button
                     type="button"
                     onClick={(event) => {event.preventDefault();
-                     next();}}
+                      next();
+                    }}
                     className="border-0 save-btn"
                     style={{ width: "100%" }}
                   >

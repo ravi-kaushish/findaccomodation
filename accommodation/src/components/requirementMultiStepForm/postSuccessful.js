@@ -12,15 +12,14 @@ import { useNavigate } from "react-router-dom";
 import { MultiStepContext } from "../stepContext/stepContext";
 
 const PostSuccessful = () => {
-  const {requirementData,setRequirementData,setReqCurrentIndex,setGreenTick} = useContext(MultiStepContext);
+  const {requirementData,setRequirementData,setReqCurrentIndex,setGreenTickReq} = useContext(MultiStepContext);
   setRequirementData({locality:"",contact:"",relocationDate:"",accTypeId:"",flatTypeId:"",
   furnishedtypeId:"",isNonVeg:false,isSmoking:false,isDrinking:false})
   setReqCurrentIndex(1);
-  setGreenTick(0);
+  setGreenTickReq(0);
   const navigate = useNavigate();
   function handleHome(event){
     event.preventDefault();
-    setRequirementData({});
     navigate(`/landingpage`);
 
   }
