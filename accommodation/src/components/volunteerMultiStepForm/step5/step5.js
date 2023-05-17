@@ -13,7 +13,8 @@ const Step5 = () => {
   const { previous, submitForm ,userData,setUserData} = useContext(MultiStepContext);
   const navigate = useNavigate();
   const { activeBtn, setActiveBtn } = useState(true);
-  axios.post("https://cg-accommodation.azurewebsites.net/createAccommodation", { userData})
+  function handleSubmit(){
+    axios.post("https://cg-accommodation.azurewebsites.net/createAccommodation", { userData})
   .then((response) => {
     console.log(response.data);
     navigate("/postSuccess");
@@ -22,7 +23,11 @@ const Step5 = () => {
     console.log(error.response.data);
     
   });
+  navigate("/landingPage")
 
+
+  }
+  
 
   function btnHandler() {
     setActiveBtn(!activeBtn);
@@ -75,33 +80,44 @@ const Step5 = () => {
               </div>
               <div className="" style={{ marginTop: "1rem" }}>
                 <div className="d-flex justify-content-between">
-                  <button
+                  <button 
+                  type="button"
+                    // className={
+                    //   activeBtn ? "Step5__btn-style" : "Step5__btn-active"
+                    // }
                     className={
-                      activeBtn ? "Step5__btn-style" : "Step5__btn-active"
-                    }
-                    onClick={()=>btnHandler}
+                userData["preferredDays"] === 1 ? "Step5__btn-active": "Step5__btn-style"
+                }
+                    onClick={()=>{setUserData({...userData,preferredDays:1})}}
                   >
                     <p
-                      className={
-                        activeBtn ? "Step5__btn-p" : "Step5__btn-p-active"
-                      }
-                      style={{ margin: "0.75rem 2.2rem" }}
+                     style={{ margin: "0.75rem 2rem" }}
+                      
+                      
                     >
                       Mon-Fri
                     </p>
                   </button>
-                  <button className="Step5__btn-style ">
+                  <button type="button" 
+                     className={
+                userData["preferredDays"] === 2 ? "Step5__btn-active mx-3": "Step5__btn-style mx-3"
+                }
+                    onClick={()=>{setUserData({...userData,preferredDays:2})}}  >
                     <p
-                      className="Step5__btn-p"
-                      style={{ margin: "0.75rem 2.2rem" }}
+                     style={{ margin: "0.75rem 2rem" }}
+                     
                     >
                       Weekends
                     </p>
                   </button>
-                  <button className="Step5__btn-style">
+                  <button type="button" 
+                   className={
+                userData["preferredDays"] === 3 ? "Step5__btn-active": "Step5__btn-style"
+                }
+                    onClick={()=>{setUserData({...userData,preferredDays:3})}}>
                     <p
-                      className="Step5__btn-p"
-                      style={{ margin: "0.75rem 2.2rem" }}
+                      
+                      style={{ margin: "0.75rem 2rem" }}
                     >
                       All Days
                     </p>
@@ -112,16 +128,16 @@ const Step5 = () => {
                   <input
                     type="time"
                     name=""
-                    id=""
+                    id="timepicker"
                     className="form-control"
-                    placeholder="From"
+                    
                   />
                   <input
                     type="time"
                     name=""
-                    id=""
+                    id="timepicker2"
                     className="form-control "
-                    placeholder="To"
+                    
                   />
                 </div>
               </div>
@@ -208,8 +224,9 @@ const Step5 = () => {
                 <button
                   type="button"
                   onClick={() => {
-                    submitForm();
+                    // submitForm();
                     //   setData();
+                    handleSubmit();
                   }}
                   style={{ width: "100%" }}
                   className="border-0 save-btn "
