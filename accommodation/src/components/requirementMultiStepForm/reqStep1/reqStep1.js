@@ -38,8 +38,8 @@ const ReqStep1 = () => {
 
 
 
-  // const { reqCurrentIndex, reqNext , requirementData,setRequirementData } = useContext(MultiStepContext);
-  // console.log(reqCurrentIndex);
+  const { reqCurrentIndex, reqNext , requirementData,setRequirementData } = useContext(MultiStepContext);
+  console.log(reqCurrentIndex);
 
   return (
     <FormContainer>
@@ -99,7 +99,7 @@ const ReqStep1 = () => {
               Contact No.
             </label>
             <input id="contactInfo" className="form-control" type="tel" placeholder="Contact No."
-              value={contact} onChange={handlePhoneNumberChange}
+              value={contact} onChange={()=>{handlePhoneNumberChange()}}
             />
             {!isPhoneNumberValid && contact && (
                 <span style={{ color: "red", fontSize: "12px" }}>
