@@ -50,7 +50,7 @@ const Data = [
         
          profileImageAlt: "Paige profile image",
         
-         distance: "7",
+         distance: "1",
         
          sector: "sec-16",
         

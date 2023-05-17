@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import cglogowhite from "../../images/cgLogoWhite.svg";
 import profilePic from "../../images/profilePic.svg";
 import bell from "../../images/bell.svg";
 import dropdownArrow from "../../images/dropdownArrow.svg";
 import { func } from "prop-types";
 import { Link, useNavigate } from "react-router-dom";
+import "./navbar.css";
+import { MultiStepContext } from "../stepContext/stepContext";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  function handleLandingPage(event){
+  const { currentUser } = useContext(MultiStepContext);
+  function handleLandingPage(event) {
     event.preventDefault();
-    navigate('/landingpage');
-    
+    navigate("/landingpage");
   }
   return (
     <nav
@@ -19,7 +21,7 @@ const Navbar = () => {
       style={{ backgroundColor: "#002C3F" }}
     >
       <div className="container-fluid">
-        <Link style={{cursor:"pointer"}} onClick={handleLandingPage}>
+        <Link style={{ cursor: "pointer" }} onClick={handleLandingPage}>
           <img
             className="d-inline-block align-text-top"
             style={{ width: "155.81px", height: "35px" }}
@@ -36,18 +38,14 @@ const Navbar = () => {
           aria-label="Toggle navigation"
         >
           <img src={profilePic}></img>
+          <img src={dropdownArrow}></img>
         </button>
+
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <a className="nav-link " aria-current="page" href="#">
-                <img src={bell}></img>
-              </a>
-            </li>
-
             <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
+              <Link
+                className="nav-link dropdown-toggle "
                 href="#"
                 id="navbarDropdown"
                 role="button"
@@ -56,27 +54,27 @@ const Navbar = () => {
               >
                 <img className="mx-2" src={profilePic}></img>
                 <img src={dropdownArrow}></img>
-              </a>
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-              </ul>
+              </Link>
+              <div
+                class="dropdown-menu dropdown-menu-right"
+                aria-labelledby="navbarDropdown"
+                sx={{ width: "2px" }}
+              >
+                <Link class="dropdown-item">
+                  <strong>John Doe</strong>
+                </Link>
+                <Link href="#" class="dropdown-item">
+                  <strong style={{ color: "#565555", fontWeight: "400" }}>
+                    johndoe@example.com
+                  </strong>
+                </Link>
+                <Link href="#" class="dropdown-item">
+                  <strong style={{ color: "#565555" }}>Account Settings</strong>
+                </Link>
+                <Link href="/" class="dropdown-item">
+                  <strong style={{ color: "red" }}>Logout</strong>
+                </Link>
+              </div>
             </li>
           </ul>
           {/* <form class="d-flex">

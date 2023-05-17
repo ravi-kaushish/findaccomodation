@@ -79,7 +79,7 @@ const Step5 = () => {
                     className={
                       activeBtn ? "Step5__btn-style" : "Step5__btn-active"
                     }
-                    onClick={btnHandler}
+                    onClick={()=>btnHandler}
                   >
                     <p
                       className={
@@ -197,7 +197,7 @@ const Step5 = () => {
                   className="prev-btn"
                   type="button"
                   class="prev-btn"
-                  onClick={previous}
+                  onClick={()=>{previous()}}
                   style={{ width: "100%" }}
                 >
                   <p style={{ margin: "5% 0" }}>Previous</p>
@@ -206,6 +206,7 @@ const Step5 = () => {
 
               <div className="col-6">
                 <button
+                  type="button"
                   onClick={() => {
                     submitForm();
                     //   setData();

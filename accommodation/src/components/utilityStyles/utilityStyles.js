@@ -34,6 +34,7 @@ export const RightContainer = styled.div`
   @media (min-width: 0px) and (max-width: 575px) {
     height: max-content;
     padding-bottom: 2%;
+    box-shadow:none;
   }
 `;
 export const MainContainer = styled.div`
@@ -41,6 +42,10 @@ export const MainContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
+  @media (max-width:575px) {
+    align-items:flex-start
+    
+  }
 `;
 
 export const BuildingImage = styled.img.attrs({ className: "img-fluid" })`

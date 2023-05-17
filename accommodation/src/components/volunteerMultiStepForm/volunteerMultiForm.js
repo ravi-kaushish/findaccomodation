@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./volunteerMultiForm.css"
 import {
   Wrapper,
@@ -17,6 +17,8 @@ import { MultiStepContext } from "../stepContext/stepContext";
 import HorizontalStepper from "../horizontalStepper/horizontalStepper";
 
 const VolunteerMultiForm = () => {
+ 
+
   const { currentIndex } = useContext(MultiStepContext);
   function currentStep(step) {
     switch (step) {
@@ -47,7 +49,7 @@ const VolunteerMultiForm = () => {
           >
             <div className="row" style={{ width: "100%", height: "100vh" }}>
               <div className="col-5  d-sm-flex d-none ">
-                <VerticalStepper />
+                <VerticalStepper call=""/>
               </div>
               <div
                 className="col-12 col-sm-7 form"
@@ -59,6 +61,7 @@ const VolunteerMultiForm = () => {
                 }}
               >
                 <HorizontalStepper call="volunteer" />
+                
                 {currentStep(currentIndex)}
               </div>
             </div>

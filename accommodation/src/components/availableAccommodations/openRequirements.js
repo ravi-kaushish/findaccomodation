@@ -52,9 +52,9 @@ const OpenRequirements = (props) => {
           className=" scrollbar col-12"
           style={{ backgroundColor: "#F5F5F5" }}
         >
-          <div className=" row row-cols-4 ">
+          <div className=" row row-cols-md-4 ">
             {props.sendingData.map((data, index) => (
-              <div key={data.id}>
+              <div key={data.requirementid}>
                 <div
                   className="availableAcco__card"
                   style={{ backgroundColor: "#ffffff" }}
@@ -72,7 +72,7 @@ const OpenRequirements = (props) => {
                           aria-controls="offcanvasRight"
                         >
                           <p className="mb-1 availableAcco__card-p-name">
-                            {data.fullName}
+                            {data.firstname} {data.lastname}
                           </p>
                           <img src={Blueright_arrow} alt="" />
                         </div>
@@ -112,7 +112,7 @@ const OpenRequirements = (props) => {
                         className="openRequirements__card-p-sector"
                         style={{ marginBottom: "0rem" }}
                       >
-                        {data.sector}
+                        {data.locality}
                       </p>
                     </div>
 
@@ -145,7 +145,7 @@ const OpenRequirements = (props) => {
                         <p
                           style={{ marginBottom: "0rem", marginLeft: "0.5rem" }}
                         >
-                          16-03-2023
+                          {data.relocationdate}
                         </p>
                       </div>
                     </div>
@@ -156,7 +156,7 @@ const OpenRequirements = (props) => {
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal"
                       >
-                        I'm interested
+                        Offer help!
                       </button>
                     </div>
                   </div>
@@ -170,7 +170,7 @@ const OpenRequirements = (props) => {
                   aria-labelledby="exampleModalLabel"
                   aria-hidden="true"
                 >
-                  <div class="modal-dialog">
+                  <div class="modal-dialog  modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5
@@ -206,7 +206,7 @@ const OpenRequirements = (props) => {
                                       fontWeight: "700",
                                     }}
                                   >
-                                    {data.fullName}
+                                    {data.firstname} {data.lastname}
                                   </p>
                                 </div>
                                 <div className="d-flex">
@@ -336,7 +336,7 @@ const OpenRequirements = (props) => {
                               </div>
                               <div className="ms-1">
                                 <p className="mb-1 availableAcco__card-p-name">
-                                  {data.fullName}
+                                  {data.firstname} {data.lastname}
                                 </p>
                                 <div className="d-flex">
                                   <div
@@ -379,7 +379,7 @@ const OpenRequirements = (props) => {
                               className="openRequirements__card-p-sector"
                               style={{ marginBottom: "0rem" }}
                             >
-                              {data.sector}
+                              {data.locality}
                             </p>
                           </div>
 
@@ -442,7 +442,7 @@ const OpenRequirements = (props) => {
                                   marginLeft: "0.5rem",
                                 }}
                               >
-                                16-03-2023
+                                {data.relocationdate}
                               </p>
                             </div>
                           </div>

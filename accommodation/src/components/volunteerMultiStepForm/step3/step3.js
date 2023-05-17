@@ -71,10 +71,10 @@ const Step3 = () => {
               className="contianer d-flex flex-row gap-3"
               style={{ marginBottom: "1.5rem" }}
             >
-              <button className= {accommodationType ? "step3__active-btn":"Step3__btn-style"}  onClick={handlePgAccommodation} type="button">
+              <button className= {accommodationType ? "step3__active-btn":"Step3__btn-style"}  onClick={()=>handlePgAccommodation()} type="button">
                 <p className="Step3__btn-p-style">PG</p>
               </button>
-              <button className={!accommodationType ? "step3__active-btn":"Step3__btn-style"} type="button" onClick={handleFlatAccommodation} >
+              <button className={!accommodationType ? "step3__active-btn":"Step3__btn-style"} type="button" onClick={()=>handleFlatAccommodation()} >
                 <p className="Step3__btn-p-style" >Flat</p>
               </button>
             </div>
@@ -110,85 +110,7 @@ const Step3 = () => {
               
                 </div>
                 </>
-              
             
-            
-            
-            {/* <>
-            
-            <p className="Step3__form-heading" style={{ marginBottom: "1rem" }}>
-             BHK Type
-            </p>
-            <div
-              className="contianer d-flex flex-row gap-3"
-              style={{ marginBottom: "1.5rem" }}
-            >
-              <button
-                className="Step3__btn-style" 
-              >
-                <p className="" style={{margin:"0.5rem 1rem"}}>1 RK</p>
-              </button>
-              <button
-                className="Step3__btn-style" 
-              >
-                <p className=" " style={{margin:"0.5rem 1rem"}}>1 BHK</p>
-              </button>
-              <button
-                className="Step3__btn-style"
-              >
-                <p className=" " style={{margin:"0.5rem 1rem"}}>2 BHK</p>
-              </button>
-              <button
-                className="Step3__btn-style"
-              >
-                <p className="" style={{margin:"0.5rem 1rem"}}>3 BHK</p>
-              </button>
-              <button
-                className="Step3__btn-style"
-              >
-                <p className="" style={{margin:"0.5rem 1rem"}}>4 BHK</p>
-              </button>
-              
-            </div>
-            <p className="Step3__form-heading" style={{ marginBottom: "1rem" }}>
-             Furnishing Type
-            </p>
-            <div
-              className="contianer d-flex flex-row gap-3"
-              style={{ marginBottom: "1.5rem" }}
-            >
-              <button
-                className="Step3__btn-style" 
-              >
-                <p className="Step3__btn-p-style mx-3">Fully Furnished</p>
-              </button>
-              <button
-                className="Step3__btn-style" 
-              >
-                <p className="Step3__btn-p-style mx-3">Semi Furnished</p>
-              </button>
-              <button
-                className="Step3__btn-style"
-              >
-                <p className="Step3__btn-p-style mx-3">Unfurnished</p>
-              </button>
-            </div>
-            
-            </> */}
-             
-
-
-            
-           
-
-            {/* <div className="row">
-            <div className="col text-center"><p className="Step3__p-b">1 RK</p></div>
-            <div className="col text-center"><p className="Step3__p-b">1 BHK</p></div>
-            <div className="col text-center"><p className="Step3__p-b">2 BHK</p></div>
-            <div className="col text-center"><p className="Step3__p-b">3 BHK</p></div>
-            <div className="col text-center"><p className="Step3__p-b">4 BHK</p></div>
-
-            </div> */}
             
 
 
@@ -217,7 +139,7 @@ const Step3 = () => {
                 value=""
                 id="flexCheckDefault"
                 checked={userData["isDrinking"] == undefined ? false : userData["isDrinking"]}
-                onChange={setUserData({...userData,isDrinking:true})}
+                onChange={()=>setUserData({...userData,isDrinking:true})}
               />
               <label class="form-check-label" for="flexCheckDefault">
                 Drinking
@@ -230,7 +152,7 @@ const Step3 = () => {
                   className="prev-btn"
                   type="button"
                   class="prev-btn"
-                  onClick={previous}
+                  onClick={()=>{  previous()}}
                   style={{ width: "100%" }}
                 >
                   <p style={{ margin: "5% 0" }}>Previous</p>
@@ -239,7 +161,8 @@ const Step3 = () => {
 
               <div className="col-6">
                 <button
-                  onClick={() => {
+                  onClick={(event) => {
+                    event.preventDefault();
                     next();
                     
                   }}

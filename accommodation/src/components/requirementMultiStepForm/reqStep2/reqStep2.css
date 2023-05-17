@@ -43,5 +43,17 @@
 }
 .reqStep2__btn-active {
   background: #28519e;
+  border: 1px solid #cacaca;
+  border-radius: 4px;
+  color: white;
+}
+.reqStep2__div {
+  background: #ffffff;
+  border: 1px solid #cacaca;
   border-radius: 4px;
 }
+.reqStep2__change-color{
+  color:white;
+  background: #28519e;
+}
+

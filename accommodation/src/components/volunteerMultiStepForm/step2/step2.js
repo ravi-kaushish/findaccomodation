@@ -5,9 +5,13 @@ import "./step2.css";
 import { MultiStepContext } from "../../stepContext/stepContext";
 import detectLocation from "../../../images/detectLocation.svg";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Step2 = () => {
-  const { next, previous, userData, setUserData } = useContext(MultiStepContext);
+  const { next, previous, userData, setUserData ,currentIndex,setCurrentIndex} = useContext(MultiStepContext);
+  setCurrentIndex(currentIndex+1)
+
+  const navigate = useNavigate();
 
  
 
@@ -184,7 +188,7 @@ const Step2 = () => {
                   className="prev-btn"
                     type="button"
                     class="prev-btn"
-                    onClick={previous}
+                    onClick={()=>{previous()}}
                     style={{width:"100%"}}
                   >
                     <p style={{margin:"5% 0"}}>Previous</p>
@@ -196,6 +200,7 @@ const Step2 = () => {
                   onClick={(event) => {
                     event.preventDefault();
                     next();
+                    
              
                   }}
                   style={{width:"100%"}}

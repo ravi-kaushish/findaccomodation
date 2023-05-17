@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
-import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useState,useRef ,useEffect} from "react";
+// import axios from "axios";
+import { useNavigate, Link } from "react-router-dom";
 import "./login.css";
 import cgLogo from "../../images/cgLogo.png";
 import building from "../../images/cgBuilding.svg";
@@ -12,43 +12,103 @@ import {
   RightContainer,
   BuildingImage,
 } from "../utilityStyles/utilityStyles";
-import {MultiStepContext} from "../stepContext/stepContext";
+import { MultiStepContext } from "../stepContext/stepContext";
+import AuthContext from "../context/authProvider";
+import axios from "../api/axios"
+import useAuth from "../hooks/useAuth";
+import {  useLocation } from 'react-router-dom';
+
+const LOGIN_URL = '/login';
+
 
 const Login = () => {
-  const [email, setEmail] = useState("gurnoor.toor@cginfinity.com");
-  const [password, setPassword] = useState("Abc@.123");
+  const userRef = useRef();
+  const { setAuth } = useAuth();
   const navigate = useNavigate();
-  
-  const {currentUser,setCurrentUser}=useContext(MultiStepContext);
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/landingpage";
+  useEffect(()=>{
+    userRef.current.focus();
+    console.log("inside useEffect")
 
-  const handleSubmit = (event) => {
+  },[])
+  const [email, setEmail] = useState("gurnoor.toor@cginfinity.com");
+  const [isEmailValid, setIsEmailValid] = useState(false);
+
+  const [password, setPassword] = useState("Abc@.123");
+  const [isPasswordValid, setIsPasswordValid] = useState(false);
+
+
+
+  const handleEmailChange = (event) => {
+    const { value } = event.target;
+    setEmail(value);
+    setIsEmailValid(
+      value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) || value.length === 0
+        ? true
+        : false
+    );
+  };
+
+  const handlePasswordChange = (event) => {
+    const { value } = event.target;
+    setPassword(value);
+    setIsPasswordValid(
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$/.test(value) ||
+        !value.length >= 8
+        ? true
+        : false
+    );
+  };
+
+  const { currentUser, setCurrentUser } = useContext(MultiStepContext);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    
 
-
-    axios.post("https://cg-accommodation.azurewebsites.net/login", { email, password })
+    await axios
+      .post(LOGIN_URL, {
+        email,
+        password,
+      })
       .then((response) => {
-        console.log(response.data);
+        const res = {
+          token:response.data.token,
+          email:response.data.response[0].email,
+          id:response.data.response[0].id,
+          firstName:response.data.response[0].firstname,
+          lastName:response.data.response[0].lastname,
+          lastLogin:response.data.response[0].lastlogin
+        };
+        
+        console.log(response.data.response[0].id);
+        console.log(response.data)
         setCurrentUser(response.data);
+        const token = response.data.token;
         localStorage.setItem("token", response.data.token);
-        localStorage.setItem("email", email);
-
-        navigate('/landingpage')
+        localStorage.setItem('userData', JSON.stringify(res));
+        setAuth({ email, password, token });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.log(error.response.data);
-        
+        console.log(error.response?.data);
       });
     console.log(email);
     console.log(`password: ${password} (hidden visible only on backend)`);
-    
-    
   };
 
   return (
     <Wrapper>
       <Container>
-        <MainContainer className="container ">
+        <MainContainer
+          className="container"
+          style={{
+            "@media (maxWidth: 575px)": {
+              display: "flex",
+              alignItems: "flex-start",
+            },
+          }} 
+        >
           <div className="row main-row " style={{ height: "35.75rem" }}>
             <LeftContainer className="col-6 d-sm-flex d-none ">
               <div className="row">
@@ -69,7 +129,14 @@ const Login = () => {
                 </div>
               </div>
             </LeftContainer>
-            <RightContainer className="col-12 col-sm-6 right-container ">
+            <RightContainer
+              className="col-12 col-sm-6 right-container "
+              style={{
+                "@media (max-width: 575px)": {
+                  boxShadow:"none"
+                },
+              }}
+            >
               <div className="row" style={{ padding: "0 4.5rem" }}>
                 <div className="col-12 text-center mb-4 mt-5">
                   <img className="img-fluid" src={cgLogo} />
@@ -79,6 +146,7 @@ const Login = () => {
                   <p style={{ color: "black" }} className=" d-sm-none d-flex">
                     This is an online platform that helps other to find
                     accommodation
+                    {console.log(localStorage.getItem("userData.email"))}
                   </p>
                 </div>
               </div>
@@ -89,33 +157,72 @@ const Login = () => {
                 <div className="col-12">
                   <div className="container w-100 g-2">
                     <form onSubmit={handleSubmit}>
-                      <label for="email" className="form-label">
-                        Email ID
-                      </label>
-                      <input
-                        type="email"
-                        className="form-control"
-                        value={email}
-                        // onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Enter your Email ID"
-                      />
-                      <label
-                        for="password"
-                        className="form-label"
-                        style={{ marginTop: "1rem" }}
-                      >
-                        Password
-                      </label>
-                      <input
-                        type="password"
-                        className="form-control"
-                        value={password}
-                        // onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Enter Password"
-                      />
+                      <div>
+                        <label for="email" className="form-label">
+                          Email ID
+                        </label>
+                        <input
+                          type="email"
+                          className={
+                            !isEmailValid && email
+                              ? "form-control input-error"
+                              : "form-control"
+                          }
+                          value={email}
+                          onChange={handleEmailChange}
+                          ref={userRef}
+                          placeholder="Enter your Email ID"
+                          required
+                        />
+                        {!isEmailValid && email && (
+                          <span style={{ color: "red", fontSize: "12px" }}>
+                            Email is not valid
+                          </span>
+                        )}
+                      </div>
 
-                      <button className="btn btn-warning w-100 mt-3">
-                        Login
+                      <div>
+                        <label
+                          for="password"
+                          className="form-label"
+                          style={{ marginTop: "1rem" }}
+                        >
+                          Password
+                        </label>
+
+                        <input
+                          type="password"
+                          className="form-control"
+                          value={password}
+                          onChange={handlePasswordChange}
+                          placeholder="Enter Password"
+                          required
+                        />
+
+                        {!isPasswordValid && password && (
+                          <span style={{ color: "red", fontSize: "12px" }}>
+                            use minimum 6 digit , uppercase , lowercase , number
+                            & symbol
+                          </span>
+                        )}
+                      </div>
+
+                      <button
+                        className="btn btn-warning w-100 mt-3"
+                        disabled={
+                          (!isEmailValid && email) ||
+                          (!isPasswordValid && password)
+                        }
+                      >
+                        <p
+                          style={{
+                            fontWeight: "500",
+                            fontFamily: "Lato",
+                            marginBottom: "0",
+                          }}
+                        >
+                          Login
+                        </p>
                       </button>
                     </form>
                   </div>
@@ -125,13 +232,17 @@ const Login = () => {
                 className="container text-center"
                 style={{ marginTop: "5%" }}
               >
-                <a href="/forgotpassword" className="link-primary">
+                <Link
+                  to="/forgotpassword"
+                  className="link-primary"
+                  style={{ color: "#28519E", fontWeight: "500" }}
+                >
                   Forgot Password?
-                </a>
+                </Link>
               </div>
               <div
                 className="container-fluid"
-                style={{ padding: "0 2.5rem", marginTop: "2.25rem" }}
+                style={{ padding: "0 2.5rem", marginTop: "2.25rem" ,marginBottom:"1rem" }}
               >
                 <div
                   className=" text-center"
@@ -142,14 +253,28 @@ const Login = () => {
                     padding: "0.5rem 0",
                   }}
                 >
-                  <p style={{ color: "black" ,marginBottom:"0"}}>First time user? Sign Up </p>
-                  <a href="/employeesignup" className="link-primary">
+                  <p
+                    style={{
+                      color: "#002C3F",
+                      marginBottom: "0",
+                      fontWeight: "600",
+                    }}
+                  >
+                    First time user? Sign Up{" "}
+                  </p>
+                  <Link
+                    to="/employeesignup"
+                    className="link-primary login__link_tag"
+                  >
                     CGI Employees
-                  </a>
-                  <span> | </span>
-                  <a href="/internsignup" className="link-primary">
+                  </Link>
+                  <span style={{ color: "#28519E" }}> | </span>
+                  <Link
+                    to="/internsignup"
+                    className="link-primary login__link_tag"
+                  >
                     CGI Interns
-                  </a>
+                  </Link>
                 </div>
               </div>
             </RightContainer>
@@ -161,3 +286,5 @@ const Login = () => {
 };
 
 export default Login;
+
+

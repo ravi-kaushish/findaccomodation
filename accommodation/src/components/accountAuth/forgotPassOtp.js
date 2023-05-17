@@ -71,7 +71,7 @@ const ForgotPassOtp = () => {
                   style={{ width: "100%", padding: "0 1.21rem" }}
                 >
                   <div className="col-12  " style={{ marginTop: "2.5rem" }}>
-                    <a href="/" style={{textDecoration:'none'}}>
+                    <a href="/" style={{textDecoration:'none'}} >
                       <img src={arrow} />{" "}
                     </a>
                       <span className="mail">email@email.com</span>
@@ -100,7 +100,7 @@ const ForgotPassOtp = () => {
                   className="container text-center"
                   style={{ marginTop: "5%", marginBottom: "3rem" }}
                 >
-                  <a className="link-primary" href="/">Use Another Account</a>
+                  <a className="link-primary" href="/" style={{color:'#28519E' , fontWeight:'500'}}>Use Another Account</a>
                 </div>
               </RightContainer>
             </div>
