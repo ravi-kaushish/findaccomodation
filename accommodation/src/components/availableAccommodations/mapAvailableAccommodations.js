@@ -119,7 +119,7 @@ const MapAvailableAccommodations = (props) => {
                         </p>
                       </div>
                       <div className="d-flex mb-3">
-                        <div className="me-3 nearby-location">
+                        <div className="me-3 nearby-location" style={{padding:'1.5rem'}}>
                           <div className="d-flex justify-content-center">
                             <img src={office} alt="" />
                           </div>
@@ -129,7 +129,7 @@ const MapAvailableAccommodations = (props) => {
                             </p>
                           </div>
                         </div>
-                        <div className="nearby-location">
+                        <div className="nearby-location" style={{padding:'1.5rem'}}>
                           <div className="d-flex justify-content-center">
                             <img src={metro} alt="" />
                           </div>

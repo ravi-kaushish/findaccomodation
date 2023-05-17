@@ -133,7 +133,6 @@
   color: #ffffff;
 }
 
-
 .availableAcco__card-p-green {
   font-family: "Lato";
   font-style: normal;
@@ -149,13 +148,32 @@
   width: 77.5rem;
 }
 
-
-.no_data_box
-{
+.no_data_box {
   box-shadow: 0px 4px 10px rgba(46, 72, 87, 0.18);
   border-radius: 0.5rem;
   height: 46.37rem;
 }
 
+@media (max-width: 575.98px) {
+  .heading-sm-p {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.12rem;
+    line-height: 1.37rem;
+    color: black;
+  }
+  
+  .heading-sm-p {
+    margin-left: 1rem;
+  }
 
 
+}
+
+
+@media (max-width: 576px){
+.form {
+    padding: 0 !important;
+}
+}

@@ -27,6 +27,7 @@ import MapAvailableAccommodations from "./mapAvailableAccommodations";
 import ModalAvailableAccommodation from "./modalAvailableAccommodation";
 import filterLogo from "../../images/filter-logo.svg";
 import { MultiStepContext } from "../stepContext/stepContext";
+import Arraow from '../../images/arrow_forward.svg'
 import axios from "axios";
 
 const AvailableAccommodations = (props) => {
@@ -201,15 +202,14 @@ const AvailableAccommodations = (props) => {
             }
             style={{
               backgroundColor: "#F5F5F5",
-              margin: "0rem",
-              padding: " 1.31rem 2.68rem",
+              margin: "0rem"
             }}
           >
             
 
-            <nav aria-label="breadcrumb">
+            <nav aria-label="breadcrumb" style={{marginTop:'1.1rem'}}>
               <ol class="breadcrumb">
-                <li class="breadcrumb-item">
+                <li class="breadcrumb-item d-none d-md-flex">
                   <Link
                     to="/landingpage"
                     style={{ textDecoration: "none", marginBottom: "0rem" }}
@@ -217,23 +217,31 @@ const AvailableAccommodations = (props) => {
                     Home
                   </Link>
                 </li>
+                <li class="breadcrumb-item d-flex d-md-none">
+                  <Link
+                    to="/landingpage"
+                    style={{ textDecoration: "none", marginBottom: "0rem" }}
+                  >
+                    <img src={Arraow}/>
+                  </Link>
+                </li>
                 <li
                   class="breadcrumb-item active"
                   aria-current="page"
                   style={{ width: "84%" }}
                 >
-                  <div className="">
+                  <div className="heading-sm-src">
                     {activeBtn === true ? (
                       <p
-                        className="text-secondary "
-                        style={{ marginBottom: "1rem" }}
+                        className="text-md-secondary heading-sm-p"
+                        style={{ marginBottom: "0.5rem" }}
                       >
                         Available Accomodation
                       </p>
                     ) : (
                       <p
-                        className="text-secondary "
-                        style={{ marginBottom: "1rem" }}
+                        className="text-md-secondary heading-sm-p"
+                        style={{ marginBottom: "0.5rem" }}
                       >
                         Requirement Post
                       </p>
@@ -324,9 +332,9 @@ const AvailableAccommodations = (props) => {
 
             <div className="row mb-2">
               {activeBtn === true ? (
-                <div className="col-4">
+                <div className="col-8 col-sm-4">
                   <div
-                    class="form d-flex border w-150 px-3"
+                    class="d-flex border w-sm-100 w-100 px-3"
                     style={{
                       backgroundColor: "#ffffff",
                       borderRadius: "0.25rem",
@@ -350,9 +358,9 @@ const AvailableAccommodations = (props) => {
                   </div>
                 </div>
               ) : (
-                <div className="col-4">
+                <div className="col-8 col-sm-4">
                   <div
-                    class="form d-flex border w-150 px-3"
+                    class="d-flex border w-sm-100 w-100 px-3"
                     style={{
                       backgroundColor: "#ffffff",
                       borderRadius: "0.25rem",
@@ -406,6 +414,7 @@ const AvailableAccommodations = (props) => {
                 <OpenRequirements sendingData={reqFilteredCards} />
               )}
             </div>
+           
           </div>
         </Container>
       </Wrapper>

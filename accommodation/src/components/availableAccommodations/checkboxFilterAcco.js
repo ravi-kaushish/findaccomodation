@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import filterLogo from "../../images/filter-logo.svg"
+import filterLogo from "../../images/filter-logo.svg";
+import SmallScreenFilterAcco from "./smallScreenFilterAcco";
 
 const CheckboxFilterAcco = (props) => {
   const [filteroption, setFilteroption] = useState([]);
   const [houseHabit1, setHouseHabit1] = useState([]);
   const [houseHabit2, setHouseHabit2] = useState([]);
   const [houseHabit3, setHouseHabit3] = useState([]);
-  const [selectedDistances1, setSelectedDistances1] = useState('');
-  const [selectedDistances2, setSelectedDistances2] = useState('');
-  const [selectedDistances3, setSelectedDistances3] = useState('');
-  const [selectedDistances4, setSelectedDistances4] = useState('');
+  const [selectedDistances1, setSelectedDistances1] = useState("");
+  const [selectedDistances2, setSelectedDistances2] = useState("");
+  const [selectedDistances3, setSelectedDistances3] = useState("");
+  const [selectedDistances4, setSelectedDistances4] = useState("");
 
   const handleFilter = (event) => {
     const val = event.target.value;
@@ -53,12 +54,12 @@ const CheckboxFilterAcco = (props) => {
     }
   };
 
-
-
   const handleDistanceChange1 = (e) => {
-    const value = e.target.value;  
+    const value = e.target.value;
     if (selectedDistances1.includes(value)) {
-      setSelectedDistances1(selectedDistances1.filter((item) => item !== value));
+      setSelectedDistances1(
+        selectedDistances1.filter((item) => item !== value)
+      );
       props.Distances1(selectedDistances1.filter((item) => item !== value));
     } else {
       setSelectedDistances1([...selectedDistances1, value]);
@@ -67,9 +68,11 @@ const CheckboxFilterAcco = (props) => {
   };
 
   const handleDistanceChange2 = (e) => {
-    const value = e.target.value;  
+    const value = e.target.value;
     if (selectedDistances2.includes(value)) {
-      setSelectedDistances2(selectedDistances2.filter((item) => item !== value));
+      setSelectedDistances2(
+        selectedDistances2.filter((item) => item !== value)
+      );
       props.Distances2(selectedDistances2.filter((item) => item !== value));
     } else {
       setSelectedDistances2([...selectedDistances2, value]);
@@ -78,9 +81,11 @@ const CheckboxFilterAcco = (props) => {
   };
 
   const handleDistanceChange3 = (e) => {
-    const value = e.target.value;  
+    const value = e.target.value;
     if (selectedDistances3.includes(value)) {
-      setSelectedDistances3(selectedDistances3.filter((item) => item !== value));
+      setSelectedDistances3(
+        selectedDistances3.filter((item) => item !== value)
+      );
       props.Distances3(selectedDistances3.filter((item) => item !== value));
     } else {
       setSelectedDistances3([...selectedDistances3, value]);
@@ -89,9 +94,11 @@ const CheckboxFilterAcco = (props) => {
   };
 
   const handleDistanceChange4 = (e) => {
-    const value = e.target.value;  
+    const value = e.target.value;
     if (selectedDistances4.includes(value)) {
-      setSelectedDistances4(selectedDistances4.filter((item) => item !== value));
+      setSelectedDistances4(
+        selectedDistances4.filter((item) => item !== value)
+      );
       props.Distances4(selectedDistances4.filter((item) => item !== value));
     } else {
       setSelectedDistances4([...selectedDistances4, value]);
@@ -100,23 +107,44 @@ const CheckboxFilterAcco = (props) => {
   };
   return (
     <>
-      <div className="col-8 container d-flex justify-content-end align-items-center">
-        <div className="d-flex">
+      <div className="col-sm-8 col-4 container d-flex justify-content-end align-items-center" style={{paddingRight:'0'}}>
+        <div className=" d-none d-md-flex">
           <img src={filterLogo} />
-          <p style={{marginBottom:'0' , marginLeft:'0.31rem' , fontWeight:'600'}}>Filter:</p>
+          <p
+            style={{
+              marginBottom: "0",
+              marginLeft: "0.31rem",
+              fontWeight: "600",
+            }}
+          >
+            Filter:
+          </p>
         </div>
         <nav class="navbar navbar-expand-lg navbar-light ">
-          <div class="container-fluid d-flex">
+          <div class="container d-flex">
             <button
               class="navbar-toggler"
               type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarTogglerDemo01"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasRight1"
               aria-controls="navbarTogglerDemo01"
               aria-expanded="false"
-              aria-label="Toggle navigation"
+              aria-label="offcanvasRight"
+              style={{border:'none'}}
             >
-              <span class="">Filter</span>
+              <div className="d-flex">
+                <img src={filterLogo} />
+                <p
+                  style={{
+                    marginBottom: "0",
+                    marginLeft: "0.31rem",
+                    fontWeight: "600",
+                    color:'black'
+                  }}
+                >
+                  Filter
+                </p>
+              </div>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
               <ul class="navbar-nav">
@@ -290,8 +318,9 @@ const CheckboxFilterAcco = (props) => {
                             <input
                               class="form-check-input"
                               type="checkbox"
-                              value="Non-smoker"
+                              
                               id="flexCheckChecked"
+                              value="Non-smoker"
                               checked={houseHabit1.includes("Non-smoker")}
                               onChange={handleHouseHabit1Filter1}
                             />
@@ -346,6 +375,7 @@ const CheckboxFilterAcco = (props) => {
               </ul>
             </div>
           </div>
+          <SmallScreenFilterAcco />
         </nav>
       </div>
     </>
