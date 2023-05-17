@@ -8,7 +8,8 @@ export const MultiStepContext = React.createContext();
 const StepContext = ({ children }) => {
   const [currentIndex, setCurrentIndex] = useState(1);
   const [reqCurrentIndex, setReqCurrentIndex] = useState(1);
-  const [greenTick, setGreenTick] = useState(0);
+  const [greenTickVol, setGreenTickVol] = useState(0);
+  const [greenTickReq, setGreenTickReq] = useState(0);
   const [userData, setUserData] = useState([]);
   const [finalData, setFinalData] = useState([]);
   const [currentUser, setCurrentUser] = useState([]);
@@ -20,17 +21,19 @@ const StepContext = ({ children }) => {
   function previous() {
     if (currentIndex > 0) {
       setCurrentIndex((currentIndex) => currentIndex - 1);
-      setGreenTick((greenTick) => greenTick - 1);
+      setGreenTickVol((greenTick) => greenTick - 1);
     } else {
       return currentIndex;
     }
   }
   
   function next() {
+    console.log("I am the next func")
     if (currentIndex < VolunteerStepInfo.length) {
       
       setCurrentIndex((currentIndex) => currentIndex + 1);
-      setGreenTick((greenTick) => greenTick + 1);
+      setGreenTickVol((greenTick) => greenTick + 1);
+   
 
     } else {
       return currentIndex;
@@ -44,7 +47,7 @@ const StepContext = ({ children }) => {
   function reqPrevious() {
     if (reqCurrentIndex > 0) {
       setReqCurrentIndex((reqCurrentIndex) => reqCurrentIndex - 1);
-      setGreenTick((greenTick) => greenTick - 1);
+      setGreenTickReq((greenTick) => greenTick - 1);
     } else {
       return reqCurrentIndex;
     }
@@ -52,7 +55,7 @@ const StepContext = ({ children }) => {
   function reqNext() {
     if (reqCurrentIndex < RequirementStepInfo.length) {
       setReqCurrentIndex((reqCurrentIndex) => reqCurrentIndex + 1);
-      setGreenTick((greenTick) => greenTick + 1);
+      setGreenTickReq((greenTick) => greenTick + 1);
     } else {
       return reqCurrentIndex;
     }
@@ -74,7 +77,8 @@ const StepContext = ({ children }) => {
         finalData,
         setFinalData,
         submitForm,
-        greenTick,
+        greenTickVol,
+        greenTickReq,
         setCurrentUser,
         currentUser,
         user,
@@ -82,7 +86,8 @@ const StepContext = ({ children }) => {
         setRequirementData,
         availableAccommodations,
         setAvailableAccommodations,
-        setGreenTick
+        setGreenTickVol,
+        setGreenTickReq
       }}
     >
       {children}

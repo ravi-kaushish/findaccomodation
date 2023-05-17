@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const Step2 = () => {
   const { next, previous, userData, setUserData ,currentIndex,setCurrentIndex} = useContext(MultiStepContext);
-  setCurrentIndex(currentIndex+1)
+ 
 
   const navigate = useNavigate();
 
@@ -199,7 +199,7 @@ const Step2 = () => {
                 <button
                   onClick={(event) => {
                     event.preventDefault();
-                    next();
+                 next();
                     
              
                   }}

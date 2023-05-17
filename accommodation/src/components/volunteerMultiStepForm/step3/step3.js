@@ -12,6 +12,10 @@ const Step3 = () => {
     useContext(MultiStepContext);
 
   const [accommodationType,setAccommodationType] = useState(true);
+  const [singlePg,setSinglePg] = useState(false)
+  const [doublePg,setDoublePg] = useState(false)
+  const [triplePg,setTriplePg] = useState(false)
+  
 
 
   function handlePgAccommodation(event){
@@ -71,10 +75,10 @@ const Step3 = () => {
               className="contianer d-flex flex-row gap-3"
               style={{ marginBottom: "1.5rem" }}
             >
-              <button className= {accommodationType ? "step3__active-btn":"Step3__btn-style"}  onClick={()=>handlePgAccommodation()} type="button">
+              <button className= {accommodationType ? "step3__active-btn":"Step3__btn-style"}  onClick={(e)=>handlePgAccommodation(e)} type="button">
                 <p className="Step3__btn-p-style">PG</p>
               </button>
-              <button className={!accommodationType ? "step3__active-btn":"Step3__btn-style"} type="button" onClick={()=>handleFlatAccommodation()} >
+              <button className={!accommodationType ? "step3__active-btn":"Step3__btn-style"} type="button" onClick={(e)=>handleFlatAccommodation(e)} >
                 <p className="Step3__btn-p-style" >Flat</p>
               </button>
             </div>
@@ -89,8 +93,8 @@ const Step3 = () => {
               style={{ marginBottom: "1.5rem" }}
             >
               <button type="button"  
-                className="Step3__btn-style" 
-                onClick={()=>{setUserData({...userData,sharingId:1})}}
+                className= {userData["sharingId"] === 1 ? "step3__active-btn" :"Step3__btn-style "}  
+                onClick={()=>{setUserData({...userData,sharingId:1}) }}
               >
                 <p className="" style={{margin:"0.5rem 3rem"}}>Single</p>
               </button>

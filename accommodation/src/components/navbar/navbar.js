@@ -30,6 +30,7 @@ const Navbar = () => {
         </Link>
         <button
           className="navbar-toggler"
+          style={{boxShadow:"none",border:"none"}}
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
