@@ -12,12 +12,16 @@ import "./step1.css";
 import { MultiStepContext } from "../../stepContext/stepContext";
 import dummyProfile from "../../../images/dummyProfile.svg";
 import styled from "styled-components";
+import { useNavigate } from "react-router";
 
 const Step1 = () => {
  
 
-  const { currentIndex, finalData, next, userData, setUserData,currentUser,user } =
+  const {next, userData, setUserData } =
     useContext(MultiStepContext);
+  const navigate = useNavigate();  
+
+
 
 
     
@@ -225,8 +229,11 @@ const Step1 = () => {
                   <button
                     onClick={(event) => {
                       event.preventDefault();
+                      
                       next();
+
                       console.log(userData);
+                      
                     }}
                     className="border-0 save-btn"
                     style={{ width: "100%" }}

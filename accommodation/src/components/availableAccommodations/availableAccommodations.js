@@ -34,8 +34,8 @@ const AvailableAccommodations = (props) => {
   const { availableAccommodations, setAvailableAccommodations } =
     useContext(MultiStepContext);
 
-  const [data, setData] = useState();
-  const [openReqData, setOpenReqData] = useState();
+  const [data, setData] = useState([]);
+  const [openReqData, setOpenReqData] = useState([]);
 
   async function handleRefresh() {
     await axios
@@ -65,12 +65,18 @@ const AvailableAccommodations = (props) => {
       });
   }
 
-  useEffect(() => {
-    console.log("inside useEffect");
-    console.log(availableAccommodations);
+  const handleLoad =() =>{
+    
     handleRefresh();
     handleOpenReq();
-    console.log(data);
+
+  }
+  
+  useEffect( () => {
+    console.log("inside useEffect");
+    console.log(availableAccommodations);
+    handleLoad();
+
   }, []);
 
   const [activeBtn, setActiveBtn] = useState(props.activebtn);
@@ -142,7 +148,7 @@ const AvailableAccommodations = (props) => {
     setDistancefilter4(data);
   }
 
-  const filteredCards = Data.filter(
+  const filteredCards = data.filter(
     (Data) =>
       (!filterData.length || filterData.includes(Data.acctypename)) &&
       (!houseHabit1.length || houseHabit1.includes(Data.issmoking)) &&
@@ -166,7 +172,7 @@ const AvailableAccommodations = (props) => {
           Data.distance <= 10))
   );
 
-  const reqFilteredCards = Data.filter(
+  const reqFilteredCards = openReqData.filter(
     (Data) =>
       (!filterData.length || filterData.includes(Data.acctypename)) &&
       (!houseHabit1.length || houseHabit1.includes(Data.issmoking)) &&

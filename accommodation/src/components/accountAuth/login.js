@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import axios from "axios";
+import React, { useContext, useState,useRef ,useEffect} from "react";
+// import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import "./login.css";
 import cgLogo from "../../images/cgLogo.png";
@@ -13,15 +13,32 @@ import {
   BuildingImage,
 } from "../utilityStyles/utilityStyles";
 import { MultiStepContext } from "../stepContext/stepContext";
+import AuthContext from "../context/authProvider";
+import axios from "../api/axios"
+import useAuth from "../hooks/useAuth";
+import {  useLocation } from 'react-router-dom';
+
+const LOGIN_URL = '/login';
+
 
 const Login = () => {
+  const userRef = useRef();
+  const { setAuth } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/landingpage";
+  useEffect(()=>{
+    userRef.current.focus();
+    console.log("inside useEffect")
+
+  },[])
   const [email, setEmail] = useState("gurnoor.toor@cginfinity.com");
   const [isEmailValid, setIsEmailValid] = useState(false);
 
   const [password, setPassword] = useState("Abc@.123");
   const [isPasswordValid, setIsPasswordValid] = useState(false);
 
-  const navigate = useNavigate();
+
 
   const handleEmailChange = (event) => {
     const { value } = event.target;
@@ -46,11 +63,11 @@ const Login = () => {
 
   const { currentUser, setCurrentUser } = useContext(MultiStepContext);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    axios
-      .post("https://cg-accommodation.azurewebsites.net/login", {
+    await axios
+      .post(LOGIN_URL, {
         email,
         password,
       })
@@ -63,16 +80,18 @@ const Login = () => {
           lastName:response.data.response[0].lastname,
           lastLogin:response.data.response[0].lastlogin
         };
+        
         console.log(response.data.response[0].id);
         console.log(response.data)
         setCurrentUser(response.data);
+        const token = response.data.token;
         localStorage.setItem("token", response.data.token);
         localStorage.setItem('userData', JSON.stringify(res));
-
-        navigate("/landingpage");
+        setAuth({ email, password, token });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.log(error.response.data);
+        console.log(error.response?.data);
       });
     console.log(email);
     console.log(`password: ${password} (hidden visible only on backend)`);
@@ -151,6 +170,7 @@ const Login = () => {
                           }
                           value={email}
                           onChange={handleEmailChange}
+                          ref={userRef}
                           placeholder="Enter your Email ID"
                           required
                         />
