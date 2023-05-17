@@ -16,6 +16,7 @@ const StepContext = ({ children }) => {
   const [availableAccommodations, setAvailableAccommodations] = useState([]);
  
   let user = "gurnoor";
+
   function previous() {
     if (currentIndex > 0) {
       setCurrentIndex((currentIndex) => currentIndex - 1);
@@ -24,6 +25,7 @@ const StepContext = ({ children }) => {
       return currentIndex;
     }
   }
+  
   function next() {
     if (currentIndex < VolunteerStepInfo.length) {
       

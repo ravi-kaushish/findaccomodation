@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./employeeSignUp.css";
 import cgLogo from "../../images/cgLogo.png";
 import building from "../../images/cgBuilding.svg";
@@ -172,13 +172,13 @@ const EmployeeSignUp = () => {
                 className="container text-center"
                 style={{ marginTop: "5%", marginBottom: "6rem" }}
               >
-                <a
-                  href="/"
+                <Link
+                  to="/login"
                   className="link-primary"
                   style={{ color: "#28519E", fontWeight: "500" }}
                 >
                   Already Have an Account
-                </a>
+                </Link>
               </div>
               {/* <div
                 className="container-fluid"

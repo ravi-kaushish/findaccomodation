@@ -20,14 +20,7 @@ const VolunteerMultiForm = () => {
  
 
   const { currentIndex } = useContext(MultiStepContext);
-  const [index,setIndex] = useState(currentIndex);
-  useEffect(()=>{
-    setIndex(currentIndex)
-  },[currentIndex])
-  
   function currentStep(step) {
-    
-   
     switch (step) {
       case 1:
         return <Step1 />;
@@ -68,8 +61,8 @@ const VolunteerMultiForm = () => {
                 }}
               >
                 <HorizontalStepper call="volunteer" />
-                debugger
-                {currentStep(index)}
+                
+                {currentStep(currentIndex)}
               </div>
             </div>
           </PageContainer>

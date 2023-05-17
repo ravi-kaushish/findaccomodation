@@ -20,12 +20,13 @@ const PostSuccessful = () => {
   const navigate = useNavigate();
   function handleHome(event){
     event.preventDefault();
+    setRequirementData({});
     navigate(`/landingpage`);
 
   }
   function handleReq(event){
     event.preventDefault();
-    navigate(`/postrequirement`);
+    navigate(`/requirementform`);
 
   }
   return (
@@ -63,7 +64,7 @@ const PostSuccessful = () => {
                     <button
                       className="btn w-100 mt-3"
                       style={{ fontWeight: "600" , borderColor:'black' }}
-                      onClick={handleHome}
+                      onClick={(e)=>{handleHome(e)}}
                     >
                       Go to Home
                     </button>
@@ -73,7 +74,7 @@ const PostSuccessful = () => {
                     <button
                       className="btn btn-warning w-100 mt-3"
                       style={{ fontWeight: "600"}}
-                      onClick={handleReq}
+                      onClick={(e)=>{handleReq(e)}}
                     >
                       Post Requirement  
                     </button>

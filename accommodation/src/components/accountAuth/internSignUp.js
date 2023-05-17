@@ -273,8 +273,8 @@ const InternSignUp = () => {
           </div>
         </form>
         <div className="row mb-4">
-          <Link className="alink" to="/"  style={{color:'#28519E' , fontWeight:'500'}}>
-            Already have an account Login
+          <Link className="alink" to="/login"  style={{color:'#28519E' , fontWeight:'500'}}>
+            Already have an account? Login
           </Link>
         </div>
       </div>
