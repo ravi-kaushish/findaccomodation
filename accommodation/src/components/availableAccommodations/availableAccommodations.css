@@ -167,4 +167,13 @@
   .heading-sm-p {
     margin-left: 1rem;
   }
+
+
+}
+
+
+@media (max-width: 576px){
+.form {
+    padding: 0 !important;
+}
 }
