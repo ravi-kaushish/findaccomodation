@@ -318,8 +318,9 @@ const CheckboxFilterAcco = (props) => {
                             <input
                               class="form-check-input"
                               type="checkbox"
-                              value="Non-smoker"
+                              
                               id="flexCheckChecked"
+                              value="Non-smoker"
                               checked={houseHabit1.includes("Non-smoker")}
                               onChange={handleHouseHabit1Filter1}
                             />

@@ -228,14 +228,14 @@ const AvailableAccommodations = (props) => {
                     {activeBtn === true ? (
                       <p
                         className="text-md-secondary heading-sm-p"
-                        style={{ marginBottom: "1rem" }}
+                        style={{ marginBottom: "0.5rem" }}
                       >
                         Available Accomodation
                       </p>
                     ) : (
                       <p
                         className="text-md-secondary heading-sm-p"
-                        style={{ marginBottom: "1rem" }}
+                        style={{ marginBottom: "0.5rem" }}
                       >
                         Requirement Post
                       </p>
@@ -328,7 +328,7 @@ const AvailableAccommodations = (props) => {
               {activeBtn === true ? (
                 <div className="col-8 col-sm-4">
                   <div
-                    class="form d-flex border w-sm-100 w-100 px-3"
+                    class="d-flex border w-sm-100 w-100 px-3"
                     style={{
                       backgroundColor: "#ffffff",
                       borderRadius: "0.25rem",
@@ -354,7 +354,7 @@ const AvailableAccommodations = (props) => {
               ) : (
                 <div className="col-8 col-sm-4">
                   <div
-                    class="form d-flex border w-sm-100 w-100 px-3"
+                    class="d-flex border w-sm-100 w-100 px-3"
                     style={{
                       backgroundColor: "#ffffff",
                       borderRadius: "0.25rem",

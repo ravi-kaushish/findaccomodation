@@ -1,6 +1,118 @@
-import React from "react";
+import {React,useState} from "react";
 
-const SmallScreenFilterAcco = () => {
+const SmallScreenFilterAcco = (props) => {
+
+    // const [filteroption, setFilteroption] = useState([]);
+    // const [houseHabit1, setHouseHabit1] = useState([]);
+    // const [houseHabit2, setHouseHabit2] = useState([]);
+    // const [houseHabit3, setHouseHabit3] = useState([]);
+    // const [selectedDistances1, setSelectedDistances1] = useState("");
+    // const [selectedDistances2, setSelectedDistances2] = useState("");
+    // const [selectedDistances3, setSelectedDistances3] = useState("");
+    // const [selectedDistances4, setSelectedDistances4] = useState("");
+  
+    // const handleFilter = (event) => {
+    //   const val = event.target.value;
+    //   if (filteroption.includes(val)) {
+    //     setFilteroption(filteroption.filter((item) => item !== val));
+    //     props.sendData(filteroption.filter((item) => item !== val));
+    //   } else {
+    //     setFilteroption([...filteroption, val]);
+    //     props.sendData([...filteroption, val]);
+    //   }
+    // };
+  
+    // const handleHouseHabit1Filter1 = (event) => {
+    //   const val = event.target.value;
+    //   if (houseHabit1.includes(val)) {
+    //     setHouseHabit1(houseHabit1.filter((item) => item !== val));
+    //     props.sendHHData1(houseHabit1.filter((item) => item !== val));
+    //   } else {
+    //     setHouseHabit1([...houseHabit1, val]);
+    //     props.sendHHData1([...houseHabit1, val]);
+    //   }
+    // };
+    // const handleHouseHabit1Filter2 = (event) => {
+    //   const val = event.target.value;
+    //   if (houseHabit2.includes(val)) {
+    //     setHouseHabit2(houseHabit2.filter((item) => item !== val));
+    //     props.sendHHData2(houseHabit2.filter((item) => item !== val));
+    //   } else {
+    //     setHouseHabit2([...houseHabit2, val]);
+    //     props.sendHHData2([...houseHabit2, val]);
+    //   }
+    // };
+    // const handleHouseHabit1Filter3 = (event) => {
+    //   const val = event.target.value;
+    //   if (houseHabit3.includes(val)) {
+    //     setHouseHabit3(houseHabit3.filter((item) => item !== val));
+    //     props.sendHHData3(houseHabit3.filter((item) => item !== val));
+    //   } else {
+    //     setHouseHabit3([...houseHabit3, val]);
+    //     props.sendHHData3([...houseHabit3, val]);
+    //   }
+    // };
+  
+    // const handleDistanceChange1 = (e) => {
+    //   const value = e.target.value;
+    //   if (selectedDistances1.includes(value)) {
+    //     setSelectedDistances1(
+    //       selectedDistances1.filter((item) => item !== value)
+    //     );
+    //     props.Distances1(selectedDistances1.filter((item) => item !== value));
+    //   } else {
+    //     setSelectedDistances1([...selectedDistances1, value]);
+    //     props.Distances1([...selectedDistances1, value]);
+    //   }
+    // };
+  
+    // const handleDistanceChange2 = (e) => {
+    //   const value = e.target.value;
+    //   if (selectedDistances2.includes(value)) {
+    //     setSelectedDistances2(
+    //       selectedDistances2.filter((item) => item !== value)
+    //     );
+    //     props.Distances2(selectedDistances2.filter((item) => item !== value));
+    //   } else {
+    //     setSelectedDistances2([...selectedDistances2, value]);
+    //     props.Distances2([...selectedDistances2, value]);
+    //   }
+    // };
+  
+    // const handleDistanceChange3 = (e) => {
+    //   const value = e.target.value;
+    //   if (selectedDistances3.includes(value)) {
+    //     setSelectedDistances3(
+    //       selectedDistances3.filter((item) => item !== value)
+    //     );
+    //     props.Distances3(selectedDistances3.filter((item) => item !== value));
+    //   } else {
+    //     setSelectedDistances3([...selectedDistances3, value]);
+    //     props.Distances3([...selectedDistances3, value]);
+    //   }
+    // };
+  
+    // const handleDistanceChange4 = (e) => {
+    //   const value = e.target.value;
+    //   if (selectedDistances4.includes(value)) {
+    //     setSelectedDistances4(
+    //       selectedDistances4.filter((item) => item !== value)
+    //     );
+    //     props.Distances4(selectedDistances4.filter((item) => item !== value));
+    //   } else {
+    //     setSelectedDistances4([...selectedDistances4, value]);
+    //     props.Distances4([...selectedDistances4, value]);
+    //   }
+    // };
+
+    // const applySubmit = () => {
+    //     props.sendData(filteroption);
+    //     props.sendHHData1(houseHabit1);
+    //     props.sendHHData2(houseHabit2);
+    //     props.sendHHData3(houseHabit3);
+    // }
+
+
   return (
     <>
       <div
@@ -31,13 +143,17 @@ const SmallScreenFilterAcco = () => {
                 Select Accommodation Type
               </p>
               <div class="form-check">
-                <input class="form-check-input border border-primary" type="checkbox" value="" />
+                <input class="form-check-input border border-primary" type="checkbox" 
+                // checked={filteroption.includes("Pg")} value="Pg" onChange={handleFilter}
+                />
                 <label class="form-check-label" for="flexCheckDefault">
                   PG
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input border border-primary" type="checkbox" value="" />
+                <input class="form-check-input border border-primary" type="checkbox" 
+                // checked={filteroption.includes("Flat")} value="Flat" onChange={handleFilter}
+                />
                 <label class="form-check-label" for="flexCheckChecked">
                   FLAT
                 </label>
@@ -78,22 +194,30 @@ const SmallScreenFilterAcco = () => {
                 <input
                   class="form-check-input border border-primary"
                   type="checkbox"
-                  value=""
+                  value="Non-smoker"
+                //   checked={houseHabit1.includes("Non-smoker")}
+                //   onChange={handleHouseHabit1Filter1}
                 />
                 <label class="form-check-label" for="flexCheckDefault">
-                  Non Veg
+                Smoking
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input  border border-primary" type="checkbox" value="" />
+                <input class="form-check-input  border border-primary" type="checkbox"  value="Non-drinker"
+                            //   checked={houseHabit1.includes("Non-drinker")}
+                            //   onChange={handleHouseHabit1Filter2}
+                              />
                 <label class="form-check-label" for="flexCheckChecked">
-                  Smoking
+                  Drinker
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input  border border-primary" type="checkbox" value="" />
+                <input class="form-check-input  border border-primary" type="checkbox"  value="Veg"
+                            //   checked={houseHabit1.includes("Veg")}
+                            //   onChange={handleHouseHabit1Filter3}
+                              />
                 <label class="form-check-label" for="flexCheckChecked">
-                  Drinking
+                  Vegetarian
                 </label>
               </div>
 
@@ -106,6 +230,7 @@ const SmallScreenFilterAcco = () => {
                     className="reqStep2__btn-pre"
                     type="button"
                     style={{ width: "100%" }}
+                    // onClick={resetSubmit}
                   >
                     <p className="reqStep__btn-p " style={{ margin: "5% 0" }}>
                       Reset
@@ -117,6 +242,7 @@ const SmallScreenFilterAcco = () => {
                     type="button"
                     className="reqStep2__btn-next"
                     style={{ width: "100%" }}
+                    // onClick={applySubmit}
                   >
                     <p className="reqStep__btn-p " style={{ margin: "5% 0" }}>
                       Apply
