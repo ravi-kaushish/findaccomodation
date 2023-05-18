@@ -27,17 +27,7 @@ import OffcanvusAvailableAccommodation from "./offcanvusAvailableAccommodation";
 import ModalAvailableAccommodation from "./modalAvailableAccommodation";
 
 const MapAvailableAccommodations = (props) => {
-  const furnishType = "";
-  function isFurnished(value) {
-    if (value.fullyfurnished == true) {
-      furnishType = "Fully Furnished";
-    } else if (value.semifurnished == true) {
-      furnishType = "Semi Furnished";
-    } else if (value.unfurnished == true) {
-      furnishType = "Un-Furnished";
-    }
-    return furnishType;
-  }
+  
 
   function checkAccType(info) {
     if (info["1rk"] == true) {
@@ -196,8 +186,7 @@ const MapAvailableAccommodations = (props) => {
                           {data.furnishedType ? `| ${data.furnishedType}` : ""} */}
                           {/* {data.acctypename == "flat" ?  data["1rk"] == true ?  "1 RK" : data["1bhk"] == true ?  "2 BHK"  : data["2bhk"] == true ?  "3 BHK" :
                           data["4bhk"] == true ? "4 BHK"  } */}
-                          {data.acctypename} | {checkAccType(data)} |{" "}
-                          {checkFurnished(data)}
+                          {data.acctypename} | {checkAccType(data)}  {data.acctypename == "flat" ? `| ${checkFurnished(data)}` : checkFurnished(data) } 
                         </p>
                         <div className="d-flex">
                           <img src={greencheck} alt="" />

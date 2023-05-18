@@ -13,12 +13,16 @@ import {
   RightContainer,
   BuildingImage,
 } from "../utilityStyles/utilityStyles";
+import useAuth from "../hooks/useAuth";
+
 
 const Otp = () => {
-  const [otp, setOtp] = useState("");
-  const [isotpValid, setIsOtpValid] = useState(false);
+  const [otp, setOtp] = useState(0);
 
-  const handleotpChange = (event) => {
+  const [isotpValid, setIsOtpValid] = useState(false);
+  const { setAuth } = useAuth();
+
+  const handleOtpChange = (event) => {
     const { value } = event.target;
     const formattedValue = value.replace(/\D/g, "").replace(/(.{1})/g, "$1 ");
     if (formattedValue.trim().length <= 11) {
@@ -30,6 +34,7 @@ const Otp = () => {
         : true
     );
   };
+
 
   const navigate = useNavigate();
 
@@ -49,7 +54,17 @@ const Otp = () => {
       )
       .then((response) => {
         console.log(response.data);
-        localStorage.setItem("token");
+        const res = {
+          token:response.data.token,
+          email:response.data.response[0].email,
+          id:response.data.response[0].id,
+          firstName:response.data.response[0].firstname,
+          lastName:response.data.response[0].lastname,
+        };
+        localStorage.setItem('userData', JSON.stringify(res));
+        localStorage.setItem("token", response.data.token);
+        setAuth ({email,token})
+
         navigate("/landingpage");
       })
       .catch((error) => {
@@ -115,7 +130,12 @@ const Otp = () => {
                       Microsoft account.
                     </p>
 
-                    <form style={{ marginBottom: "4%" }} onSubmit={handleOtp}>
+                    <form
+                      style={{ marginBottom: "4%" }}
+                      onSubmit={(e) => {
+                        handleOtp(e);
+                      }}
+                    >
                       <input
                         type="text"
                         id="otp"
@@ -123,17 +143,22 @@ const Otp = () => {
                         placeholder="Code"
                         style={{ width: "100%" }}
                         value={otp}
-                        onChange={handleotpChange}
+                        onChange={(e) => {
+                          setOtp(e.target.value);
+                          // handleOtpChange(e);
+                        }}
                       />
-                      {!isotpValid && otp && (
+                      {/* {!isotpValid && otp && (
                         <span style={{ color: "red", fontSize: "12px" }}>
                           Not a Valid OTP
                         </span>
-                      )}
+                      )} */}
 
                       <button
                         className="btn btn-warning w-100 mt-3"
-                        onClick={handleOtp}
+                        onClick={(e) => {
+                          handleOtp(e);
+                        }}
                       >
                         Verify
                       </button>

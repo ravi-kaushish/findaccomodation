@@ -169,7 +169,7 @@ const Login = () => {
                               : "form-control"
                           }
                           value={email}
-                          onChange={handleEmailChange}
+                          onChange={(e)=>{handleEmailChange(e)}}
                           ref={userRef}
                           placeholder="Enter your Email ID"
                           required
