@@ -9,6 +9,8 @@ const ReqStep2 = () => {
 
 
   const [singlePg,setSinglePg] = useState(false);
+  const [doublePg,setDoublePg] = useState(false);
+  const [triplePg,setTriplePg] = useState(false);
   return (
     <>
       <FormContainer>
@@ -105,7 +107,7 @@ const ReqStep2 = () => {
                   type="button"
                   // className="reqStep2__btn"
                   className={
-                singlePg === true ? "reqStep2__btn-active": "reqStep2__btn"
+                requirementData["sharingId"] === 1 ? "reqStep2__btn-active": "reqStep2__btn"
                 }
                   onClick={(event) => {
                     event.preventDefault();
@@ -122,7 +124,10 @@ const ReqStep2 = () => {
                     Single
                   </p>
                 </button>
-                <button type="button" className="reqStep2__btn"
+                <button type="button" 
+                className={
+                requirementData["sharingId"] === 2 ? "reqStep2__btn-active": "reqStep2__btn"
+                }
                   onClick={(event) => {
                     event.preventDefault();
                     setRequirementData({ ...requirementData, sharingId: 2 });
@@ -135,7 +140,10 @@ const ReqStep2 = () => {
                   </p>
                 </button>
 
-                <button type="button" className="reqStep2__btn"
+                <button type="button"
+                className={
+                requirementData["sharingId"] === 3 ? "reqStep2__btn-active": "reqStep2__btn"
+                }
                  onClick={(event) => {
                     event.preventDefault();
                     setRequirementData({ ...requirementData, sharingId: 3 });
@@ -166,14 +174,21 @@ const ReqStep2 = () => {
                   </p>
                 </div>
                 <div className="row g-2">
-                  <div className="  col reqStep2__div text-center " 
+                  <div 
+                   className={
+                requirementData["flatTypeId"] === 1 ? " text-center col reqStep2__btn-active": "text-center col reqStep2__btn"
+                }
+
                    onClick={(event) => {
                     event.preventDefault();
                     setRequirementData({ ...requirementData, flatTypeId: 1 });
                   }}>
                     <p style={{ margin: "0.75rem" }}>1 RK</p>
                   </div>
-                  <div className="  col  reqStep2__div text-center mx-2"
+                  <div 
+                  className={
+                requirementData["flatTypeId"] === 2 ? " text-center mx-2 col reqStep2__btn-active": "text-center mx-2 col reqStep2__btn"
+                }
                    onClick={(event) => {
                     event.preventDefault();
                     setRequirementData({ ...requirementData, flatTypeId: 2 });
@@ -181,21 +196,33 @@ const ReqStep2 = () => {
                    >
                     <p style={{ margin: "0.75rem" }}>1 BHK</p>
                   </div>
-                  <div className="  col reqStep2__div text-center"
+                  <div 
+                  className={
+                requirementData["flatTypeId"] === 3 ? " text-center col reqStep2__btn-active": "text-center col reqStep2__btn"
+                }
+                  
                     onClick={(event) => {
                     event.preventDefault();
                     setRequirementData({ ...requirementData, flatTypeId: 3 });
                   }}>
                     <p style={{ margin: "0.75rem" }}>2 BHK</p>
                   </div>
-                  <div className="  col reqStep2__div text-center mx-2"
+                  <div 
+                   className={
+                requirementData["flatTypeId"] === 4 ? " text-center col reqStep2__btn-active mx-2": "text-center col reqStep2__btn mx-2"
+                }
                     onClick={(event) => {
                     event.preventDefault();
                     setRequirementData({ ...requirementData, flatTypeId: 4 });
                   }}>
                     <p style={{ margin: "0.75rem" }}>3 BHK</p>
                   </div>
-                  <div className=" col reqStep2__div text-center"
+                  <div 
+                   className={
+                requirementData["flatTypeId"] === 5 ? " text-center col reqStep2__btn-active": "text-center col reqStep2__btn"
+                }
+                  
+                  
                     onClick={(event) => {
                     event.preventDefault();
                     setRequirementData({ ...requirementData, flatTypeId: 5 });
@@ -214,21 +241,30 @@ const ReqStep2 = () => {
                   </p>
                 </div>
 
-                <div className="  col text-center reqStep2__div"
+                <div 
+                 className={
+                requirementData["furnishedtypeId"] === 1 ? " text-center col reqStep2__btn-active": "text-center col reqStep2__btn"
+                }
                  onClick={(event) => {
                     event.preventDefault();
                     setRequirementData({ ...requirementData, furnishedtypeId: 1 });
                   }}>
                   <p style={{ margin: "0.75rem" }}>Fully Furnished</p>
                 </div>
-                <div className="  col  text-center reqStep2__div mx-3" 
+                <div 
+                 className={
+                requirementData["furnishedtypeId"] === 2 ? " text-center col reqStep2__btn-active mx-3": " mx-3 text-center col reqStep2__btn"
+                }
                  onClick={(event) => {
                     event.preventDefault();
                     setRequirementData({ ...requirementData, furnishedtypeId: 2 });
                   }}>
                   <p style={{ margin: "0.75rem" }}>Semi Furnished</p>
                 </div>
-                <div className="  col text-center reqStep2__div" 
+                <div 
+                 className={
+                requirementData["furnishedtypeId"] === 3 ? " text-center col reqStep2__btn-active": "text-center col reqStep2__btn"
+                }
                 onClick={(event) => {
                     event.preventDefault();
                     setRequirementData({ ...requirementData, furnishedtypeId: 3 });
