@@ -21,14 +21,14 @@ const Navbar = () => {
       style={{ backgroundColor: "#002C3F" }}
     >
       <div className="container-fluid">
-        <Link style={{ cursor: "pointer" }} onClick={handleLandingPage}>
+        <Link style={{ cursor: "pointer" }} onClick={()=>{handleLandingPage()}}>
           <img
             className="d-inline-block align-text-top"
             style={{ width: "155.81px", height: "35px" }}
             src={cglogowhite}
           />
         </Link>
-        <button
+        {/* <button
           className="navbar-toggler"
           style={{boxShadow:"none",border:"none"}}
           type="button"
@@ -40,7 +40,7 @@ const Navbar = () => {
         >
           <img src={profilePic}></img>
           <img src={dropdownArrow}></img>
-        </button>
+        </button> */}
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto">
