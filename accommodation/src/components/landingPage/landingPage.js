@@ -53,9 +53,7 @@ const LandingPage = () => {
     event.preventDefault();
     axios.get('https://cg-accommodation.azurewebsites.net/getAllAcc')
     .then(response => {
-      // Handle Success
-      // console.log(response.data);
-      // setAvailableAccommodations({...availableAccommodations,accommodations:response.data})
+  
       navigate('/availableaccommodationsonly')
 
     })
@@ -102,7 +100,7 @@ const LandingPage = () => {
                     marginTop: "3.3rem",
                   }}
                 >
-                  Welcome, {data.firstName} {data.lastName}
+                  Welcome, {data?.firstName} {data?.lastName}
                 </p>
                 <p className="landingPage__mainheading">
                   Let's find your <b>Accommodation</b>
