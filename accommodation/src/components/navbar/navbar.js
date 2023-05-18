@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext ,useState} from "react";
 import cglogowhite from "../../images/cgLogoWhite.svg";
 import profilePic from "../../images/profilePic.svg";
 import bell from "../../images/bell.svg";
@@ -15,6 +15,9 @@ const Navbar = () => {
     event.preventDefault();
     navigate("/landingpage");
   }
+  const userData = localStorage.getItem("userData")
+  
+  const [data,setData] = useState(JSON.parse(userData));
   return (
     // <nav
     //   className="navbar navbar-expand-lg navbar-light"
@@ -87,7 +90,7 @@ const Navbar = () => {
     // </nav>
     <nav className="navbar-light" style={{ backgroundColor: "#002C3F" }}>
       <div className="d-flex justify-content-between px-3 py-2" >
-        <div>
+        <div onClick={(e)=>{handleLandingPage(e)}}>
           <img
             className="d-inline-block align-text-top"
             style={{ width: "155.81px", height: "35px" }}
@@ -111,11 +114,11 @@ const Navbar = () => {
           sx={{ width: "2px" }}
         >
           <Link class="dropdown-item">
-            <strong>John Doe</strong>
+            <strong>{data.firstName} {data.lastName}</strong>
           </Link>
           <Link href="#" class="dropdown-item">
             <strong style={{ color: "#565555", fontWeight: "400" }}>
-              johndoe@example.com
+              {data.email}
             </strong>
           </Link>
           <Link href="#" class="dropdown-item">

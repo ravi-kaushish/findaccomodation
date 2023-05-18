@@ -118,7 +118,7 @@ const LandingPage = () => {
                     padding: "0",
                     margin:"0"
                   }}
-                  onClick={handleAvailableAccommodation}
+                  onClick={(e)=>{handleAvailableAccommodation(e)}}
                 >
                   <p
                     className="landingPage__btn-p"
@@ -159,7 +159,7 @@ const LandingPage = () => {
                           marginBottom: "2.31rem",
                           marginTop: "1.56rem",
                         }}
-                        onClick={handleVolunteer}
+                        onClick={(e)=>{handleVolunteer(e)}}
                         className="btn"
                       >
                         <p
@@ -175,7 +175,7 @@ const LandingPage = () => {
                         <p
                           className="landingPage__btn-p "
                           style={{ margin: "1rem 1.5rem 0.8rem" }}
-                          onClick={handleOpenrequirements}
+                          onClick={(e)=>{handleOpenrequirements(e)}}
                         >
                           See Open Requests
                         </p>
@@ -200,7 +200,7 @@ const LandingPage = () => {
                     marginBottom: "2.5rem",
                     marginTop: "1.5rem",
                   }}
-                  onClick={handlePostReq}
+                  onClick={()=>handlePostReq()}
                 >
                   <p
                     style={{ margin: "1rem 2rem" }}
