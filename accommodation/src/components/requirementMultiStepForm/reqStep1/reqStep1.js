@@ -99,7 +99,7 @@ const ReqStep1 = () => {
               Contact No.
             </label>
             <input id="contactInfo" className="form-control" type="tel" placeholder="Contact No."
-              value={contact} onChange={()=>{handlePhoneNumberChange()}}
+              value={contact} onChange={(e)=>{handlePhoneNumberChange(e)}}
             />
             {!isPhoneNumberValid && contact && (
                 <span style={{ color: "red", fontSize: "12px" }}>
@@ -121,7 +121,7 @@ const ReqStep1 = () => {
           </div>
           <div className="row justify-content-end"  style={{marginTop: "17.75rem"}}>
             <div className="col-6">
-            <button style={{width:"100%"}} className="reqStep1__btn" type="button" onClick={()=>{reqNext();
+            <button style={{width:"100%"}} className="reqStep1__btn" type="button" onClick={(e)=>{reqNext(e);
             console.log(requirementData)}}>
               <p className="reqStep__btn-p" style={{ margin: "5% 0" }}> Save & Next</p>
             </button>

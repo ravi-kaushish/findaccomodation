@@ -198,7 +198,7 @@ const LandingPage = () => {
                     marginBottom: "2.5rem",
                     marginTop: "1.5rem",
                   }}
-                  onClick={()=>handlePostReq()}
+                  onClick={(e)=>handlePostReq(e)}
                 >
                   <p
                     style={{ margin: "1rem 2rem" }}
