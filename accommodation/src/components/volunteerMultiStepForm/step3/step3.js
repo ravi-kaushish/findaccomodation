@@ -8,15 +8,22 @@ import { FormContainer, Header, Body } from "../../utilityStyles/utilityStyles";
 const MainContainer = styled.div``;
 
 const Step3 = () => {
+  useEffect(()=>{ 
+    // setUserData(["sharingId"]);
+   },[] )
   const { next, previous, userData, setUserData, currentIndex } =
     useContext(MultiStepContext);
 
   const [accommodationType,setAccommodationType] = useState(true);
-  const [singlePg,setSinglePg] = useState(false)
-  const [doublePg,setDoublePg] = useState(false)
-  const [triplePg,setTriplePg] = useState(false)
+  // const [singlePg,setSinglePg] = useState(false)
+  // const [doublePg,setDoublePg] = useState(false)
+  // const [triplePg,setTriplePg] = useState(false)
   
-
+  // const [flatType1RK, setFlatType1RK] = useState(false);
+  // const [flatType1BHK, setFlatType1BHK] = useState(false);
+  // const [flatType2BHK, setFlatType2BHK] = useState(false);
+  // const [flatType3BHK, setFlatType3BHK] = useState(false);
+  // const [flatType4BHK, setFlatType4BHK] = useState(false);
 
   function handlePgAccommodation(event){
     event.preventDefault();
@@ -215,6 +222,7 @@ const Step3 = () => {
               }
               onClick={(event) => {
                 event.preventDefault();
+                setUserData["sharingId"] = null;
                 setUserData({ ...userData, accTypeId: 2 });
               }}
             >
@@ -244,8 +252,8 @@ const Step3 = () => {
                 }
                   onClick={(event) => {
                     event.preventDefault();
-                    setSinglePg(true)
-                    console.log(singlePg)
+                    // setSinglePg(true)
+                    // console.log(singlePg)
                     setUserData({ ...userData, sharingId: 1 });
                   }}
                 >
@@ -296,7 +304,7 @@ const Step3 = () => {
                 <div
                   className="col-12 "
                   onClick={() => {
-                    setUserData({ ...userData });
+                    setUserData({ ...userData});
                   }}
                 >
                   <p
@@ -314,6 +322,7 @@ const Step3 = () => {
 
                    onClick={(event) => {
                     event.preventDefault();
+                    // setFlatType1RK(true);
                     setUserData({ ...userData, flatTypeId: 1 });
                   }}>
                     <p style={{ margin: "0.75rem" }}>1 RK</p>
@@ -324,6 +333,7 @@ const Step3 = () => {
                 }
                    onClick={(event) => {
                     event.preventDefault();
+                    // setFlatType1BHK(true);
                     setUserData({ ...userData, flatTypeId: 2 });
                   }}
                    >
@@ -336,6 +346,7 @@ const Step3 = () => {
                   
                     onClick={(event) => {
                     event.preventDefault();
+                    // setFlatType2BHK(true);
                     setUserData({ ...userData, flatTypeId: 3 });
                   }}>
                     <p style={{ margin: "0.75rem" }}>2 BHK</p>
@@ -346,6 +357,7 @@ const Step3 = () => {
                 }
                     onClick={(event) => {
                     event.preventDefault();
+                    // setFlatType3BHK(true);
                     setUserData({ ...userData, flatTypeId: 4 });
                   }}>
                     <p style={{ margin: "0.75rem" }}>3 BHK</p>
@@ -358,6 +370,7 @@ const Step3 = () => {
                   
                     onClick={(event) => {
                     event.preventDefault();
+                    // setFlatType4BHK(true);
                     setUserData({ ...userData, flatTypeId: 5 });
                   }}>
                     <p style={{ margin: "0.75rem" }}>4 BHK</p>
@@ -483,7 +496,9 @@ const Step3 = () => {
                 type="button"
                 className="reqStep2__btn-next"
                 onClick={() => {
-                  next();
+                  if((userData["accTypeId"] === 1 && (userData["sharingId"] === 1 || userData["sharingId"] === 2 || userData["sharingId"] === 3)) || (userData["accTypeId"] === 2 && (userData["flatTypeId"] === 1 || userData["flatTypeId"] === 2 || userData["flatTypeId"] === 3 || userData["flatTypeId"] === 4 || userData["flatTypeId"] === 5) && (userData["furnishedtypeId"] === 1 || userData["furnishedtypeId"] === 2 || userData["furnishedtypeId"] === 3))) {
+                    next();
+                  }
                   console.log(userData);
                 }}
                 style={{ width: "100%" }}

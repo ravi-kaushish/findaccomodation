@@ -208,7 +208,12 @@ const Step4 = () => {
                   className="prev-btn"
                   type="button"
                   class="prev-btn"
-                  onClick={()=>{previous();}}
+                  onClick={()=>{
+                    setUserData["accTypeId"] = null;
+                    setUserData["flatTypeId"] = null;
+                    setUserData["furnishedtypeId"] = null;
+                    previous();
+                  }}
                   style={{ width: "100%" }}
                 >
                   <p style={{ margin: "5% 0" }}>Previous</p>
