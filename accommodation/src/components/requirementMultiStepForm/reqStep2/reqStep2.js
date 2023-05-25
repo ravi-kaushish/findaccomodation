@@ -173,7 +173,7 @@ const ReqStep2 = () => {
                     BHK TYPE
                   </p>
                 </div>
-                <div className="row g-2">
+                <div className="container-fluid d-flex flex-row gap-1">
                   <div 
                    className={
                 requirementData["flatTypeId"] === 1 ? " text-center col reqStep2__btn-active": "text-center col reqStep2__btn"
@@ -240,7 +240,7 @@ const ReqStep2 = () => {
                     Furnishing Type
                   </p>
                 </div>
-
+                <div className="container-fluid d-flex flex-row gap-1">
                 <div 
                  className={
                 requirementData["furnishedtypeId"] === 1 ? " text-center col reqStep2__btn-active": "text-center col reqStep2__btn"
@@ -270,6 +270,7 @@ const ReqStep2 = () => {
                     setRequirementData({ ...requirementData, furnishedtypeId: 3 });
                   }}>
                   <p style={{ margin: "0.75rem" }}>Unfurnished</p>
+                </div>
                 </div>
               </div>
             </div>

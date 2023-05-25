@@ -314,7 +314,7 @@ const Step3 = () => {
                     BHK TYPE
                   </p>
                 </div>
-                <div className="row g-2">
+                <div className="container-fluid d-flex flex-row gap-1">
                   <div 
                    className={
                 userData["flatTypeId"] === 1 ? " text-center col reqStep2__btn-active": "text-center col reqStep2__btn"
@@ -360,7 +360,7 @@ const Step3 = () => {
                     // setFlatType3BHK(true);
                     setUserData({ ...userData, flatTypeId: 4 });
                   }}>
-                    <p style={{ margin: "0.75rem" }}>3 BHK</p>
+                    <p style={{ margin: "0.75rem"}}>3 BHK</p>
                   </div>
                   <div 
                    className={
@@ -386,7 +386,7 @@ const Step3 = () => {
                     Furnishing Type
                   </p>
                 </div>
-
+                <div className="container-fluid d-flex flex-row gap-1">
                 <div 
                  className={
                 userData["furnishedtypeId"] === 1 ? " text-center col reqStep2__btn-active": "text-center col reqStep2__btn"
@@ -416,6 +416,7 @@ const Step3 = () => {
                     setUserData({ ...userData, furnishedtypeId: 3 });
                   }}>
                   <p style={{ margin: "0.75rem" }}>Unfurnished</p>
+                </div>
                 </div>
               </div>
             </div>
