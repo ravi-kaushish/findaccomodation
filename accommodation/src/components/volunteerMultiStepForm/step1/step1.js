@@ -48,7 +48,7 @@ const Step1 = () => {
   const handleContactChange = (event) => {
     let {value} = event.target;
     setContactNumber(value);
-    setIsContactNumberValid(/\d{10}/.test(value)
+    setIsContactNumberValid(/\d{9}/.test(value) && value.length <= 10
       ? true
       : false
     );
@@ -280,7 +280,7 @@ const Step1 = () => {
 
               <div
                 className="row d-flex justify-content-end"
-                style={{ marginTop: "3rem" }}
+                style={{ marginTop: "8%" }}
               >
                 <div className="col-6" style={{ padding: "0" }}>
                   <button

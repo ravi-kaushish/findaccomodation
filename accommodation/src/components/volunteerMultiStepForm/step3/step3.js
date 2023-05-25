@@ -428,8 +428,7 @@ const Step3 = () => {
             <input
               class="form-check-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              id="nonVeg"
               checked={userData["isNonVeg"]}
               onChange={(event) => {
                 setUserData({
@@ -446,8 +445,7 @@ const Step3 = () => {
             <input
               class="form-check-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              id="smoking"
               checked={userData["isSmoking"]}
               onChange={(event) => {
                 setUserData({
@@ -464,8 +462,7 @@ const Step3 = () => {
             <input
               class="form-check-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              id="drinking"
               checked={userData["isDrinking"]}
               onChange={(event) => {
                 setUserData({
@@ -478,7 +475,10 @@ const Step3 = () => {
               Drinking
             </label>
           </div>
-          <div className="row " style={{ marginTop: "14.5rem", padding: "0" }}>
+          { 
+            console.log(userData["isSmoking"])
+          }
+          <div className="row " style={{ marginTop: "8%", padding: "0" }}>
             <div className="col-6">
               <button
                 className="reqStep2__btn-pre"

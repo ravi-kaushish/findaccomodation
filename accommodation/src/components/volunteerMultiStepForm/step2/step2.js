@@ -210,7 +210,7 @@ const Step2 = () => {
             </div>
 
             
-              <div className="row" style={{marginTop:"6.5rem"}}>
+              <div className="row" style={{marginTop:"8%"}}>
                 <div className="col-6">
                   <button
                   className="prev-btn"
