@@ -46,13 +46,14 @@ const Step1 = () => {
   }
 
   const handleContactChange = (event) => {
-    let {value} = event.target;
-    setContactNumber(value);
-    setIsContactNumberValid(/\d{9}/.test(value) && value.length <= 10
-      ? true
-      : false
+    let phoneNumber = event.target.value;
+    if (phoneNumber.trim().length <= 10) {
+      setContactNumber(phoneNumber.trim());
+    }
+    setIsContactNumberValid(
+      phoneNumber.length === 0 || (phoneNumber.trim().length <= 10 && /\d{10}/.test(phoneNumber)) ? true : false
     );
-    setUserData({...userData, contact: value})
+    setUserData({...userData, contact: phoneNumber.trim()})
     // console.log(isContactNumberValid);     
     //   console.log(contactNumber);
     //   console.log(userData);
@@ -153,7 +154,7 @@ const Step1 = () => {
                     Contact No.
                   </p>
                   <input
-                    type="text"
+                    type="tel"
                     placeholder="****"
                     className={ !isContactNumberValid && contactNumber
                       ? "form-control input-error"

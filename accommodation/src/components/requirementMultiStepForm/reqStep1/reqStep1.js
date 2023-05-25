@@ -27,13 +27,13 @@ const ReqStep1 = () => {
 
 
   const handleDateChange = (event) => {
-    const phoneNumber = event.target.value;
-    if (phoneNumber.trim().length <= 10) {
-      setContact(phoneNumber.trim());
-    }
-    setIsPhoneNumberValid(
-      phoneNumber.length === 0 || phoneNumber.trim().length < 10 ? false : true
-    );
+    // const phoneNumber = event.target.value;
+    // if (phoneNumber.trim().length <= 10) {
+    //   setContact(phoneNumber.trim());
+    // }
+    // setIsPhoneNumberValid(
+    //   phoneNumber.length === 0 || phoneNumber.trim().length < 10 ? false : true
+    // );
   };
 
 

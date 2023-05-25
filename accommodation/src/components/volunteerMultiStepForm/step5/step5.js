@@ -27,13 +27,26 @@ const Step5 = () => {
 
 
   }
+
+  const [name, setName] = useState();
+  const [contactNumber, setContactNumber] = useState();
   const [isContactNumberValid, setIsContactNumberValid] = useState(false);
+
   const handleContactChange = (event) => {
-    let {value} = event.target;
-    setIsContactNumberValid(/\d{9}/.test(value) && value.length <= 10
-      ? true
-      : false
+    let phoneNumber = event.target.value;
+    if (phoneNumber.trim().length <= 10) {
+      setContactNumber(phoneNumber.trim());
+    }
+    setIsContactNumberValid(
+      phoneNumber.length === 0 || (phoneNumber.trim().length <= 10 && /\d{10}/.test(phoneNumber)) ? true : false
     );
+    setUserData({...userData, houseOwnerContact: phoneNumber.trim()})
+  }
+
+  const handleLandlordName = (event) => {
+    let {value} = event.target;
+    setName(value);
+    setUserData({...userData, houseOwnerName: value});
   }
 
   function btnHandler() {
@@ -198,6 +211,7 @@ const Step5 = () => {
                 <input
                   type="text"
                   placeholder="John Doe"
+                  onInput={(e) => handleLandlordName(e)}
                   className="form-control"
                   value={userData["houseOwnerName"]}
                 />
@@ -218,7 +232,7 @@ const Step5 = () => {
                   value={userData["houseOwnerContact"]}
                 />
                 {
-                    !isContactNumberValid && userData["houseOwnerContact"] && (
+                    !isContactNumberValid && contactNumber && (
                       <span style={{ color: "red", fontSize: "12px" }}>
                         Contact Number is not valid
                       </span>
