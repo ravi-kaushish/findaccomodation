@@ -34,6 +34,7 @@ const Login = () => {
     console.log("inside useEffect")
 
   },[])
+
   const [email, setEmail] = useState("gurnoor.toor@cginfinity.com");
   const [isEmailValid, setIsEmailValid] = useState(false);
 
@@ -175,7 +176,7 @@ const Login = () => {
                           value={email}
                           onChange={(e)=>{handleEmailChange(e)}}
                           ref={userRef}
-                          placeholder="Enter your Email ID"
+                          placeholder="Enter Your Email ID"
                           required
                         />
                         {!isEmailValid && email && (

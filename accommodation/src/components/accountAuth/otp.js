@@ -17,7 +17,7 @@ import useAuth from "../hooks/useAuth";
 
 
 const Otp = () => {
-  const [otp, setOtp] = useState(0);
+  const [otp, setOtp] = useState();
 
   const [isotpValid, setIsOtpValid] = useState(false);
   const { setAuth } = useAuth();
@@ -141,7 +141,7 @@ const Otp = () => {
                         id="otp"
                         className="otp_input"
                         placeholder="Code"
-                        style={{ width: "100%" }}
+                        style={{ width: "100%" , paddingBottom: "2  %", borderBlockColor:"#8a8a8a"}}
                         value={otp}
                         onChange={(e) => {
                           setOtp(e.target.value);

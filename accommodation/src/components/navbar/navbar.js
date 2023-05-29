@@ -64,7 +64,7 @@ const Navbar = () => {
           <Link href="#" class="dropdown-item">
             <strong style={{ color: "#565555" }}>Account Settings</strong>
           </Link>
-          {console.log("inside navbar")}
+          {/* {console.log("inside navbar")} */}
           <Link to={isLogin ?"/landingpage":"/"} class="dropdown-item" onClick={()=>{handleLogIn();}}>
             <strong style={{ color: "red" }}>Logout</strong>
           </Link>

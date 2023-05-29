@@ -173,7 +173,7 @@ const ReqStep2 = () => {
                     BHK TYPE
                   </p>
                 </div>
-                <div className="row g-2">
+                <div className="container-fluid d-flex flex-row gap-1">
                   <div 
                    className={
                 requirementData["flatTypeId"] === 1 ? " text-center col reqStep2__btn-active": "text-center col reqStep2__btn"
@@ -240,7 +240,7 @@ const ReqStep2 = () => {
                     Furnishing Type
                   </p>
                 </div>
-
+                <div className="container-fluid d-flex flex-row gap-1">
                 <div 
                  className={
                 requirementData["furnishedtypeId"] === 1 ? " text-center col reqStep2__btn-active": "text-center col reqStep2__btn"
@@ -270,6 +270,7 @@ const ReqStep2 = () => {
                     setRequirementData({ ...requirementData, furnishedtypeId: 3 });
                   }}>
                   <p style={{ margin: "0.75rem" }}>Unfurnished</p>
+                </div>
                 </div>
               </div>
             </div>
@@ -332,7 +333,7 @@ const ReqStep2 = () => {
               Drinking
             </label>
           </div>
-          <div className="row " style={{ marginTop: "14.5rem", padding: "0" }}>
+          <div className="row " style={{ marginTop: "8%", padding: "0" }}>
             <div className="col-6">
               <button
                 className="reqStep2__btn-pre"
@@ -350,8 +351,9 @@ const ReqStep2 = () => {
                 type="button"
                 className="reqStep2__btn-next"
                 onClick={() => {
-                  reqNext();
-                  console.log(requirementData);
+                  if((requirementData["accTypeId"] === 1 && (requirementData["sharingId"] === 1 || requirementData["sharingId"] === 2 || requirementData["sharingId"] === 3)) || (requirementData["accTypeId"] === 2 && (requirementData["flatTypeId"] === 1 || requirementData["flatTypeId"] === 2 || requirementData["flatTypeId"] === 3 || requirementData["flatTypeId"] === 4 || requirementData["flatTypeId"] === 5) && (requirementData["furnishedtypeId"] === 1 || requirementData["furnishedtypeId"] === 2 || requirementData["furnishedtypeId"] === 3)))
+                    reqNext();
+                  // console.log(requirementData);
                 }}
                 style={{ width: "100%" }}
               >
