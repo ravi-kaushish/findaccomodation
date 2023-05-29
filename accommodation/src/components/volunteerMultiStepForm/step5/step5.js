@@ -27,7 +27,27 @@ const Step5 = () => {
 
 
   }
-  
+
+  const [name, setName] = useState();
+  const [contactNumber, setContactNumber] = useState();
+  const [isContactNumberValid, setIsContactNumberValid] = useState(false);
+
+  const handleContactChange = (event) => {
+    let phoneNumber = event.target.value;
+    if (phoneNumber.trim().length <= 10) {
+      setContactNumber(phoneNumber.trim());
+    }
+    setIsContactNumberValid(
+      phoneNumber.length === 0 || (phoneNumber.trim().length <= 10 && /\d{10}/.test(phoneNumber)) ? true : false
+    );
+    setUserData({...userData, houseOwnerContact: phoneNumber.trim()})
+  }
+
+  const handleLandlordName = (event) => {
+    let {value} = event.target;
+    setName(value);
+    setUserData({...userData, houseOwnerName: value});
+  }
 
   function btnHandler() {
     setActiveBtn(!activeBtn);
@@ -153,7 +173,7 @@ const Step5 = () => {
                     Landlord/House owner details
                   </p>
                 </div>
-                <div className=" ">
+                <div>
                   <p className="Step5__form-italic">(Optional)</p>
                 </div>
               </div>
@@ -191,7 +211,9 @@ const Step5 = () => {
                 <input
                   type="text"
                   placeholder="John Doe"
+                  onInput={(e) => handleLandlordName(e)}
                   className="form-control"
+                  value={userData["houseOwnerName"]}
                 />
               </div>
             </div>
@@ -200,14 +222,26 @@ const Step5 = () => {
               <div className="col">
                 <p className="p_input ">Contact Number</p>
                 <input
+                  onInput={(e) => handleContactChange(e)}
                   type="text"
                   placeholder="0987654321"
-                  className="form-control"
+                  className={ !isContactNumberValid && userData["houseOwnerContact"]
+                    ? "form-control input-error"
+                    : "form-control"
+                  }
+                  value={userData["houseOwnerContact"]}
                 />
+                {
+                    !isContactNumberValid && contactNumber && (
+                      <span style={{ color: "red", fontSize: "12px" }}>
+                        Contact Number is not valid
+                      </span>
+                    )
+                  }
               </div>
             </div>
 
-            <div className="row" style={{ marginTop: "9.2rem" }}>
+            <div className="row" style={{ marginTop: "8%" }}>
               <div className="col-6">
                 <button
                   className="prev-btn"
@@ -224,9 +258,12 @@ const Step5 = () => {
                 <button
                   type="button"
                   onClick={() => {
+
                     // submitForm();
                     //   setData();
-                    handleSubmit();
+                    if(userData["preferredDays"] != null) {
+                      handleSubmit();    
+                    }
                   }}
                   style={{ width: "100%" }}
                   className="border-0 save-btn "

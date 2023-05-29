@@ -8,15 +8,22 @@ import { FormContainer, Header, Body } from "../../utilityStyles/utilityStyles";
 const MainContainer = styled.div``;
 
 const Step3 = () => {
+  useEffect(()=>{ 
+    // setUserData(["sharingId"]);
+   },[] )
   const { next, previous, userData, setUserData, currentIndex } =
     useContext(MultiStepContext);
 
   const [accommodationType,setAccommodationType] = useState(true);
-  const [singlePg,setSinglePg] = useState(false)
-  const [doublePg,setDoublePg] = useState(false)
-  const [triplePg,setTriplePg] = useState(false)
+  // const [singlePg,setSinglePg] = useState(false)
+  // const [doublePg,setDoublePg] = useState(false)
+  // const [triplePg,setTriplePg] = useState(false)
   
-
+  // const [flatType1RK, setFlatType1RK] = useState(false);
+  // const [flatType1BHK, setFlatType1BHK] = useState(false);
+  // const [flatType2BHK, setFlatType2BHK] = useState(false);
+  // const [flatType3BHK, setFlatType3BHK] = useState(false);
+  // const [flatType4BHK, setFlatType4BHK] = useState(false);
 
   function handlePgAccommodation(event){
     event.preventDefault();
@@ -215,6 +222,7 @@ const Step3 = () => {
               }
               onClick={(event) => {
                 event.preventDefault();
+                setUserData["sharingId"] = null;
                 setUserData({ ...userData, accTypeId: 2 });
               }}
             >
@@ -244,8 +252,8 @@ const Step3 = () => {
                 }
                   onClick={(event) => {
                     event.preventDefault();
-                    setSinglePg(true)
-                    console.log(singlePg)
+                    // setSinglePg(true)
+                    // console.log(singlePg)
                     setUserData({ ...userData, sharingId: 1 });
                   }}
                 >
@@ -296,7 +304,7 @@ const Step3 = () => {
                 <div
                   className="col-12 "
                   onClick={() => {
-                    setUserData({ ...userData });
+                    setUserData({ ...userData});
                   }}
                 >
                   <p
@@ -306,7 +314,7 @@ const Step3 = () => {
                     BHK TYPE
                   </p>
                 </div>
-                <div className="row g-2">
+                <div className="container-fluid d-flex flex-row gap-1">
                   <div 
                    className={
                 userData["flatTypeId"] === 1 ? " text-center col reqStep2__btn-active": "text-center col reqStep2__btn"
@@ -314,6 +322,7 @@ const Step3 = () => {
 
                    onClick={(event) => {
                     event.preventDefault();
+                    // setFlatType1RK(true);
                     setUserData({ ...userData, flatTypeId: 1 });
                   }}>
                     <p style={{ margin: "0.75rem" }}>1 RK</p>
@@ -324,6 +333,7 @@ const Step3 = () => {
                 }
                    onClick={(event) => {
                     event.preventDefault();
+                    // setFlatType1BHK(true);
                     setUserData({ ...userData, flatTypeId: 2 });
                   }}
                    >
@@ -336,6 +346,7 @@ const Step3 = () => {
                   
                     onClick={(event) => {
                     event.preventDefault();
+                    // setFlatType2BHK(true);
                     setUserData({ ...userData, flatTypeId: 3 });
                   }}>
                     <p style={{ margin: "0.75rem" }}>2 BHK</p>
@@ -346,9 +357,10 @@ const Step3 = () => {
                 }
                     onClick={(event) => {
                     event.preventDefault();
+                    // setFlatType3BHK(true);
                     setUserData({ ...userData, flatTypeId: 4 });
                   }}>
-                    <p style={{ margin: "0.75rem" }}>3 BHK</p>
+                    <p style={{ margin: "0.75rem"}}>3 BHK</p>
                   </div>
                   <div 
                    className={
@@ -358,6 +370,7 @@ const Step3 = () => {
                   
                     onClick={(event) => {
                     event.preventDefault();
+                    // setFlatType4BHK(true);
                     setUserData({ ...userData, flatTypeId: 5 });
                   }}>
                     <p style={{ margin: "0.75rem" }}>4 BHK</p>
@@ -373,7 +386,7 @@ const Step3 = () => {
                     Furnishing Type
                   </p>
                 </div>
-
+                <div className="container-fluid d-flex flex-row gap-1">
                 <div 
                  className={
                 userData["furnishedtypeId"] === 1 ? " text-center col reqStep2__btn-active": "text-center col reqStep2__btn"
@@ -404,6 +417,7 @@ const Step3 = () => {
                   }}>
                   <p style={{ margin: "0.75rem" }}>Unfurnished</p>
                 </div>
+                </div>
               </div>
             </div>
           )}
@@ -415,8 +429,7 @@ const Step3 = () => {
             <input
               class="form-check-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              id="nonVeg"
               checked={userData["isNonVeg"]}
               onChange={(event) => {
                 setUserData({
@@ -433,8 +446,7 @@ const Step3 = () => {
             <input
               class="form-check-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              id="smoking"
               checked={userData["isSmoking"]}
               onChange={(event) => {
                 setUserData({
@@ -451,8 +463,7 @@ const Step3 = () => {
             <input
               class="form-check-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              id="drinking"
               checked={userData["isDrinking"]}
               onChange={(event) => {
                 setUserData({
@@ -465,7 +476,10 @@ const Step3 = () => {
               Drinking
             </label>
           </div>
-          <div className="row " style={{ marginTop: "14.5rem", padding: "0" }}>
+          { 
+            console.log(userData["isSmoking"])
+          }
+          <div className="row " style={{ marginTop: "8%", padding: "0" }}>
             <div className="col-6">
               <button
                 className="reqStep2__btn-pre"
@@ -483,7 +497,9 @@ const Step3 = () => {
                 type="button"
                 className="reqStep2__btn-next"
                 onClick={() => {
-                  next();
+                  if((userData["accTypeId"] === 1 && (userData["sharingId"] === 1 || userData["sharingId"] === 2 || userData["sharingId"] === 3)) || (userData["accTypeId"] === 2 && (userData["flatTypeId"] === 1 || userData["flatTypeId"] === 2 || userData["flatTypeId"] === 3 || userData["flatTypeId"] === 4 || userData["flatTypeId"] === 5) && (userData["furnishedtypeId"] === 1 || userData["furnishedtypeId"] === 2 || userData["furnishedtypeId"] === 3))) {
+                    next();
+                  }
                   console.log(userData);
                 }}
                 style={{ width: "100%" }}
