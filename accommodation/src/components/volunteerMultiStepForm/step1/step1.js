@@ -15,7 +15,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router";
 
 const Step1 = () => {
-  const {currentIndex, setCurrentIndex,next, userData, setUserData } = useContext(MultiStepContext);
+  const {next, userData, setUserData } = useContext(MultiStepContext);
 
   function handleCheckboxChange(event) {
     console.log(event.target.checked);
